@@ -37,11 +37,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewApp2", "NewApp2", "{4B41
 		NewsApp2_4.html = NewsApp2_4.html
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsAppWeb", "NewsAppWeb\NewsAppWeb.csproj", "{0584D85B-60E7-4F53-B980-6F95E0FD2505}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsAppWeb", "NewsAppWeb\NewsAppWeb.csproj", "{0584D85B-60E7-4F53-B980-6F95E0FD2505}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsLogic", "NewsLogic\NewsLogic.csproj", "{91B4DE2F-1E80-4CD1-BEB7-8FE74042C0A7}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IPA", "..\..\IPA\IPA\IPA.csproj", "{8A676BB5-D549-4993-8F37-384AA5547A77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsLogic", "NewsLogic\NewsLogic.csproj", "{91B4DE2F-1E80-4CD1-BEB7-8FE74042C0A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,10 +67,6 @@ Global
 		{91B4DE2F-1E80-4CD1-BEB7-8FE74042C0A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91B4DE2F-1E80-4CD1-BEB7-8FE74042C0A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91B4DE2F-1E80-4CD1-BEB7-8FE74042C0A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8A676BB5-D549-4993-8F37-384AA5547A77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A676BB5-D549-4993-8F37-384AA5547A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A676BB5-D549-4993-8F37-384AA5547A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A676BB5-D549-4993-8F37-384AA5547A77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

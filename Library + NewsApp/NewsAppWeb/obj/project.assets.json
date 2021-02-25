@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\NewsAppWeb\\NewsAppWeb.csproj",
+      "projectUniqueName": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsAppWeb\\NewsAppWeb.csproj",
       "projectName": "NewsAppWeb",
-      "projectPath": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\NewsAppWeb\\NewsAppWeb.csproj",
+      "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsAppWeb\\NewsAppWeb.csproj",
       "packagesPath": "C:\\Users\\''Dell''\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\NewsAppWeb\\obj\\",
+      "outputPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsAppWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\''Dell''\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\NewsLogic\\NewsLogic.csproj": {
-              "projectPath": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\NewsLogic\\NewsLogic.csproj"
+            "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj": {
+              "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj"
             }
           }
         }

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\NewsLogic\\NewsLogic.csproj",
+      "projectUniqueName": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj",
       "projectName": "NewsLogic",
-      "projectPath": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\NewsLogic\\NewsLogic.csproj",
+      "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj",
       "packagesPath": "C:\\Users\\''Dell''\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\NewsLogic\\obj\\",
+      "outputPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsLogic\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\''Dell''\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\Library.Console\\Library.Console.csproj": {}
+    "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Console\\Library.Console.csproj": {}
   },
   "projects": {
-    "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\Library.Console\\Library.Console.csproj": {
+    "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Console\\Library.Console.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\Library.Console\\Library.Console.csproj",
+        "projectUniqueName": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Console\\Library.Console.csproj",
         "projectName": "Library.Console",
-        "projectPath": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\Library.Console\\Library.Console.csproj",
+        "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Console\\Library.Console.csproj",
         "packagesPath": "C:\\Users\\''Dell''\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\Library.Console\\obj\\",
+        "outputPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Console\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\''Dell''\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\Library.Logic\\Library.Logic.csproj": {
-                "projectPath": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\Library.Logic\\Library.Logic.csproj"
+              "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj": {
+                "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj"
               }
             }
           }
@@ -62,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\Library.Logic\\Library.Logic.csproj": {
+    "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\Library.Logic\\Library.Logic.csproj",
+        "projectUniqueName": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj",
         "projectName": "Library.Logic",
-        "projectPath": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\Library.Logic\\Library.Logic.csproj",
+        "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj",
         "packagesPath": "C:\\Users\\''Dell''\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\''Dell''\\source\\repos\\SGT2\\Library\\Library.Logic\\obj\\",
+        "outputPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\''Dell''\\AppData\\Roaming\\NuGet\\NuGet.Config",
