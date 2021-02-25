@@ -1,0 +1,80 @@
+﻿.center {
+    text-align: center;
+}
+
+.diffont, .alignleft, .alignright, .strikethrough, .red, .background, .smallcaps {
+    font-size: 16pt;
+    font-family: Georgia, Cambria;
+}
+
+.alignleft {
+    text-align: left;
+}
+
+.alignright {
+    text-align: right;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.red {
+    color: red;
+}
+
+.background {
+    background: #26a38a;
+}
+
+.smallcaps {
+    font-variant-caps: small-caps;
+}
+
+.redbox, .bluebox, .whitebox, .blackbox {
+    text-indent: 0.5cm;
+    padding: 10px;
+    margin: 10px;
+    font-size: 12pt;
+    font-family: Lucida, sans-serif;
+    float: left;
+    width: 30%;
+}
+
+.whitebox {
+    border: 1pt solid black;
+}
+
+.redbox {
+    color: red;
+    border: 1pt solid red;
+}
+
+.bluebox {
+    color: #4594cc;
+    border: 3pt solid #4594cc;
+}
+
+.blackbox {
+    background: black;
+    color: white;
+    border: 3pt solid black;
+}
+
+.clear {
+    clear: both;
+}
+
+.tablefont {
+    font-family: Georgia;
+    font-size: 12pt;
+    text-align: center;
+}
+
+table, th, td {
+    border: 1pt solid black;
+    border-collapse: collapse;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+

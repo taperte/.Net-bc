@@ -1,0 +1,16 @@
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\bin\Debug\netcoreapp3.1\Library.Console.exe
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\bin\Debug\netcoreapp3.1\Library.Console.deps.json
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\bin\Debug\netcoreapp3.1\Library.Console.runtimeconfig.json
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\bin\Debug\netcoreapp3.1\Library.Console.runtimeconfig.dev.json
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\bin\Debug\netcoreapp3.1\Library.Console.dll
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\bin\Debug\netcoreapp3.1\Library.Console.pdb
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\bin\Debug\netcoreapp3.1\Library.Logic.dll
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\bin\Debug\netcoreapp3.1\Library.Logic.pdb
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\obj\Debug\netcoreapp3.1\Library.Console.csprojAssemblyReference.cache
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\obj\Debug\netcoreapp3.1\Library.Console.AssemblyInfoInputs.cache
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\obj\Debug\netcoreapp3.1\Library.Console.AssemblyInfo.cs
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\obj\Debug\netcoreapp3.1\Library.Console.csproj.CoreCompileInputs.cache
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\obj\Debug\netcoreapp3.1\Library.Console.csproj.CopyComplete
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\obj\Debug\netcoreapp3.1\Library.Console.dll
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\obj\Debug\netcoreapp3.1\Library.Console.pdb
+C:\Users\''Dell''\source\repos\SGT2\Library\Library.Console\obj\Debug\netcoreapp3.1\Library.Console.genruntimeconfig.cache

@@ -1,0 +1,25 @@
+﻿.title {
+    font: Lucida;
+    font-size: 16pt;
+    clear: both
+}
+
+.subtitle {
+    font: Lucida;
+    font-size: 12pt;
+}
+
+.time {
+    color: #b8b6b0;
+}
+
+.about {
+    float: left;
+    width: 60%;
+    padding-right: 20px;
+}
+
+.aboutimage {
+    float: left;
+    width: 40%;
+}

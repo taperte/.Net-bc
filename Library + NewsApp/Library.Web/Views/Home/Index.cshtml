@@ -1,0 +1,20 @@
+﻿@model List<Library.Logic.Data.Book>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the library!</h1>
+    @if (Model.Count > 1)
+    {
+        <p>Currently, there are @Model.Count titles available in the library catalogue.</p>
+    }
+    else if (Model.Count == 1)
+    {
+        <p>Currently, there is @Model.Count title available in the library catalogue.</p>
+    }
+    else
+    {
+        <p>Currently, there are no available titles in the library catalogue.</p>
+    }
+</div>

@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Library.Console/1.0.0": {
+        "dependencies": {
+          "Library.Logic": "1.0.0"
+        },
+        "runtime": {
+          "Library.Console.dll": {}
+        }
+      },
+      "Library.Logic/1.0.0": {
+        "runtime": {
+          "Library.Logic.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Library.Console/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Library.Logic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

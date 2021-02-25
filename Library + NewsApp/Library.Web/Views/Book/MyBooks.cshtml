@@ -1,0 +1,31 @@
+﻿@model List<Library.Logic.Data.Book>
+
+<h1>My books</h1>
+
+@if (Model.Count > 0)
+{
+    <table class="table table-hover">
+        <tr>
+            <th style="text-align: center;">No.</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th style="text-align: center;">Year</th>
+            <th style="text-align: center;"></th>
+        </tr>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+    <tr>
+        <td style="text-align: center;">@(i + 1).</td>
+        <td>@Model[i].Title</td>
+        <td>@Model[i].Author</td>
+        <td style="text-align: center;">@Model[i].Year</td>
+        <td style="text-align: center;"><a asp-controller="Book" asp-action="ReturnBook" asp-route-title="@Model[i].Title">Return</a></td>
+    </tr>
+
+        }
+    </table>
+}
+else
+{
+    <b>Your list of books is empty.</b>
+}
