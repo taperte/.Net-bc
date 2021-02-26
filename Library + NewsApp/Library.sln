@@ -22,19 +22,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HTML", "HTML", "{7F4F5DD3-2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewsApp", "NewsApp", "{AF0FE6AE-8217-466F-9DF4-5432E4444C6C}"
 	ProjectSection(SolutionItems) = preProject
-		NewsApp1.html = NewsApp1.html
-		NewsApp2.html = NewsApp2.html
-		NewsApp3.html = NewsApp3.html
-		NewsApp4.html = NewsApp4.html
 		NewsApp_StyleSheet.css = NewsApp_StyleSheet.css
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewApp2", "NewApp2", "{4B413DE8-9D3B-44B0-91F7-B4DC7FB95FDE}"
 	ProjectSection(SolutionItems) = preProject
-		NewsApp2_1.html = NewsApp2_1.html
-		NewsApp2_2.html = NewsApp2_2.html
-		NewsApp2_3.html = NewsApp2_3.html
-		NewsApp2_4.html = NewsApp2_4.html
+		NewsApp_1.html = NewsApp_1.html
+		NewsApp_2.html = NewsApp_2.html
+		NewsApp_3.html = NewsApp_3.html
+		NewsApp_4.html = NewsApp_4.html
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsAppWeb", "NewsAppWeb\NewsAppWeb.csproj", "{0584D85B-60E7-4F53-B980-6F95E0FD2505}"
