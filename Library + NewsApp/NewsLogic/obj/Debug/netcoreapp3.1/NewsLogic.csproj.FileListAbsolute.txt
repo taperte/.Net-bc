@@ -7,3 +7,12 @@ C:\Users\''Dell''\source\repos\SGT2\Library\NewsLogic\obj\Debug\netcoreapp3.1\Ne
 C:\Users\''Dell''\source\repos\SGT2\Library\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.csproj.CoreCompileInputs.cache
 C:\Users\''Dell''\source\repos\SGT2\Library\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.dll
 C:\Users\''Dell''\source\repos\SGT2\Library\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.pdb
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsLogic\bin\Debug\netcoreapp3.1\NewsLogic.deps.json
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsLogic\bin\Debug\netcoreapp3.1\NewsLogic.dll
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsLogic\bin\Debug\netcoreapp3.1\NewsLogic.pdb
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.csprojAssemblyReference.cache
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.AssemblyInfoInputs.cache
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.AssemblyInfo.cs
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.csproj.CoreCompileInputs.cache
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.dll
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.pdb
