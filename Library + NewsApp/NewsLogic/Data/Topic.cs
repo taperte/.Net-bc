@@ -6,12 +6,12 @@ namespace NewsLogic.Data
 {
     public enum TopicName
     {
-        Latvijā,
-        Ārvalstīs,
-        Kultūra,
-        Kriminālziņas,
-        Sports,
-        Auto
+        Latvia,
+        World,
+        Culture,
+        Business,
+        Crime,
+        Sport
     }
 
     public class Topic
