@@ -3,19 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using NewsLogic.Managers;
+using NewsLogic.Data;
 
 namespace NewsAppWeb.Controllers
 {
     public class NewsController : Controller
     {
-        public IActionResult Topics()
+        public IActionResult Topics(int topicid)
         {
-            return View();
+            List<Article> bytopic = HomeController.editor.GetNewsByTopic(topicid);
+            return View(bytopic);
         }
 
-        public IActionResult Article()
+        public IActionResult Article(int id)
         {
-            return View();
+            Article article = HomeController.editor.GetArticle(id);
+            return View(article);
         }
     }
 }

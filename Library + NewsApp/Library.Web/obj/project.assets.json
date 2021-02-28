@@ -2,28 +2,28 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "NewsLogic/1.0.0": {
+      "Library.Logic/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "compile": {
-          "bin/placeholder/NewsLogic.dll": {}
+          "bin/placeholder/Library.Logic.dll": {}
         },
         "runtime": {
-          "bin/placeholder/NewsLogic.dll": {}
+          "bin/placeholder/Library.Logic.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "NewsLogic/1.0.0": {
+    "Library.Logic/1.0.0": {
       "type": "project",
-      "path": "../NewsLogic/NewsLogic.csproj",
-      "msbuildProject": "../NewsLogic/NewsLogic.csproj"
+      "path": "../Library.Logic/Library.Logic.csproj",
+      "msbuildProject": "../Library.Logic/Library.Logic.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "NewsLogic >= 1.0.0"
+      "Library.Logic >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -53,8 +53,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj": {
-              "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj"
+            "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj": {
+              "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj"
             }
           }
         }

@@ -1,0 +1,16 @@
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\bin\Debug\netcoreapp3.1\NewsConsole.exe
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\bin\Debug\netcoreapp3.1\NewsConsole.deps.json
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\bin\Debug\netcoreapp3.1\NewsConsole.runtimeconfig.json
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\bin\Debug\netcoreapp3.1\NewsConsole.runtimeconfig.dev.json
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\bin\Debug\netcoreapp3.1\NewsConsole.dll
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\bin\Debug\netcoreapp3.1\NewsConsole.pdb
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\obj\Debug\netcoreapp3.1\NewsConsole.csprojAssemblyReference.cache
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\obj\Debug\netcoreapp3.1\NewsConsole.AssemblyInfoInputs.cache
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\obj\Debug\netcoreapp3.1\NewsConsole.AssemblyInfo.cs
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\obj\Debug\netcoreapp3.1\NewsConsole.csproj.CoreCompileInputs.cache
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\obj\Debug\netcoreapp3.1\NewsConsole.dll
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\obj\Debug\netcoreapp3.1\NewsConsole.pdb
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\obj\Debug\netcoreapp3.1\NewsConsole.genruntimeconfig.cache
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\bin\Debug\netcoreapp3.1\NewsLogic.dll
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\bin\Debug\netcoreapp3.1\NewsLogic.pdb
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsConsole\obj\Debug\netcoreapp3.1\NewsConsole.csproj.CopyComplete

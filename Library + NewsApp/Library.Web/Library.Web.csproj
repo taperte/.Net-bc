@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NewsLogic\NewsLogic.csproj" />
+    <ProjectReference Include="..\Library.Logic\Library.Logic.csproj" />
   </ItemGroup>
 
 </Project>
