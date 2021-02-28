@@ -41,7 +41,7 @@ namespace NewsLogic.Managers
             string art27 = "First ever Wizard Chess World Championship to take place in 2022";
             string art28 = "It takes only a time turner to gather five legendary quidditch players in one room. Catriona McCormack, Gwendolyn Morgan, Dai Llewellyn, Viktor Krum and Barberus Bragge try the latest broomstick models. Which one an aspiring quidditch world champion should go for?";
             string art29 = "Harry Potter tops The Wizards Magazine 20 Under 20 2020 List";
-            string art30 = "Breaking: The Dark Lord is here!";
+            string art30 = "Breaking: The Dark Lord is back!";
             string art31 = "The Heir of Slytherin to start school at Hogwarts this autumn";
             string art32 = "Longing for travel: Top 10 destinations for a short flying Ford Anglia trip";
             string art33 = "Lucius Malfoy wanted for an illegal hairdresser visit";
@@ -80,7 +80,7 @@ namespace NewsLogic.Managers
                 new Article(27, (int)TopicName.Sport, TopicName.Sport, "First ever Wizard Chess World Championship to take place in 2022", "Ludo Bagman", art27, 2021, 2, 25, 13, 14, 13),
                 new Article(28, (int)TopicName.Sport, TopicName.Sport, "Five experts, five broomsticks. Which one an aspiring quidditch world champion should go for?", "Ludo Bagman", art28, 2021, 2, 23, 12, 1, 1),
                 new Article(29, (int)TopicName.World, TopicName.World, "Harry Potter tops The Wizards Magazine 20 Under 20 2020 List", "Barnabas Cuffe", art29, 2021, 2, 11, 12, 19, 2),
-                new Article(30, (int)TopicName.World, TopicName.World, "Breaking: The Dark Lord is here!", "Barnabas Cuffe", art30, 2021, 2, 13, 6, 6, 6),
+                new Article(30, (int)TopicName.World, TopicName.World, "Breaking: The Dark Lord is back!", "Barnabas Cuffe", art30, 2021, 2, 13, 6, 6, 6),
                 new Article(31, (int)TopicName.World, TopicName.World, "The Heir of Slytherin to start school at Hogwarts this autumn", "Zamira Gulch", art31, 2021, 1, 27, 10, 0, 19),
                 new Article(32, (int)TopicName.World, TopicName.World, "Longing for travel: Top 10 destinations for a short flying Ford Anglia trip", "Zamira Gulch", art32, 2021, 2, 4, 6, 8, 10),
                 new Article(33, (int)TopicName.Crime, TopicName.Crime, "Lucius Malfoy wanted for illegal hairdresser visit", "Dempster Wiggleswade", art33, 2021, 2, 15, 20, 2, 16),
