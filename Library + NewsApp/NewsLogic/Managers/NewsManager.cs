@@ -27,27 +27,27 @@ namespace NewsLogic.Managers
             string art13 = "The night is dark and full of terrors. In the night of February 25, a group of muggle smugglers arrested on Latvia—Belarus border with 400 l of polyjuice potion. It is the largest illegal polyjuice freight confiscated in recorded history. Investigation pending. Follow us for the latest news!";
             string art14 = "The Wizarding Wireless Network hae published their Top 100 of 2020. Do you want to know who made it? Listen to our special Spotify playlist!";
             string art15 = "In this exclusive interview, Blodwyn Bludd talks his music, as well as opens up about the struggles of a vampire and his love story with a werewolf.";
-            string art16 = "Great news for all the vegan wizards and witches out there! Qizilbash Quality Confectionary announces new vegan product line. ";
+            string art16 = "Great news for all the vegan wizards and witches out there! Honeydukes announces new vegan product line. Every Flavour Beans, Fizzing Whizzbees, Chocolate Frogs, Drooble's Best Blowing Gum and other sweets from now on without dairy of other animal ingredients.";
             string art17 = "Great news for all the witches and wizards in Riga: Madam Malkin's Robes for All Occasions will open a showroom here just in a couple of months. At the moment, opening is planned for early May. The showroom will be located on Miera Street: Madam Malkin thinks — quite rightfully — it will blend in perfectly, as well as will definitely seize the opportuity to capitalize on the account of muggle hipsters of the area.";
-            string art18 = "It's official: Royal Star Steam Co. goes public";
-            string art19 = "Hogwarts Railways expands to France";
-            string art20 = "";
-            string art21 = "";
-            string art22 = "";
-            string art23 = "";
-            string art24 = "";
-            string art25 = "";
-            string art26 = "";
-            string art27 = "";
-            string art28 = "";
-            string art29 = "";
-            string art30 = "";
-            string art31 = "";
-            string art32 = "";
-            string art33 = "";
-            string art34 = "";
-            string art35 = "";
-            string art36 = "";
+            string art18 = "It's official: Royal Star Steam Co. goes public, the company president has announced this morning right before the opening of the Stock Exchange. As of today, anyone interested will be able to buy Royal Star Steam Co. shares.";
+            string art19 = "It is became known today that Hogwarts Railways expands to France by establishing new Calais–Hogwarts line. As experts predict, it can enhance competition in the famous school of witchcraft and wizardry, as more foreign students will be able to attend.";
+            string art20 = "It was announced today that Hogwarts Railways has acquired the Peter Boat Company. The Board is hoping to continue expanding by entering maritime traffic industry.";
+            string art21 = "Hogwarts presents free online learning platform";
+            string art22 = "Heads over heels: Nearly Headless Nick on finding his true love";
+            string art23 = "Do muggles rock? Exploring muggle music";
+            string art24 = "Dungeons and Dragons: The lame muggle game redefined";
+            string art25 = "In this exclusive interview to our sports reporter Ludo Bagman, the legendary Bulgarian seeker Viktor Krum talks life, sport and challenges of raising a new generation of quidditch players.";
+            string art26 = "Good news for quidditch players: New Nimbus 2021 finally out!";
+            string art27 = "First ever Wizard Chess World Championship to take place in 2022";
+            string art28 = "It takes only a time turner to gather five legendary quidditch players in one room. Catriona McCormack, Gwendolyn Morgan, Dai Llewellyn, Viktor Krum and Barberus Bragge try the latest broomstick models. Which one an aspiring quidditch world champion should go for?";
+            string art29 = "Harry Potter tops The Wizards Magazine 20 Under 20 2020 List";
+            string art30 = "Breaking: The Dark Lord is here!";
+            string art31 = "The Slytheryn Heir to start school at Hogwarts this autumn";
+            string art32 = "Longing for travel: Top 10 destinations for a short flying Ford Anglia trip";
+            string art33 = "Lucius Malfoy wanted for an illegal hairdresser visit";
+            string art34 = "Beware: Fake Deathly Hallows replicas have swarmed the market";
+            string art35 = "You-Know-Who thought to be behind The Wizard Bulletin fake news portal";
+            string art36 = "Telegram refuses to ban Death Eaters' channels";
 
             News = new List<Article>
             {
@@ -66,15 +66,15 @@ namespace NewsLogic.Managers
                 new Article(13, (int)TopicName.Crime, "400 l of polyjuice potion confiscated on Belarus–Latvia border", "Dempster Wiggleswade", art13, 2021, 2, 25, 10, 14, 21),
                 new Article(14, (int)TopicName.Culture, "The Wizarding Wireless Network Top 100 of 2020", "Rita Skeeter", art14, 2020, 12, 31, 16, 11, 33),
                 new Article(15, (int)TopicName.Culture, "The Vampire from the Valleys: Interview with Blodwyn Bludd", "Zamira Gulch", art15, 2021, 1, 28, 12, 0, 39),
-                new Article(16, (int)TopicName.Business, "Qizilbash Quality Confectionary announces new vegan product line", "Zamira Gulch", art16, 2021, 2, 1, 6, 0, 1),
+                new Article(16, (int)TopicName.Business, "Honeydukes announces new vegan product line", "Zamira Gulch", art16, 2021, 2, 1, 6, 0, 1),
                 new Article(17, (int)TopicName.Business, "Madam Malkin's Robes for All Occasions to open a showroom in Riga", "Zamira Gulch", art17, 2021, 2, 7, 9, 5, 0),
                 new Article(18, (int)TopicName.Business, "It's official: Royal Star Steam Co. goes public", "Zamira Gulch", art18, 2021, 1, 30, 11, 11, 11),
                 new Article(19, (int)TopicName.Business, "Hogwarts Railways expands to France", "Zamira Gulch", art19, 2021, 2, 10, 10, 0, 17),
-                new Article(20, (int)TopicName.Business, "The Vampire from the Valleys: Interview with Blodwyn Bludd", "Barnabas Cuffe", art20, 2021, 2, 12, 9, 23, 6),
+                new Article(20, (int)TopicName.Business, "Hogwarts Railways acquires Peter Boat", "Barnabas Cuffe", art20, 2021, 2, 12, 9, 23, 6),
                 new Article(21, (int)TopicName.Culture, "Hogwarts presents free online learning platform", "Rita Skeeter", art21, 2021, 2, 24, 15, 15, 0),
                 new Article(22, (int)TopicName.Culture, "Heads over heels: Nearly Headless Nick on finding his true love", "Rita Skeeter", art22, 2021, 2, 16, 11, 19, 31),
                 new Article(23, (int)TopicName.Culture, "Do muggles rock? Exploring muggle music", "Rita Skeeter", art23, 2021, 2, 19, 7, 57, 51),
-                new Article(24, (int)TopicName.Sport, "Dungeons and Dragons: Lame muggle game redefined", "Ludo Bagman", art24, 2021, 2, 14, 14, 10, 1),
+                new Article(24, (int)TopicName.Sport, "Dungeons and Dragons: The lame muggle game redefined", "Ludo Bagman", art24, 2021, 2, 14, 14, 10, 1),
                 new Article(25, (int)TopicName.Sport, "Exclusive: Viktor Krum revisits historical Bulgaria victory", "Ludo Bagman", art25, 2021, 2, 21, 17, 17, 40),
                 new Article(26, (int)TopicName.Sport, "Good news for quidditch players: New Nimbus 2021 finally out!", "Ludo Bagman", art26, 2021, 2, 3, 9, 42, 15),
                 new Article(27, (int)TopicName.Sport, "First ever Wizard Chess World Championship to take place in 2022", "Ludo Bagman", art27, 2021, 2, 25, 13, 14, 13),

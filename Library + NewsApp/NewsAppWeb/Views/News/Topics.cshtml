@@ -4,22 +4,22 @@
 @model List<NewsLogic.Data.Article>; 
 <ul class="nav nav-pills mb-3">
     <li class="nav-item">
-        <a class="nav-link active" href="#">@NewsLogic.Data.TopicName.Latvia</a>
+        <a class="nav-link active" asp-controller="News" asp-action="Topic" asp-route-topicid="@Model[0].TopicId">@NewsLogic.Data.TopicName.Latvia</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">@NewsLogic.Data.TopicName.World</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topic" asp-route-topicid="@Model[0].TopicId">@NewsLogic.Data.TopicName.World</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">@NewsLogic.Data.TopicName.Culture</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topic" asp-route-topicid="@Model[0].TopicId">@NewsLogic.Data.TopicName.Culture</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">@NewsLogic.Data.TopicName.Business</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topic" asp-route-topicid="@Model[0].TopicId">@NewsLogic.Data.TopicName.Business</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">@NewsLogic.Data.TopicName.Crime</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topic" asp-route-topicid="@Model[0].TopicId">@NewsLogic.Data.TopicName.Crime</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">@NewsLogic.Data.TopicName.Sport</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topic" asp-route-topicid="@Model[0].TopicId">@NewsLogic.Data.TopicName.Sport</a>
     </li>
 </ul>
 <nav aria-label="breadcrumb">
