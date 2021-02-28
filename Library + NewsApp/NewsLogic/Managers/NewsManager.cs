@@ -80,13 +80,13 @@ namespace NewsLogic.Managers
                 new Article(27, (int)TopicName.Sport, "First ever Wizard Chess World Championship to take place in 2022", "Ludo Bagman", art27, 2021, 2, 25, 13, 14, 13),
                 new Article(28, (int)TopicName.Sport, "Five experts, five broomsticks. Which one an aspiring quidditch world champion should go for?", "Ludo Bagman", art28, 2021, 2, 23, 12, 1, 1),
                 new Article(29, (int)TopicName.World, "Harry Potter tops The Wizards Magazine 20 Under 20 2020 List", "Barnabas Cuffe", art29, 2021, 2, 11, 12, 19, 2),
-                new Article(30, (int)TopicName.World, "Breaking: The Dark Lord is here!", "Barnabas Cuffe", art30, 2021, 2, 28, 12, 00, 39),
-                new Article(31, (int)TopicName.World, "The Slytheryn Heir to start school at Hogwarts this autumn", "Zamira Gulch", art31, 2021, 01, 28, 12, 00, 39),
-                new Article(32, (int)TopicName.World, "Longing for travel: Top 10 destinations for a short flying Ford Anglia trip", "Zamira Gulch", art32, 2021, 01, 28, 12, 00, 39),
-                new Article(33, (int)TopicName.Crime, "Lucius Malfoy wanted for an illegal hairdresser visit", "Dempster Wiggleswade", art33, 2021, 01, 28, 12, 00, 39),
-                new Article(34, (int)TopicName.Crime, "Beware: Fake Deathly Hallows replicas have swarmed the market", "Dempster Wiggleswade", art34, 2021, 01, 28, 12, 00, 39),
-                new Article(35, (int)TopicName.Crime, "The Vampire from the Valleys: Interview with Blodwyn Bludd", "Zamira Gulch", art35, 2021, 01, 28, 12, 00, 39),
-                new Article(36, (int)TopicName.Crime, "The Vampire from the Valleys: Interview with Blodwyn Bludd", "Dempster Wiggleswade", art36, 2021, 01, 28, 12, 00, 39),
+                new Article(30, (int)TopicName.World, "Breaking: The Dark Lord is here!", "Barnabas Cuffe", art30, 2021, 2, 13, 6, 6, 6),
+                new Article(31, (int)TopicName.World, "The Slytheryn Heir to start school at Hogwarts this autumn", "Zamira Gulch", art31, 2021, 1, 27, 10, 0, 19),
+                new Article(32, (int)TopicName.World, "Longing for travel: Top 10 destinations for a short flying Ford Anglia trip", "Zamira Gulch", art32, 2021, 2, 4, 6, 8, 10),
+                new Article(33, (int)TopicName.Crime, "Lucius Malfoy wanted for an illegal hairdresser visit", "Dempster Wiggleswade", art33, 2021, 2, 15, 20, 2, 16),
+                new Article(34, (int)TopicName.Crime, "Beware: Fake Deathly Hallows replicas have swarmed the market", "Dempster Wiggleswade", art34, 2021, 2, 20, 19, 37, 30),
+                new Article(35, (int)TopicName.Crime, "The Vampire from the Valleys: Interview with Blodwyn Bludd", "Zamira Gulch", art35, 2021, 2, 18, 11, 5, 11),
+                new Article(36, (int)TopicName.Crime, "The Vampire from the Valleys: Interview with Blodwyn Bludd", "Dempster Wiggleswade", art36, 2021, 2, 28, 12, 00, 39),
             };
         }
 
