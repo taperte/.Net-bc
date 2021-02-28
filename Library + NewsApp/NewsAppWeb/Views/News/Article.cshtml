@@ -4,27 +4,27 @@
 }
 <ul class="nav nav-pills mb-3">
     <li class="nav-item">
-        <a class="nav-link active" href="#">@NewsLogic.Data.TopicName.Latvia</a>
+        <a class="nav-link active" asp-controller="News" asp-action="Topics" asp-route-topicid="0">@NewsLogic.Data.TopicName.Latvia</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">@NewsLogic.Data.TopicName.World</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="1">@NewsLogic.Data.TopicName.World</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">@NewsLogic.Data.TopicName.Culture</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="2">@NewsLogic.Data.TopicName.Culture</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">@NewsLogic.Data.TopicName.Business</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="3">@NewsLogic.Data.TopicName.Business</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">@NewsLogic.Data.TopicName.Crime</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="4">@NewsLogic.Data.TopicName.Crime</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">@NewsLogic.Data.TopicName.Sport</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="5">@NewsLogic.Data.TopicName.Sport</a>
     </li>
 </ul>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item" aria-current="page">Latvia</li>
+        <li class="breadcrumb-item" aria-current="page">@Model.Topic.Name</li>
         <li class="breadcrumb-item active" aria-current="page">@Model.Headline</li>
     </ol>
 </nav>
