@@ -17,7 +17,7 @@ namespace NewsLogic.Managers
             string art03 = "BREAKING NEWS: today, the infamous Azkaban escapee Sirius Black was spotted in Gulbene. Please keep your eyes open and, if you see him, please report to the wizard police. And make sure to stock up on chocolate — dementors are coming to town!";
             string art04 = "We are sorry to announce that Celestina Warbeck, also known as The Singing Sorceress, has cancelled her concert in Sigulda, which ws long expected by many. The announcement was made as new travel restrictions came into effect. To return your tickets, please contact the organizers.";
             string art05 = "This week, British Minister of Magic is visiting Riga for the first time in history. Today busy schedule ahead — several meeting with Latvian authorities to discuss the future collaboration between to wizard nations.";
-            string art06 = "Late eveing yesterday, five quidditch players were arrested in Daugavpils for breaking lockdown rules. The illegal game took place by the Stropi lake during curfew. Since the players resisted the wizard police, all of them had to spent the remaining curfew hours in jail.";
+            string art06 = "Late eveing yesterday, fourteen quidditch players were arrested in Daugavpils for breaking lockdown rules. The illegal game took place by the Stropi lake during curfew. Since the players resisted the wizard police, all of them had to spent the remaining curfew hours in jail.";
             string art07 = "Due to bad harest, there is significant mandrake shortage across Europe. Although mandrake prices have skyrocketed, growers are struggling. This morning, the Mandrake Growers Association have sent an open letter to the government requesting subsidies to be able to survive until next mandrake crop.";
             string art08 = "During these difficult times many of us find it difficult to maintain our beloved hobbies. This guide is for all the horcrux making enthusiasts out there! Our guest author Tom Marvolo Riddle, an experienced horcrux creator, explains how to make your own using items everyone can find at home. Great family time guaranteed!";
             string art09 = "On February 27th, The Triwizard Tournament Organizing Committee gave a press conference at the Ministry of Magic Great Conference Hall. The main announcement — for the first time in 700 years, the Tournament will take place fully online using Zoom. Special Virtual Affairs Committee was formed to adapt this inferior muggle technology to wizards' needs.";
@@ -33,7 +33,7 @@ namespace NewsLogic.Managers
             string art19 = "It is became known today that Hogwarts Railways expands to France by establishing new Calais–Hogwarts line. As experts predict, it can enhance competition in the famous school of witchcraft and wizardry, as more foreign students will be able to attend.";
             string art20 = "It was announced today that Hogwarts Railways has acquired the Peter Boat Company. The Board is hoping to continue expanding by entering maritime traffic industry.";
             string art21 = "Hogwarts presents free online learning platform";
-            string art22 = "Heads over heels: Nearly Headless Nick on finding his true love";
+            string art22 = "Heads over heels: Nearly Headless Nick on finding true love at 500";
             string art23 = "Do muggles rock? Exploring muggle music";
             string art24 = "Dungeons and Dragons: The lame muggle game redefined";
             string art25 = "In this exclusive interview to our sports reporter Ludo Bagman, the legendary Bulgarian seeker Viktor Krum talks life, sport and challenges of raising a new generation of quidditch players.";
@@ -56,7 +56,7 @@ namespace NewsLogic.Managers
                 new Article(3, (int)TopicName.Latvia, TopicName.Latvia, "Breaking: Sirius Black spotted in Gulbene", "Barnabas Cuffe", art03, 2021, 2, 27, 11, 46, 1),
                 new Article(4, (int)TopicName.Latvia, TopicName.Latvia, "The Singing Sorceress' concert in Sigulda cancelled", "Winkus Oddpick", art04, 2021, 1, 29, 22, 37, 28),
                 new Article(5, (int)TopicName.Latvia, TopicName.Latvia, "British Minister of Magic visits Riga", "Winkus Oddpick", art05, 2021, 1, 25, 7, 49, 0),
-                new Article(6, (int)TopicName.Latvia, TopicName.Latvia, "Five quidditch players arrested in Daugavpils for breaking lockdown rules", "Betty Braithwaite", art06, 2021, 2, 2, 18, 0, 0),
+                new Article(6, (int)TopicName.Latvia, TopicName.Latvia, "Fourteen quidditch players arrested in Daugavpils for breaking lockdown rules", "Betty Braithwaite", art06, 2021, 2, 2, 18, 0, 0),
                 new Article(7, (int)TopicName.Business, TopicName.Business, "Lean year for mandrake growers, prices have skyrocketed", "Barnabas Cuffe", art07, 2021, 2, 19, 10, 9, 25),
                 new Article(8, (int)TopicName.Culture, TopicName.Culture, "Hobbies during pandemic: How to create a horcrux at home", "Tom Marvolo Riddle", art08, 2021, 2, 27, 23, 15, 3),
                 new Article(9, (int)TopicName.Sport, TopicName.Sport, "The Triwizard Tournament 2021 to take place fully online", "Ludo Bagman", art09, 2021, 2, 27, 23, 7, 59),
@@ -72,7 +72,7 @@ namespace NewsLogic.Managers
                 new Article(19, (int)TopicName.Business, TopicName.Business, "Hogwarts Railways expands to France", "Zamira Gulch", art19, 2021, 2, 10, 10, 0, 17),
                 new Article(20, (int)TopicName.Business, TopicName.Business, "Hogwarts Railways acquires Peter Boat", "Barnabas Cuffe", art20, 2021, 2, 12, 9, 23, 6),
                 new Article(21, (int)TopicName.Culture, TopicName.Culture, "Hogwarts presents free online learning platform", "Rita Skeeter", art21, 2021, 2, 24, 15, 15, 0),
-                new Article(22, (int)TopicName.Culture, TopicName.Culture, "Heads over heels: Nearly Headless Nick on finding his true love", "Rita Skeeter", art22, 2021, 2, 16, 11, 19, 31),
+                new Article(22, (int)TopicName.Culture, TopicName.Culture, "Heads over heels: Nearly Headless Nick on finding true love at 500", "Rita Skeeter", art22, 2021, 2, 16, 11, 19, 31),
                 new Article(23, (int)TopicName.Culture, TopicName.Culture, "Do muggles rock? Exploring muggle music", "Rita Skeeter", art23, 2021, 2, 19, 7, 57, 51),
                 new Article(24, (int)TopicName.Sport, TopicName.Sport, "Dungeons and Dragons: The lame muggle game redefined", "Ludo Bagman", art24, 2021, 2, 14, 14, 10, 1),
                 new Article(25, (int)TopicName.Sport, TopicName.Sport, "Exclusive: Viktor Krum revisits historical Bulgaria victory", "Ludo Bagman", art25, 2021, 2, 21, 17, 17, 40),
