@@ -18,30 +18,30 @@ namespace LibraryConsole
                 Console.ResetColor();
                 librarian.PrintBookList(books);
                 Console.WriteLine();
-                //while (true)
-                //{
-                //    Console.WriteLine("Please enter book title. To quit, enter \"stop\".");
-                //    string input = Console.ReadLine();
-                //    if (input.ToLower() == "stop")
-                //    {
-                //        break;
-                //    }
-                //    else if (input == "")
-                //    {
-                //        Console.Write("Invalid input! ");
-                //        continue;
-                //    }
-                //    Book booktaken = librarian.TakeBook(input);
-                //    if (booktaken == null)
-                //    {
-                //        Console.Write("No matches! ");
-                //    }
-                //    else
-                //    {
-                //        Console.WriteLine($"{booktaken.Title} by {booktaken.Author} was added to your list.");
-                //        Console.WriteLine();
-                //    }
-                //}
+                while (true)
+                {
+                    Console.WriteLine("Please enter book title. To quit, enter \"stop\".");
+                    string input = Console.ReadLine();
+                    if (input.ToLower() == "stop")
+                    {
+                        break;
+                    }
+                    else if (input == "")
+                    {
+                        Console.Write("Invalid input! ");
+                        continue;
+                    }
+                    UserBooks booktaken = librarian.TakeBook(input);
+                    if (booktaken == null)
+                    {
+                        Console.Write("No matches! ");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{booktaken.Title} by {booktaken.Author} was added to your list.");
+                        Console.WriteLine();
+                    }
+                }
             }
             else
             {
@@ -57,43 +57,43 @@ namespace LibraryConsole
             {
                 Console.WriteLine("Your list of books is empty.");
             }
-            //if (userbooks.Count > 0)
-            //{
-            //    Console.ForegroundColor = ConsoleColor.Cyan;
-            //    Console.WriteLine("Your books:");
-            //    Console.ResetColor();
-            //    librarian.PrintBookList(userbooks);
-            //    Console.WriteLine();
-            //    while (librarian.GetUserBooks().Count > 0)
-            //    {
-            //        Console.WriteLine("Please enter the title you want to return.\nTo quit, enter \"stop\".");
-            //        string input = Console.ReadLine();
-            //        Console.WriteLine();
-            //        if (input.ToLower() == "stop")
-            //        {
-            //            break;
-            //        }
-            //        else if (input == "")
-            //        {
-            //            Console.Write("Invalid input! ");
-            //            continue;
-            //        }
-            //        Book booktoreturn = librarian.ReturnBook(input);
-            //        if (booktoreturn == null)
-            //        {
-            //            Console.Write("No matches! ");
-            //        }
-            //        else
-            //        {
-            //            Console.WriteLine($"{booktoreturn.Title} by {booktoreturn.Author} was returned to the library.");
-            //            Console.WriteLine();
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Your list of books is empty.");
-            //}
+            if (userbooks.Count > 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("Your books:");
+                Console.ResetColor();
+                librarian.PrintBookList(userbooks);
+                Console.WriteLine();
+                while (librarian.GetUserBooks().Count > 0)
+                {
+                    Console.WriteLine("Please enter the title you want to return.\nTo quit, enter \"stop\".");
+                    string input = Console.ReadLine();
+                    Console.WriteLine();
+                    if (input.ToLower() == "stop")
+                    {
+                        break;
+                    }
+                    else if (input == "")
+                    {
+                        Console.Write("Invalid input! ");
+                        continue;
+                    }
+                    Books booktoreturn = librarian.ReturnBook(input);
+                    if (booktoreturn == null)
+                    {
+                        Console.Write("No matches! ");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{booktoreturn.Title} by {booktoreturn.Author} was returned to the library.");
+                        Console.WriteLine();
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Your list of books is empty.");
+            }
         }
     }
 }
