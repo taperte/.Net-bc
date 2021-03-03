@@ -11,7 +11,7 @@ insert into Topics (TopicName) values ('Crime')
 insert into Topics (TopicName) values ('Sport')
 
 create table Articles (
-	ArticleId int not null identity primary key,
+	ArticleId int not null primary key identity,
 	TopicId int foreign key references Topics(TopicId),
 	Headline nvarchar(255) not null,
 	Author nvarchar(255) default 'The Daily Prophet editorial staff',
@@ -19,12 +19,10 @@ create table Articles (
 	WhenAdded datetime default getdate()
 )
 
+select * from Articles
+
 insert into Articles (TopicId, Headline, Author, Body, WhenAdded) 
 values (1, 'Riga has good chances to host Quidditch World Cup 2025', 'Ludo Bagman', 'At a press conferece today, January 13th 2021, the President of Latvia Quidditch Federation Ruta Knupite has announced that Riga has officially entered the competition to host Quidditch World Cup 2025. As anonymous source in World Quidditch Federation told our reporter, the chances are quite high for our fair city to host the greatest sports event of the year.', '2021-01-13 13:15:03')
-            --string art03 = "BREAKING NEWS: today, the infamous Azkaban escapee Sirius Black was spotted in Gulbene. Please keep your eyes open and, if you see him, please report to the wizard police. And make sure to stock up on chocolate — dementors are coming to town!";
-            --string art04 = "We are sorry to announce that Celestina Warbeck, also known as The Singing Sorceress, has cancelled her concert in Sigulda, which ws long expected by many. The announcement was made as new travel restrictions came into effect. To return your tickets, please contact the organizers.";
-            --string art05 = "This week, British Minister of Magic is visiting Riga for the first time in history. Today busy schedule ahead — several meeting with Latvian authorities to discuss the future collaboration between to wizard nations.";
-            --string art06 = "Late eveing yesterday, fourteen quidditch players were arrested in Daugavpils for breaking lockdown rules. The illegal game took place by the Stropi lake during curfew. Since the players resisted the wizard police, all of them had to spent the remaining curfew hours in jail.";
 
 insert into Articles (TopicId, Headline, Author, Body, WhenAdded) 
 values (1, 'Latvia in Top 5 of best countries for wizard start-ups', 'Betty Braithwaite', 'According to Wizarding Business Review, it is the first time Latvia has made Top 5 of the best countries for wizard start-ups. Three fctor were evaluated: investment climate, tax policy and the cuteness level of local kitties (needless to say, Latvian kitties are the cutest!). Great news for local business!', '2021-02-26 21:01:56')
@@ -87,13 +85,13 @@ values (6, 'The Triwizard Tournament 2021 to take place fully online', 'Ludo Bag
 insert into Articles (TopicId, Headline, Author, Body, WhenAdded) 
 values (3, 'Hobbies during pandemic: How to create a horcrux at home', 'Tom Marvolo Riddle', 'During these difficult times many of us find it difficult to maintain our beloved hobbies. This guide is for all the horcrux making enthusiasts out there! Our guest author Tom Marvolo Riddle, an experienced horcrux creator, explains how to make your own using items everyone can find at home. Great family time guaranteed!', '2021-02-27 23:15:03')
 insert into Articles (TopicId, Headline, Author, Body, WhenAdded) 
-values (4, 'Lean year for mandrake growers, prices have skyrocketed', 'Barnabas Cuffe', '', '2021-02-19 10:09:25')
+values (4, 'Lean year for mandrake growers, prices have skyrocketed', 'Barnabas Cuffe', 'Due to bad harest, there is significant mandrake shortage across Europe. Although mandrake prices have skyrocketed, growers are struggling. This morning, the Mandrake Growers Association have sent an open letter to the government requesting subsidies to be able to survive until next mandrake crop.', '2021-02-19 10:09:25')
 insert into Articles (TopicId, Headline, Author, Body, WhenAdded) 
-values (1, 'Fourteen quidditch players arrested in Daugavpils for breaking lockdown rules', 'Betty Braithwaite', '', '2021-02-02 18:00:00')
+values (1, 'Fourteen quidditch players arrested in Daugavpils for breaking lockdown rules', 'Betty Braithwaite', 'Late eveing yesterday, fourteen quidditch players were arrested in Daugavpils for breaking lockdown rules. The illegal game took place by the Stropi lake during curfew. Since the players resisted the wizard police, all of them had to spent the remaining curfew hours in jail.', '2021-02-02 18:00:00')
 insert into Articles (TopicId, Headline, Author, Body, WhenAdded) 
-values (1, 'British Minister of Magic visits Riga', 'Winkus Oddpick', '', '2021-01-25 07:49:00')
+values (1, 'British Minister of Magic visits Riga', 'Winkus Oddpick', 'This week, British Minister of Magic is visiting Riga for the first time in history. Today busy schedule ahead — several meeting with Latvian authorities to discuss the future collaboration between to wizard nations.', '2021-01-25 07:49:00')
 insert into Articles (TopicId, Headline, Author, Body, WhenAdded) 
-values (1, 'The Singing Sorceress'' concert in Sigulda cancelled', 'Winkus Oddpick', '', '2021-01-29 22:37:28')
+values (1, 'The Singing Sorceress'' concert in Sigulda cancelled', 'Winkus Oddpick', 'We are sorry to announce that Celestina Warbeck, also known as The Singing Sorceress, has cancelled her concert in Sigulda, which ws long expected by many. The announcement was made as new travel restrictions came into effect. To return your tickets, please contact the organizers.', '2021-01-29 22:37:28')
 insert into Articles (TopicId, Headline, Author, Body, WhenAdded) 
-values (1, 'Breaking: Sirius Black spotted in Gulbene', 'Barnabas Cuffe', '', '2021-02-27 11:46:01')
+values (1, 'Breaking: Sirius Black spotted in Gulbene', 'Barnabas Cuffe', 'BREAKING NEWS: today, the infamous Azkaban escapee Sirius Black was spotted in Gulbene. Please keep your eyes open and, if you see him, please report to the wizard police. And make sure to stock up on chocolate — dementors are coming to town!', '2021-02-27 11:46:01')
  
