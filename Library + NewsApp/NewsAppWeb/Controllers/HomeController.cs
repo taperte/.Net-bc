@@ -7,7 +7,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using NewsLogic.Managers;
-using NewsLogic.Data;
 
 namespace NewsAppWeb.Controllers
 {
@@ -17,7 +16,7 @@ namespace NewsAppWeb.Controllers
 
         public IActionResult Index()
         {
-            List<Article> latestnews = editor.GetLatestNews();
+            var latestnews = editor.GetLatestNews();
             return View(latestnews);
         }
 

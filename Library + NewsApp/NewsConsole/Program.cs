@@ -9,7 +9,7 @@ namespace NewsConsole
     {
         static void Main(string[] args)
         {
-            NewsManager editor = new NewsManager();
+            var editor = new NewsManager();
 
             editor.PrintNews(editor.GetLatestNews(), "Latest news:");
 
@@ -23,12 +23,12 @@ namespace NewsConsole
                     break;
                 }
                 int topicid = int.Parse(input);
-                if (topicid < 0 || topicid > 5)
+                if (topicid < 1 || topicid > 6)
                 {
                     Console.Write("Invalid ID! ");
                     continue;
                 }
-                editor.PrintNews(editor.GetNewsByTopic(topicid), $"{(TopicName)topicid}:");
+                editor.PrintNews(editor.GetNewsByTopic(topicid), $"{editor.GetTopic(topicid).TopicName}:");
             }
 
             while (true)
@@ -41,7 +41,7 @@ namespace NewsConsole
                     break;
                 }
                 int articleid = int.Parse(input);
-                Article article = editor.GetArticle(articleid);
+                var article = editor.GetArticle(articleid);
                 if (article == null)
                 {
                     Console.Write("Invalid ID! ");
@@ -50,7 +50,7 @@ namespace NewsConsole
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"Article with ID {articleid}:");
                 Console.ResetColor();
-                article.PrintArticleInfo();
+                editor.PrintArticleInfo(article);
             }
         }
     }

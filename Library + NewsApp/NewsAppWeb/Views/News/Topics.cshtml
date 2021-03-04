@@ -1,49 +1,79 @@
 ﻿@{
     ViewData["Title"] = "Topics";
 }
-@model List<NewsLogic.Data.Article>; 
+@model List<NewsLogic.DB.Articles>; 
 <ul class="nav nav-pills mb-3">
     <li class="nav-item">
-        <a class="nav-link active" asp-controller="News" asp-action="Topics" asp-route-topicid="0">@NewsLogic.Data.TopicName.Latvia</a>
+        <a class="nav-link active" asp-controller="News" asp-action="Topics" asp-route-topicid="1">Latvia</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="1">@NewsLogic.Data.TopicName.World</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="2">World</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="2">@NewsLogic.Data.TopicName.Culture</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="3">Culture</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="3">@NewsLogic.Data.TopicName.Business</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="4">Business</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="4">@NewsLogic.Data.TopicName.Crime</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="5">Crime</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="5">@NewsLogic.Data.TopicName.Sport</a>
+        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="6">Sport</a>
     </li>
 </ul>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">@Model[0].Topic.Name</li>
+        <li class="breadcrumb-item active" aria-current="page">@Model[0].Topic.TopicName</li>
     </ol>
 </nav>
 <div class="row">
-    @for (int i = 0; i < 6; i++)
-    {
-        if (Model[i] != null)
-        {
-            <div class="col-md-4 col-sm-12 mb-3">
-                <div class="card">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
-                    <div class="card-body">
-                        <a class="card-link" asp-controller="News" asp-action="Article" asp-route-id="@Model[i].Id">@Model[i].Headline</a>
-                    </div>
-                </div>
+    <div class="col-md-4 col-sm-12 mb-3">
+        <div class="card">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
+            <div class="card-body">
+                <a class="card-link" asp-controller="News" asp-action="Article" asp-route-id="@Model[0].ArticleId">@Model[0].Headline</a>
             </div>
-        }
-        else
-        {
-            break;
-        }
-    }
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12 mb-3">
+        <div class="card">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
+            <div class="card-body">
+                <a class="card-link" asp-controller="News" asp-action="Article" asp-route-id="@Model[1].ArticleId">@Model[1].Headline</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12 mb-3">
+        <div class="card">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
+            <div class="card-body">
+                <a class="card-link" asp-controller="News" asp-action="Article" asp-route-id="@Model[2].ArticleId">@Model[2].Headline</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12 mb-3">
+        <div class="card">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
+            <div class="card-body">
+                <a class="card-link" asp-controller="News" asp-action="Article" asp-route-id="@Model[3].ArticleId">@Model[3].Headline</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12 mb-3">
+        <div class="card">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
+            <div class="card-body">
+                <a class="card-link" asp-controller="News" asp-action="Article" asp-route-id="@Model[4].ArticleId">@Model[4].Headline</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12 mb-3">
+        <div class="card">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
+            <div class="card-body">
+                <a class="card-link" asp-controller="News" asp-action="Article" asp-route-id="@Model[5].ArticleId">@Model[5].Headline</a>
+            </div>
+        </div>
+    </div>
 </div>
