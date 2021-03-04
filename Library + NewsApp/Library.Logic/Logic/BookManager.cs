@@ -17,7 +17,7 @@ namespace Library.Logic.Logic
         //GetAvailableBooks() - returns list of all available books
         public List<Books> GetAvailableBooks()
         {
-            List<Books> books = new List<Books>();
+            var books = new List<Books>();
             using (LibraryDatabase library = new LibraryDatabase())
             {
                 books = library.Books.Where(b => b.Copies > 0).
@@ -29,7 +29,7 @@ namespace Library.Logic.Logic
         //GetUserBooks() - returns list of user's books
         public List<UserBooks> GetUserBooks()
         {
-            List <UserBooks> userbooks = new List<UserBooks>();
+            var userbooks = new List<UserBooks>();
             using (LibraryDatabase library = new LibraryDatabase())
             {
                 userbooks = library.UserBooks.OrderBy(b => b.Title).ToList();

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using Library.Logic.Logic;
-using Library.Logic.Data;
+using Library.Logic._DB;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace Library.Web.Controllers
 
         public IActionResult Index()
         {
-            List<Book> books = BookController.librarian.GetAvailableBooks();
+            var books = BookController.librarian.GetAvailableBooks();
             return View(books);
         }
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Library.Logic.Logic;
-using Library.Logic.Data;
+using Library.Logic._DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +15,13 @@ namespace Library.Web.Controllers
         public IActionResult Index()
         {
 
-            List<Book> books = librarian.GetAvailableBooks();
+            var books = librarian.GetAvailableBooks();
             return View(books);
         }
 
         public IActionResult MyBooks()
         {
-            List<Book> books = librarian.GetUserBooks();
+            var books = librarian.GetUserBooks();
             return View(books);
         }
 
