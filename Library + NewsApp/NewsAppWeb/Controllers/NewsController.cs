@@ -9,9 +9,12 @@ namespace NewsAppWeb.Controllers
 {
     public class NewsController : Controller
     {
+        public static TopicManager topiceditor = new TopicManager();
+
         public IActionResult Topics(int topicid)
         {
             var bytopic = HomeController.editor.GetNewsByTopic(topicid);
+            //var topics = topiceditor.GetAllTopics();
             return View(bytopic);
         }
 

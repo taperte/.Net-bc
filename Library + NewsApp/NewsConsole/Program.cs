@@ -9,7 +9,13 @@ namespace NewsConsole
         static void Main(string[] args)
         {
             var editor = new NewsManager();
+            var topics = new TopicManager();
 
+            foreach (var t in topics.GetAllTopics())
+            {
+                Console.WriteLine(t.TopicName);
+            }
+            
             editor.PrintNews(editor.GetLatestNews(), "Latest news:");
 
             while (true)

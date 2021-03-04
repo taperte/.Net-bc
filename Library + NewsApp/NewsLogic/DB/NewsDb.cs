@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
-//#nullable disable
+// #nullable disable
 
 namespace NewsLogic.DB
 {
@@ -49,6 +49,8 @@ namespace NewsLogic.DB
                 entity.Property(e => e.Headline)
                     .IsRequired()
                     .HasMaxLength(255);
+
+                entity.Property(e => e.Image).HasMaxLength(500);
 
                 entity.Property(e => e.WhenAdded)
                     .HasColumnType("datetime")
