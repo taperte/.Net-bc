@@ -1,5 +1,4 @@
 ﻿using System;
-using NewsLogic.Data;
 using NewsLogic.Managers;
 using System.Linq;
 
