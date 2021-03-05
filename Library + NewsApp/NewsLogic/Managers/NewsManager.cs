@@ -21,7 +21,7 @@ namespace NewsLogic.Managers
             }
         }
 
-        public List<Articles> GetNewsByTopic (int topicId)
+        public List<Articles> GetNewsByTopic (int topicId = 1)
         {
             using(NewsDb db = new NewsDb())
             {

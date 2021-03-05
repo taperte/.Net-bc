@@ -1,38 +1,26 @@
-﻿@model NewsLogic.DB.Articles;
+﻿@model TopicArticleViewModel;
 @{
-    ViewData["Title"] = Model.Headline;
+    ViewData["Title"] = Model.Article.Headline;
 }
 <ul class="nav nav-pills mb-3">
-    <li class="nav-item">
-        <a class="nav-link active" asp-controller="News" asp-action="Topics" asp-route-topicid="1">Latvia</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="2">World</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="3">Culture</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="4">Business</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="5">Crime</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="6">Sport</a>
-    </li>
+    @for (int i = 0; i < Model.Topics.Count; i++)
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="@Model.Topics[i].TopicId">@Model.Topics[i].TopicName</a>
+        </li>
+    }
 </ul>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item" aria-current="page">@Model.Topic.TopicName</li>
-        <li class="breadcrumb-item active" aria-current="page">@Model.Headline</li>
+        <li class="breadcrumb-item" aria-current="page">@Model.Article.Topic.TopicName</li>
+        <li class="breadcrumb-item active" aria-current="page">@Model.Article.Headline</li>
     </ol>
 </nav>
 <div>
-    <h1>@Model.Headline</h1>
-    <h5>@Model.Author <span class="text-secondary">@Model.WhenAdded</span></h5>
+    <h1>@Model.Article.Headline</h1>
+    <h5>@Model.Article.Author <span class="text-secondary">@Model.Article.WhenAdded</span></h5>
     <div>
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
+        <img src="@Model.Article.Image"/>
     </div>
-    @Model.Body
+    @Model.Article.Body
 </div>

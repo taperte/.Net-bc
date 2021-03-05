@@ -1,42 +1,30 @@
 ﻿@{
     ViewData["Title"] = "Topics";
 }
-@model List<NewsLogic.DB.Articles>; 
+@model TopicArticleViewModel; 
 <ul class="nav nav-pills mb-3">
-    <li class="nav-item">
-        <a class="nav-link active" asp-controller="News" asp-action="Topics" asp-route-topicid="1">Latvia</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="2">World</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="3">Culture</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="4">Business</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="5">Crime</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="6">Sport</a>
-    </li>
+    @foreach (var t in Model.Topics)
+    {
+        <li class="nav-item">
+            <a class="nav-link"asp-controller="News" asp-action="Topics" asp-route-topicid="@t.TopicId">@t.TopicName</a>
+        </li>
+    }
 </ul>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">@Model[0].Topic.TopicName</li>
+        <li class="breadcrumb-item active" aria-current="page">@Model.Articles[0].Topic.TopicName</li>
     </ol>
 </nav>
 <div class="row">
     @for (int i = 0; i < 6; i++)
     {
-        if (Model[i] != null)
+        if (Model.Articles[i] != null)
         {
             <div class="col-md-4 col-sm-12 mb-3">
                 <div class="card">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
+                    <img src="@Model.Articles[i].Image" />
                     <div class="card-body">
-                        <a class="card-link" asp-controller="News" asp-action="Article" asp-route-id="@Model[i].ArticleId">@Model[i].Headline</a>
+                        <a class="card-link" asp-controller="News" asp-action="Article" asp-route-id="@Model.Articles[i].ArticleId">@Model.Articles[i].Headline</a>
                     </div>
                 </div>
             </div>

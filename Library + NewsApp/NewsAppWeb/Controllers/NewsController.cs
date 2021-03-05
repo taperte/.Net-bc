@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using NewsLogic.Managers;
+using NewsAppWeb.Models;
 
 namespace NewsAppWeb.Controllers
 {
@@ -13,15 +14,26 @@ namespace NewsAppWeb.Controllers
 
         public IActionResult Topics(int topicid)
         {
+            var topics = topiceditor.GetAllTopics();
             var bytopic = HomeController.editor.GetNewsByTopic(topicid);
-            //var topics = topiceditor.GetAllTopics();
-            return View(bytopic);
+            var topicarticleviewmodel = new TopicArticleViewModel()
+            { 
+                Topics = topics,
+                Articles = bytopic
+            };
+            return View(topicarticleviewmodel);
         }
 
         public IActionResult Article(int id)
         {
             var article = HomeController.editor.GetArticle(id);
-            return View(article);
+            var topics = topiceditor.GetAllTopics();
+            var topicarticleviewmodel = new TopicArticleViewModel()
+            {
+                Topics = topics,
+                Article = article
+            };
+            return View(topicarticleviewmodel);
         }
     }
 }
