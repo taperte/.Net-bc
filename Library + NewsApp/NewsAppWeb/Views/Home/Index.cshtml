@@ -12,7 +12,7 @@
 <div class="row">
     @for (int i = 0; i < 6; i++)
     {
-        if (Model[i] != null)
+        if (i < Model.Count)
         {
             <div class="col-md-4 col-sm-12 mb-3">
                 <div class="card">
