@@ -21,11 +21,11 @@ namespace NewsLogic.Managers
             }
         }
 
-        public List<Articles> GetNewsByTopic (int topicId = 1)
+        public List<Articles> GetNewsByTopic (int topicid)
         {
             using(NewsDb db = new NewsDb())
             {
-                var articles = db.Articles.Where(a => a.TopicId == topicId).
+                var articles = db.Articles.Where(a => a.TopicId == topicid).
                                            OrderByDescending(a => a.WhenAdded).ToList();
                 foreach (var a in articles)
                 {
@@ -67,8 +67,8 @@ namespace NewsLogic.Managers
         public void PrintArticleInfo(Articles article)
         {
             var topic = GetTopic((int)article.TopicId);
-            Console.WriteLine($"{article.ArticleId}. \"{article.Headline}\" by {article.Author};\ntopic: {topic.TopicName.ToLower()}; " +
-                              $"posted: {article.WhenAdded}");
+            Console.WriteLine($"{article.ArticleId}. \"{article.Headline}\" by {article.Author};" +
+                              $"\ntopic: {topic.TopicName.ToLower()}; posted: {article.WhenAdded}");
             Console.WriteLine();
         }
     }
