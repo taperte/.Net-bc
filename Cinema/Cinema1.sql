@@ -85,3 +85,6 @@
 
  insert into Movies (GenreId, Title, Director, [Year], ScreeningTime1, ScreeningTime2, ScreeningTime3, Duration)
  values (1, '20th Century Women', 'Mike Mills', 2016, '2021-03-11 19:30:00', '2021-03-12 19:30:00', '2021-03-13 19:30:00', 119)
+
+ insert into Movies (GenreId, Title, Director, [Year], ScreeningTime1, ScreeningTime2, Duration)
+ values (7, 'The Salt of the Earth', 'Wim Wenders', 2014, '2021-03-15 19:00:00', '2021-03-16 20:30:00', 110)
