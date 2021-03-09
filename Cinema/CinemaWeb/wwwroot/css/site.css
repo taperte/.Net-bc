@@ -12,6 +12,11 @@ a {
   color: #d0590a;
 }
 
+a:hover {
+  text-decoration: underline;
+  color: #d0590a;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
@@ -72,4 +77,8 @@ body {
 
 .text {
   font-family: Andika, Lucida;
+}
+
+.align-bottom {
+  vertical-align: text-bottom;
 }
