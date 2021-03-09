@@ -1,0 +1,76 @@
+﻿@model GenreMovieViewModel
+<ul class="nav nav-pills mb-3">
+    @foreach (var g in Model.Genres)
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Movie" asp-action="Genres" asp-route-genreid="@g.Id">@g.Genre</a>
+        </li>
+    }
+</ul>
+@if (Model.Movies.Count > 1)
+{
+    <table class="table table-hover">
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Year</th>
+            <th>Duration</th>
+            <th>Screenings</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        @for (int i = 0; i < Model.Movies.Count; i++)
+        {
+            <tr>
+                <td>@(i + 1).</td>
+                <td>@Model.Movies[i].Title</td>
+                <td>@Model.Movies[i].Director</td>
+                <td>@Model.Movies[i].Year</td>
+                <td>@Model.Movies[i].Duration''</td>
+                @if (Model.Movies[i].ScreeningTime1 != null)
+                {
+                    <td>@Model.Movies[i].ScreeningTime1</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                @if (Model.Movies[i].ScreeningTime2 != null)
+                {
+                    <td>@Model.Movies[i].ScreeningTime2</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                @if (Model.Movies[i].ScreeningTime3 != null)
+                {
+                    <td>@Model.Movies[i].ScreeningTime3</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                @if (Model.Movies[i].ScreeningTime4 != null)
+                {
+                    <td>@Model.Movies[i].ScreeningTime4</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                @if (Model.Movies[i].ScreeningTime5 != null)
+                {
+                    <td>@Model.Movies[i].ScreeningTime5</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+            </tr>
+        }
+    </table>
+}

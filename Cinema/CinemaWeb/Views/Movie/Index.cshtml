@@ -1,0 +1,71 @@
+﻿@model List<CinemaLogic.DB.Movies>
+
+@if (Model.Count > 1)
+{
+    <table class="table table-hover">
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Director</th>
+            <th>Year</th>
+            <th>Duration</th>
+            <th>Screenings</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td>@(i + 1).</td>
+                <td>@Model[i].Title</td>
+                <td><a asp-controller="Movie" asp-action="Genres" asp-route-genreid="@Model[i].Genre.Id">@Model[i].Genre.Genre</a></td>
+                <td>@Model[i].Director</td>
+                <td>@Model[i].Year</td>
+                <td>@Model[i].Duration''</td>
+                @if (Model[i].ScreeningTime1 != null)
+                {
+                    <td>@Model[i].ScreeningTime1</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                @if (Model[i].ScreeningTime2 != null)
+                {
+                    <td>@Model[i].ScreeningTime2</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                @if (Model[i].ScreeningTime3 != null)
+                {
+                    <td>@Model[i].ScreeningTime3</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                @if (Model[i].ScreeningTime4 != null)
+                {
+                    <td>@Model[i].ScreeningTime4</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+                @if (Model[i].ScreeningTime5 != null)
+                {
+                    <td>@Model[i].ScreeningTime5</td>
+                }
+                else
+                {
+                    <td></td>
+                }
+            </tr>
+        }
+    </table>
+}

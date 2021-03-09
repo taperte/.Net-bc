@@ -23,7 +23,7 @@ namespace NewsLogic.Managers
 
         public List<Articles> GetNewsByTopic (int topicid)
         {
-            using(NewsDb db = new NewsDb())
+            using (NewsDb db = new NewsDb())
             {
                 var articles = db.Articles.Where(a => a.TopicId == topicid).
                                            OrderByDescending(a => a.WhenAdded).ToList();
