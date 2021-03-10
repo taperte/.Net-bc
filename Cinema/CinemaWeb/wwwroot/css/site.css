@@ -64,8 +64,9 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-image: url("https://bn1303files.storage.live.com/y4mVpcLKMWI88ub6kdTK3BZ8YNOx31nvJWPurrSTPQOn4qC-X7lPDtKbZYl7bMeCoe81p17So3AKcrwHfiNav8usIOc00uNkhAOBKpXcbT-uF1pqeSU4b7Sz3Gu9uoGGssyq5zdCH1JF9iMQy9zbvA3fz2qufjm21xndcLjxcvmtgKz6CIe0XosN5hBWgalt6X2?width=1316&height=740&cropmode=none");
 }
 .footer {
   position: absolute;
@@ -77,8 +78,17 @@ body {
 
 .text {
   font-family: 'Lucida Sans', Tahoma;
+  color: #f5f3ed
+}
+
+.light {
+  color: #f5f3ed
 }
 
 .align-bottom {
   vertical-align: text-bottom;
+}
+
+.table-hover tbody tr:hover td {
+    background: #f5f3ed;
 }

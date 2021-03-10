@@ -42,8 +42,5 @@ namespace CinemaLogic.Managers
             }
             return movies;
         }
-
-
-
     }
 }
