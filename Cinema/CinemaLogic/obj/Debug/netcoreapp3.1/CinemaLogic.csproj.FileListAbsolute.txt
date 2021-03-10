@@ -9,3 +9,4 @@ C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcorea
 C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.dll
 C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.pdb
 C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.genruntimeconfig.cache
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.csprojAssemblyReference.cache

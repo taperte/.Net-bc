@@ -77,3 +77,4 @@ C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaWeb\bin\Debug\netcoreapp
 C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaWeb\bin\Debug\netcoreapp3.1\CinemaLogic.pdb
 C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaWeb\obj\Debug\netcoreapp3.1\Razor\Views\Movie\Index.cshtml.g.cs
 C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaWeb\obj\Debug\netcoreapp3.1\Razor\Views\Movie\Genres.cshtml.g.cs
+C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaWeb\obj\Debug\netcoreapp3.1\Razor\Views\Movie\MyBookings.cshtml.g.cs

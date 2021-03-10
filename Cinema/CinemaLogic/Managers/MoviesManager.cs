@@ -14,10 +14,13 @@ namespace CinemaLogic.Managers
         //Categories, movie information (including available times) and bookings are stored in a SQL
         //database.
 
+        //Returns a list of all movies ordered by title.
         public List<Movies> GetAllMovies()
         {
             using CinemaDB db = new CinemaDB();
             List<Movies> movies = db.Movies.OrderBy(m => m.Title).ToList();
+
+            //Assigns value to the genre property for every item in the list.
             foreach (var m in movies)
             {
                 m.Genre = db.Genres.FirstOrDefault(g => g.Id == m.GenreId);
@@ -25,11 +28,14 @@ namespace CinemaLogic.Managers
             return movies;
         }
 
+        //Returns a list of movies of a certain genre ordered by title; parameter: genre ID.
         public List<Movies> GetMoviesByGenre(int genreId)
         {
             using CinemaDB db = new CinemaDB();
             List<Movies> movies = db.Movies.Where(m => m.GenreId == genreId).
                                             OrderBy(m => m.Title).ToList();
+
+            //Assigns value to the genre property for every item in the list.
             foreach (var m in movies)
             {
                 m.Genre = db.Genres.FirstOrDefault(g => g.Id == m.GenreId);
