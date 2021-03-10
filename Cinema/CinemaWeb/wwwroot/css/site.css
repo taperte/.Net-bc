@@ -89,6 +89,6 @@ body {
   vertical-align: text-bottom;
 }
 
-.table-hover tbody tr:hover td {
+.table-hover tbody tr:hover td, tr:hover th {
     background: #f5f3ed;
 }
