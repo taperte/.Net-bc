@@ -20,7 +20,7 @@
                 <td>@(i + 1).</td>
                 <td>@Model[i].Movie.Title</td>
                 <td>@Model[i].BookedTime</td>
-                <td><a asp-controller="Movie" asp-action="Cancel" asp-route-time="@Model[i].BookedTime">Cancel</a></td>
+                <td><a asp-controller="Movie" asp-action="Cancel" asp-route-time="@Model[i].BookedTime" asp-route-id="@Model[i].Id">Cancel</a></td>
             </tr>
         }
     </table>

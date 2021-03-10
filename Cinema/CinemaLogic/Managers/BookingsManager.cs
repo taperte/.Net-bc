@@ -21,14 +21,15 @@ namespace CinemaLogic.Managers
         }
 
         //Makes a booking at specific time; returns movie or null.
-        public Movies MakeABooking(DateTime time)
+        public Movies MakeABooking(DateTime time, int id)
         {
             using CinemaDB db = new CinemaDB();
-            var screening = db.Movies.FirstOrDefault(m => m.ScreeningTime1 == time ||
-                                                          m.ScreeningTime2 == time ||
-                                                          m.ScreeningTime3 == time ||
-                                                          m.ScreeningTime4 == time ||
-                                                          m.ScreeningTime5 == time);
+            var screening = db.Movies.FirstOrDefault(m => (m.ScreeningTime1 == time ||
+                                                           m.ScreeningTime2 == time ||
+                                                           m.ScreeningTime3 == time ||
+                                                           m.ScreeningTime4 == time ||
+                                                           m.ScreeningTime5 == time) &&
+                                                           m.Id == id);
             if (screening != null)
             {
                 //If matching time is found, new booking is added to the bookings table.
@@ -44,10 +45,10 @@ namespace CinemaLogic.Managers
         }
 
         //Cancels a booking.
-        public Bookings CancelABooking(DateTime time)
+        public Bookings CancelABooking(DateTime time, int id)
         {
             using CinemaDB db = new CinemaDB();
-            var booking = db.Bookings.FirstOrDefault(b => b.BookedTime == time);
+            var booking = db.Bookings.FirstOrDefault(b => b.BookedTime == time && b.Id == id);
             booking.Movie = db.Movies.FirstOrDefault(m => m.Id == booking.MovieId);
             if (booking != null)
             {
