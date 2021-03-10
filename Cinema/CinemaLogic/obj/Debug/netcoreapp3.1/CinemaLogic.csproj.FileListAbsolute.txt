@@ -10,3 +10,15 @@ C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcorea
 C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.pdb
 C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.genruntimeconfig.cache
 C:\Users\''Dell''\Documents\GitHub\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.csprojAssemblyReference.cache
+C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\bin\Debug\netcoreapp3.1\CinemaLogic.deps.json
+C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\bin\Debug\netcoreapp3.1\CinemaLogic.runtimeconfig.json
+C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\bin\Debug\netcoreapp3.1\CinemaLogic.runtimeconfig.dev.json
+C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\bin\Debug\netcoreapp3.1\CinemaLogic.dll
+C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\bin\Debug\netcoreapp3.1\CinemaLogic.pdb
+C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.csprojAssemblyReference.cache
+C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.AssemblyInfoInputs.cache
+C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.AssemblyInfo.cs
+C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.csproj.CoreCompileInputs.cache
+C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.dll
+C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.pdb
+C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.genruntimeconfig.cache
