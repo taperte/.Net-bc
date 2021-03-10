@@ -29,7 +29,6 @@ namespace CinemaLogic.Managers
                                                           m.ScreeningTime3 == time ||
                                                           m.ScreeningTime4 == time ||
                                                           m.ScreeningTime5 == time);
-            
             if (screening != null)
             {
                 //If matching time is found, new booking is added to the bookings table.

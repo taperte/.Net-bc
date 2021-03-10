@@ -21,8 +21,8 @@ namespace CinemaConsole
                 Console.WriteLine(m.Title);
             }
 
-            //10.03.2021. 21:00:00 12.03.2021. 19:30:00
-            var time = new DateTime(2021, 3, 12, 19, 30, 0);
+            //12.03.2021 21:30:00
+            var time = new DateTime(2021, 3, 12, 21, 30, 0);
             var b = booking.CancelABooking(time);
             if (b != null)
             {

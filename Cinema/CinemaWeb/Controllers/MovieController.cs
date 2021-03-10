@@ -38,15 +38,17 @@ namespace CinemaWeb.Controllers
             return View(mybookings);
         }
 
-        public IActionResult Booking(DateTime time)
+        public IActionResult Booking(string time)
         {
-            bookings.MakeABooking(time);
+            DateTime timeparsed = DateTime.Parse(time);
+            bookings.MakeABooking(timeparsed);
             return RedirectToAction(nameof(MyBookings));
         }
 
-        public IActionResult Cancel(DateTime time)
+        public IActionResult Cancel(string time)
         {
-            bookings.CancelABooking(time);
+            DateTime timeparsed = DateTime.Parse(time);
+            bookings.CancelABooking(timeparsed);
             return RedirectToAction(nameof(MyBookings));
         }
     }
