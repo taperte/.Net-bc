@@ -11,13 +11,6 @@
             <th>Title</th>
             <th>Genre</th>
             <th>Director</th>
-            <th>Year</th>
-            <th>Duration</th>
-            <th>Price</th>
-            <th>Screenings</th>
-            <th></th>
-            <th></th>
-            <th></th>
             <th></th>
         </tr>
         @for (int i = 0; i < Model.Count; i++)
@@ -27,49 +20,7 @@
                 <td>@Model[i].Title</td>
                 <td><a asp-controller="Movie" asp-action="Genres" asp-route-genreid="@Model[i].Genre.Id">@Model[i].Genre.Genre</a></td>
                 <td>@Model[i].Director</td>
-                <td>@Model[i].Year</td>
-                <td>@Model[i].Duration''</td>
-                <td>@Model[i].Price EUR</td>
-                @if (Model[i].ScreeningTime1 != null)
-                {
-                    <td>@Model[i].ScreeningTime1.ToString().Substring(0, Model[i].ScreeningTime1.ToString().Length - 3) <br /> <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model[i].ScreeningTime1" asp-route-id="@Model[i].Id">Book</a></td>
-                }
-                else
-                {
-                    <td></td>
-                }
-                @if (Model[i].ScreeningTime2 != null)
-                {
-                    <td>@Model[i].ScreeningTime2.ToString().Substring(0, Model[i].ScreeningTime2.ToString().Length - 3) <br /> <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model[i].ScreeningTime2" asp-route-id="@Model[i].Id">Book</a></td>
-                }
-                else
-                {
-                    <td></td>
-                }
-                @if (Model[i].ScreeningTime3 != null)
-                {
-                    <td>@Model[i].ScreeningTime3.ToString().Substring(0, Model[i].ScreeningTime3.ToString().Length - 3) <br /> <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model[i].ScreeningTime3" asp-route-id="@Model[i].Id">Book</a></td>
-                }
-                else
-                {
-                    <td></td>
-                }
-                @if (Model[i].ScreeningTime4 != null)
-                {
-                    <td>@Model[i].ScreeningTime4.ToString().Substring(0, Model[i].ScreeningTime4.ToString().Length - 3) <br /> <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model[i].ScreeningTime4" asp-route-id="@Model[i].Id">Book</a></td>
-                }
-                else
-                {
-                    <td></td>
-                }
-                @if (Model[i].ScreeningTime5 != null)
-                {
-                    <td>@Model[i].ScreeningTime5.ToString().Substring(0, Model[i].ScreeningTime5.ToString().Length - 3) <br /> <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model[i].ScreeningTime5" asp-route-id="@Model[i].Id">Book</a></td>
-                }
-                else
-                {
-                    <td></td>
-                }
+                <td><a asp-controller="Movie" asp-action="Movie" asp-route-id="@Model[i].Id">More info</a></td>
             </tr>
         }
     </table>

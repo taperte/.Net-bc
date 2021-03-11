@@ -22,6 +22,7 @@ namespace CinemaLogic.DB
         public virtual DbSet<Bookings> Bookings { get; set; }
         public virtual DbSet<Genres> Genres { get; set; }
         public virtual DbSet<Movies> Movies { get; set; }
+        public virtual DbSet<Seats> Seats { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -38,12 +39,17 @@ namespace CinemaLogic.DB
             {
                 entity.Property(e => e.BookedTime).HasColumnType("datetime");
 
-                entity.Property(e => e.TotalPrice).HasColumnType("decimal(4, 2)");
+                entity.Property(e => e.TotalPrice).HasColumnType("decimal(8, 2)");
 
                 entity.HasOne(d => d.Movie)
                     .WithMany(p => p.Bookings)
                     .HasForeignKey(d => d.MovieId)
                     .HasConstraintName("FK__Bookings__MovieI__286302EC");
+
+                entity.HasOne(d => d.Seat)
+                    .WithMany(p => p.Bookings)
+                    .HasForeignKey(d => d.SeatId)
+                    .HasConstraintName("FK__Bookings__SeatTy__36B12243");
             });
 
             modelBuilder.Entity<Genres>(entity =>
@@ -55,6 +61,10 @@ namespace CinemaLogic.DB
 
             modelBuilder.Entity<Movies>(entity =>
             {
+                entity.Property(e => e.Abstract).HasMaxLength(2000);
+
+                entity.Property(e => e.Country).HasMaxLength(255);
+
                 entity.Property(e => e.Director)
                     .IsRequired()
                     .HasMaxLength(100);
@@ -75,10 +85,21 @@ namespace CinemaLogic.DB
                     .IsRequired()
                     .HasMaxLength(100);
 
+                entity.Property(e => e.Trailer).HasMaxLength(1000);
+
                 entity.HasOne(d => d.Genre)
                     .WithMany(p => p.Movies)
                     .HasForeignKey(d => d.GenreId)
                     .HasConstraintName("FK__Movies__GenreId__25869641");
+            });
+
+            modelBuilder.Entity<Seats>(entity =>
+            {
+                entity.Property(e => e.Coefficient).HasColumnType("decimal(4, 2)");
+
+                entity.Property(e => e.Type)
+                    .IsRequired()
+                    .HasMaxLength(20);
             });
 
             OnModelCreatingPartial(modelBuilder);

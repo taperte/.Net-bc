@@ -1,0 +1,65 @@
+﻿@model MovieSeatsViewModel;
+@{
+    ViewData["Title"] = Model.Movie.Title;
+}
+<ul class="nav nav-pills mb-3">
+    @foreach (var g in Model.Genres)
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Movie" asp-action="Genres" asp-route-genreid="@g.Id">@g.Genre</a>
+        </li>
+    }
+</ul>
+<div>
+    <br />
+    <h3>@Model.Movie.Title</h3>
+    <br />
+    <div class="row">
+        <div class="col-md-5 col-sm-12">
+            <div><b>Genre:</b> @Model.Movie.Genre.Genre</div>
+            <div><b>Director:</b> @Model.Movie.Director</div>
+            <div><b>Year:</b> @Model.Movie.Year</div>
+            <div><b>Country:</b> @Model.Movie.Country</div>
+            <div><b>Duration:</b> @Model.Movie.Duration''</div>
+            <br />
+            @Model.Movie.Abstract
+        </div>
+        <div class="col-md-7 col-sm-12">
+            <iframe width="560" height="315"
+                    src="@Model.Movie.Trailer">
+            </iframe>
+        </div>
+    </div>
+    <div><b>Screenings:</b></div>
+    <table class="table table-hover light">
+        <tr>
+            @foreach (var screening in Model.Screenings)
+            {
+                <th>
+                    @screening.ToString().Substring(0, screening.ToString().Length - 3)
+                </th>
+            }
+            <th>
+                Ticket price
+            </th>
+        </tr>
+        <tr>
+            @foreach (var screening in Model.Screenings)
+            {
+                <td>
+                    @foreach (var seat in Model.Seats)
+                    {
+                        <a asp-controller="Movie" asp-action="Booking" asp-route-time="@screening" asp-route-movieid="@Model.Movie.Id" asp-route-seatid="@seat.Id">Book @seat.Type.ToLower()</a>
+                        <br />
+                    }
+                </td>
+            }
+            <td>
+                @foreach (var price in Model.Prices)
+                {
+                    Console.WriteLine($"{price} EUR");
+                }
+            </td>
+        </tr>
+    </table>
+</div>

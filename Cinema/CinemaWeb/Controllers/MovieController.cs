@@ -13,6 +13,7 @@ namespace CinemaWeb.Controllers
         private static MoviesManager movies = new MoviesManager();
         private static GenresManager genres = new GenresManager();
         public static BookingsManager bookings = new BookingsManager();
+        private static SeatsManager seats = new SeatsManager();
 
         public IActionResult Index()
         {
@@ -32,29 +33,36 @@ namespace CinemaWeb.Controllers
             return View(genresmovies);
         }
 
-        public IActionResult MyBookings()
+        public IActionResult Movie(int id)
         {
-            var mybookings = bookings.GetBookings();
-            var totalprice = bookings.TotalPrice(mybookings);
-            var bookingsviewmodel = new BookingsViewModel()
-            { 
-                Bookings = mybookings,
-                TotalPrice = totalprice
-            };
-            return View(bookingsviewmodel);
+            var model = new MovieSeatsViewModel();
+            model.Movie = movies.GetMovie(id);
+            model.Seats = seats.GetSeats();
+            model.Genres = genres.GetGenres();
+            model.Screenings = movies.Screenings(id);
+            model.Prices = seats.GetSeatPrices(id);
+            return View(model);
         }
 
-        public IActionResult Booking(string time, int id)
+        public IActionResult MyBookings()
+        {
+            var model = new BookingsViewModel();
+            model.Bookings = bookings.GetBookings();
+            model.TotalPrice = bookings.TotalPrice(model.Bookings);
+            return View(model);
+        }
+
+        public IActionResult Booking(string time, int movieid, int seatid)
         {
             DateTime timeparsed = DateTime.Parse(time);
-            bookings.MakeABooking(timeparsed, id);
+            bookings.MakeABooking(timeparsed, movieid, seatid);
             return RedirectToAction(nameof(MyBookings));
         }
 
-        public IActionResult Cancel(string time, int id)
+        public IActionResult Cancel(string time, int movieid, int seatid)
         {
             DateTime timeparsed = DateTime.Parse(time);
-            bookings.CancelABooking(timeparsed, id);
+            bookings.CancelABooking(timeparsed, movieid, seatid);
             return RedirectToAction(nameof(MyBookings));
         }
     }

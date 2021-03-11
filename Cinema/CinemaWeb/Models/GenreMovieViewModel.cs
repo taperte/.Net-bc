@@ -14,7 +14,6 @@ namespace CinemaWeb.Models
         public GenreMovieViewModel()
         {
             Genres = new List<Genres>();
-            Movies = new List<Movies>();
         }
     }
 }

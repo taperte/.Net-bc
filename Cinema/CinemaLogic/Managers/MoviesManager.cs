@@ -28,6 +28,44 @@ namespace CinemaLogic.Managers
             return movies;
         }
 
+        //Returns a list of screening times of a particular movie.
+        public List<DateTime> Screenings(int movieid)
+        {
+            using CinemaDB db = new CinemaDB();
+            var screenings = new List<DateTime>();
+            var movie = GetMovie(movieid);
+            if (movie.ScreeningTime1 != null)
+            {
+                screenings.Add((DateTime)movie.ScreeningTime1);
+            }
+            if (movie.ScreeningTime2 != null)
+            {
+                screenings.Add((DateTime)movie.ScreeningTime2);
+            }
+            if (movie.ScreeningTime3 != null)
+            {
+                screenings.Add((DateTime)movie.ScreeningTime3);
+            }
+            if (movie.ScreeningTime4 != null)
+            {
+                screenings.Add((DateTime)movie.ScreeningTime4);
+            }
+            if (movie.ScreeningTime5 != null)
+            {
+                screenings.Add((DateTime)movie.ScreeningTime5);
+            }
+            return screenings;
+        }
+
+        //Returns a movie by ID.
+        public Movies GetMovie(int id)
+        {
+            using CinemaDB db = new CinemaDB();
+            var movie = db.Movies.FirstOrDefault(m => m.Id == id);
+            movie.Genre = db.Genres.FirstOrDefault(g => g.Id == movie.GenreId);
+            return movie;
+        }
+
         //Returns a list of movies of a certain genre ordered by title; parameter: genre ID.
         public List<Movies> GetMoviesByGenre(int genreId)
         {
