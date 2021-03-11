@@ -12,7 +12,7 @@ namespace CinemaWeb.Controllers
     {
         private static MoviesManager movies = new MoviesManager();
         private static GenresManager genres = new GenresManager();
-        private static BookingsManager bookings = new BookingsManager();
+        public static BookingsManager bookings = new BookingsManager();
 
         public IActionResult Index()
         {
@@ -35,7 +35,13 @@ namespace CinemaWeb.Controllers
         public IActionResult MyBookings()
         {
             var mybookings = bookings.GetBookings();
-            return View(mybookings);
+            var totalprice = bookings.TotalPrice(mybookings);
+            var bookingsviewmodel = new BookingsViewModel()
+            { 
+                Bookings = mybookings,
+                TotalPrice = totalprice
+            };
+            return View(bookingsviewmodel);
         }
 
         public IActionResult Booking(string time, int id)

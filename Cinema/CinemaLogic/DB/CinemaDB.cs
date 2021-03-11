@@ -38,6 +38,8 @@ namespace CinemaLogic.DB
             {
                 entity.Property(e => e.BookedTime).HasColumnType("datetime");
 
+                entity.Property(e => e.TotalPrice).HasColumnType("decimal(4, 2)");
+
                 entity.HasOne(d => d.Movie)
                     .WithMany(p => p.Bookings)
                     .HasForeignKey(d => d.MovieId)
@@ -56,6 +58,8 @@ namespace CinemaLogic.DB
                 entity.Property(e => e.Director)
                     .IsRequired()
                     .HasMaxLength(100);
+
+                entity.Property(e => e.Price).HasColumnType("decimal(4, 2)");
 
                 entity.Property(e => e.ScreeningTime1).HasColumnType("datetime");
 

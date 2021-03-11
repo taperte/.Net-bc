@@ -1,28 +1,36 @@
-﻿@model List<CinemaLogic.DB.Bookings>
+﻿@model BookingsViewModel
 @{
     ViewData["Title"] = "My bookings";
 }
 
 <h2>My bookings</h2>
 <br />
-@if (Model.Count > 0)
+@if (Model.Bookings.Count > 0)
 {
     <table class="table table-hover light">
         <tr>
             <th></th>
             <th>Title</th>
             <th>Screening</th>
+            <th class="center">Tickets</th>
+            <th>Total price</th>
             <th></th>
         </tr>
-        @for (int i = 0; i < Model.Count; i++)
+        @for (int i = 0; i < Model.Bookings.Count; i++)
         {
             <tr>
                 <td>@(i + 1).</td>
-                <td>@Model[i].Movie.Title</td>
-                <td>@Model[i].BookedTime</td>
-                <td><a asp-controller="Movie" asp-action="Cancel" asp-route-time="@Model[i].BookedTime" asp-route-id="@Model[i].Id">Cancel</a></td>
+                <td><a asp-controller="Movie" asp-action="Genres" asp-route-genreid="@Model.Bookings[i].Movie.GenreId">@Model.Bookings[i].Movie.Title</a></td>
+                <td>@Model.Bookings[i].BookedTime</td>
+                <td class="center">@Model.Bookings[i].TicketCount</td>
+                <td>@Model.Bookings[i].TotalPrice EUR</td>
+                <td><a asp-controller="Movie" asp-action="Cancel" asp-route-time="@Model.Bookings[i].BookedTime" asp-route-id="@Model.Bookings[i].Id">Cancel</a></td>
             </tr>
         }
+        <tr>
+            <td colspan="4" class="right orange"><b>To pay:</b></td>
+            <td colspan="2" class="left">@Model.TotalPrice EUR</td>
+        </tr>
     </table>
 }
 else

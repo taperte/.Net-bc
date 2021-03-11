@@ -35,7 +35,7 @@
                 <td>@Model.Movies[i].Duration''</td>
                 @if (Model.Movies[i].ScreeningTime1 != null)
                 {
-                    <td>@Model.Movies[i].ScreeningTime1 <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model.Movies[i].ScreeningTime1" asp-route-id="@Model.Movies[i].Id">Book</a></td>
+                    <td>@Model.Movies[i].ScreeningTime1 <br /> <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model.Movies[i].ScreeningTime1" asp-route-id="@Model.Movies[i].Id">Book</a></td>
                 }
                 else
                 {
@@ -43,7 +43,7 @@
                 }
                 @if (Model.Movies[i].ScreeningTime2 != null)
                 {
-                    <td>@Model.Movies[i].ScreeningTime2 <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model.Movies[i].ScreeningTime2" asp-route-id="@Model.Movies[i].Id">Book</a></td>
+                    <td>@Model.Movies[i].ScreeningTime2 <br /> <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model.Movies[i].ScreeningTime2" asp-route-id="@Model.Movies[i].Id">Book</a></td>
                 }
                 else
                 {
@@ -51,7 +51,7 @@
                 }
                 @if (Model.Movies[i].ScreeningTime3 != null)
                 {
-                    <td>@Model.Movies[i].ScreeningTime3 <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model.Movies[i].ScreeningTime3" asp-route-id="@Model.Movies[i].Id">Book</a></td>
+                    <td>@Model.Movies[i].ScreeningTime3 <br /> <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model.Movies[i].ScreeningTime3" asp-route-id="@Model.Movies[i].Id">Book</a></td>
                 }
                 else
                 {
@@ -59,7 +59,7 @@
                 }
                 @if (Model.Movies[i].ScreeningTime4 != null)
                 {
-                    <td>@Model.Movies[i].ScreeningTime4 <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model.Movies[i].ScreeningTime4" asp-route-id="@Model.Movies[i].Id">Book</a></td>
+                    <td>@Model.Movies[i].ScreeningTime4 <br /> <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model.Movies[i].ScreeningTime4" asp-route-id="@Model.Movies[i].Id">Book</a></td>
                 }
                 else
                 {
@@ -67,7 +67,7 @@
                 }
                 @if (Model.Movies[i].ScreeningTime5 != null)
                 {
-                    <td>@Model.Movies[i].ScreeningTime5 <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model.Movies[i].ScreeningTime5" asp-route-id="@Model.Movies[i].Id">Book</a></td>
+                    <td>@Model.Movies[i].ScreeningTime5 <br /> <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model.Movies[i].ScreeningTime5" asp-route-id="@Model.Movies[i].Id">Book</a></td>
                 }
                 else
                 {

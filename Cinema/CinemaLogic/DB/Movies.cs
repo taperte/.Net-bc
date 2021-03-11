@@ -25,6 +25,7 @@ namespace CinemaLogic.DB
         public DateTime? ScreeningTime4 { get; set; }
         public DateTime? ScreeningTime5 { get; set; }
         public int Duration { get; set; }
+        public decimal? Price { get; set; }
 
         public virtual Genres Genre { get; set; }
         public virtual ICollection<Bookings> Bookings { get; set; }
