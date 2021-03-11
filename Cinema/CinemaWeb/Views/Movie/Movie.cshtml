@@ -15,16 +15,23 @@
     <h3>@Model.Movie.Title</h3>
     <br />
     <div class="row">
-        <div class="col-md-5 col-sm-12">
+        <div class="col-md-6 col-sm-12">
             <div><b>Genre:</b> @Model.Movie.Genre.Genre</div>
             <div><b>Director:</b> @Model.Movie.Director</div>
             <div><b>Year:</b> @Model.Movie.Year</div>
             <div><b>Country:</b> @Model.Movie.Country</div>
             <div><b>Duration:</b> @Model.Movie.Duration''</div>
             <br />
-            @Model.Movie.Abstract
+            <div>@Model.Movie.Abstract</div>
+            <br />
+            <div><b>Prices:</b></div>
+            @for (int i = 0; i < Model.Prices.Count; i++)
+            {
+                <b>@Model.Seats[i].Type.ToLower()</b><span> — @Model.Prices[i] EUR</span>
+                <br />
+            }
         </div>
-        <div class="col-md-7 col-sm-12">
+        <div class="col-md-6 col-sm-12">
             <iframe width="560" height="315"
                     src="@Model.Movie.Trailer">
             </iframe>
@@ -39,9 +46,6 @@
                     @screening.ToString().Substring(0, screening.ToString().Length - 3)
                 </th>
             }
-            <th>
-                Ticket price
-            </th>
         </tr>
         <tr>
             @foreach (var screening in Model.Screenings)
@@ -54,12 +58,6 @@
                     }
                 </td>
             }
-            <td>
-                @foreach (var price in Model.Prices)
-                {
-                    Console.WriteLine($"{price} EUR");
-                }
-            </td>
         </tr>
     </table>
 </div>
