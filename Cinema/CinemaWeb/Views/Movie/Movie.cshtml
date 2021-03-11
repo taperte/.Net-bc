@@ -15,7 +15,7 @@
     <h3>@Model.Movie.Title</h3>
     <br />
     <div class="row">
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-5 col-sm-12">
             <div><b>Genre:</b> @Model.Movie.Genre.Genre</div>
             <div><b>Director:</b> @Model.Movie.Director</div>
             <div><b>Year:</b> @Model.Movie.Year</div>
@@ -31,12 +31,13 @@
                 <br />
             }
         </div>
-        <div class="col-md-6 col-sm-12">
+        <div class="col-md-7 col-sm-12">
             <iframe width="560" height="315"
                     src="@Model.Movie.Trailer">
             </iframe>
         </div>
     </div>
+    <br />
     <div><b>Screenings:</b></div>
     <table class="table table-hover light">
         <tr>

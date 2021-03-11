@@ -11,6 +11,7 @@
             <th>Title</th>
             <th>Genre</th>
             <th>Director</th>
+            <th>Year</th>
             <th></th>
         </tr>
         @for (int i = 0; i < Model.Count; i++)
@@ -20,7 +21,8 @@
                 <td>@Model[i].Title</td>
                 <td><a asp-controller="Movie" asp-action="Genres" asp-route-genreid="@Model[i].Genre.Id">@Model[i].Genre.Genre</a></td>
                 <td>@Model[i].Director</td>
-                <td><a asp-controller="Movie" asp-action="Movie" asp-route-id="@Model[i].Id">More info</a></td>
+                <td>@Model[i].Year</td>
+                <td><a asp-controller="Movie" asp-action="Movie" asp-route-id="@Model[i].Id">More info & tickets</a></td>
             </tr>
         }
     </table>

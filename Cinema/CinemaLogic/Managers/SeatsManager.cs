@@ -22,7 +22,7 @@ namespace CinemaLogic.Managers
             var movie = db.Movies.FirstOrDefault(m => m.Id == movieid);
             foreach (var seat in db.Seats)
             {
-                prices.Add(seat.Coefficient * (decimal)movie.Price);
+                prices.Add(Math.Round(seat.Coefficient * (decimal)movie.Price, 2, MidpointRounding.AwayFromZero));
             }
             return prices;
         }
