@@ -48,7 +48,7 @@ namespace CinemaLogic.Managers
                 //If matching booking is not found,
                 if (booking == null)
                 {
-                    //new row is added to the bookings table.
+                    //a new row is added to the bookings table.
                     db.Bookings.Add(new Bookings()
                     {
                         MovieId = screening.Id,

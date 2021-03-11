@@ -9,7 +9,7 @@ namespace CinemaLogic.Managers
     public class GenresManager
     {
         //Returns a list of all genres ordered by name.
-        public List<Genres> GetGenres()
+        public List<Genres> GetAllGenres()
         {
             using CinemaDB db = new CinemaDB();
             var genres = db.Genres.OrderBy(g => g.Genre).ToList();

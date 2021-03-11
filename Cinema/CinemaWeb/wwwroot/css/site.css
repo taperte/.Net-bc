@@ -90,8 +90,7 @@ body {
 }
 
 .table-hover tbody tr:hover td, tr:hover th {
-  background: #2e2b30;
-  color: #f5f3ed;
+  background: #f5f3ed;
 }
 
 .orange {

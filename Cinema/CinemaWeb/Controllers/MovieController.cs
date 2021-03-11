@@ -23,14 +23,10 @@ namespace CinemaWeb.Controllers
 
         public IActionResult Genres(int genreid)
         {
-            var allgenres = genres.GetGenres();
-            var bygenre = movies.GetMoviesByGenre(genreid);
-            var genresmovies = new GenreMovieViewModel()
-            {
-                Genres = allgenres,
-                Movies = bygenre
-            };
-            return View(genresmovies);
+            var model = new GenreMovieViewModel();
+            model.Genres = genres.GetAllGenres();
+            model.Movies = movies.GetMoviesByGenre(genreid);
+            return View(model);
         }
 
         public IActionResult Movie(int id)
@@ -38,7 +34,7 @@ namespace CinemaWeb.Controllers
             var model = new MovieSeatsViewModel();
             model.Movie = movies.GetMovie(id);
             model.Seats = seats.GetSeats();
-            model.Genres = genres.GetGenres();
+            model.Genres = genres.GetAllGenres();
             model.Screenings = movies.Screenings(id);
             model.Prices = seats.GetSeatPrices(id);
             return View(model);
@@ -54,14 +50,14 @@ namespace CinemaWeb.Controllers
 
         public IActionResult Booking(string time, int movieid, int seatid)
         {
-            DateTime timeparsed = DateTime.Parse(time);
+            var timeparsed = DateTime.Parse(time);
             bookings.MakeABooking(timeparsed, movieid, seatid);
             return RedirectToAction(nameof(MyBookings));
         }
 
         public IActionResult Cancel(string time, int movieid, int seatid)
         {
-            DateTime timeparsed = DateTime.Parse(time);
+            var timeparsed = DateTime.Parse(time);
             bookings.CancelABooking(timeparsed, movieid, seatid);
             return RedirectToAction(nameof(MyBookings));
         }
