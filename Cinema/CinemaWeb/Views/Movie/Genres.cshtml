@@ -19,6 +19,7 @@
             <th>Director</th>
             <th>Year</th>
             <th>Duration</th>
+            <th>Price</th>
             <th>Screenings</th>
             <th></th>
             <th></th>
@@ -33,6 +34,7 @@
                 <td>@Model.Movies[i].Director</td>
                 <td>@Model.Movies[i].Year</td>
                 <td>@Model.Movies[i].Duration''</td>
+                <td>@Model.Movies[i].Price EUR</td>
                 @if (Model.Movies[i].ScreeningTime1 != null)
                 {
                     <td>@Model.Movies[i].ScreeningTime1.ToString().Substring(0, Model.Movies[i].ScreeningTime1.ToString().Length - 3) <br /> <a asp-controller="Movie" asp-action="Booking" asp-route-time="@Model.Movies[i].ScreeningTime1" asp-route-id="@Model.Movies[i].Id">Book</a></td>
