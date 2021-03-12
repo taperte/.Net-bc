@@ -52,7 +52,7 @@ namespace CinemaWeb.Controllers
         {
             var timeparsed = DateTime.Parse(time);
             bookings.MakeABooking(timeparsed, movieid, seatid);
-            return RedirectToAction("Movie", new { @id = movieid });
+            return RedirectToAction("Movie", new { id = movieid });
         }
 
         public IActionResult Cancel(string time, int movieid, int seatid)
