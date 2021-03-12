@@ -77,12 +77,12 @@ body {
 }
 
 .text {
-  font-family: Lucida Sans Typewriter, Lucida Sans, Tahoma;
-  color: #f5f3ed
+    font-family: Lucida Sans Typewriter, Lucida Sans, Tahoma;
+    color: #f8f9fa
 }
 
 .light {
-  color: #f5f3ed
+    color: #f8f9fa
 }
 
 .align-bottom {
@@ -90,7 +90,7 @@ body {
 }
 
 .table-hover tbody tr:hover td, tr:hover th {
-  background: #f5f3ed;
+    background: #f8f9fa;
 }
 
 .orange {
@@ -107,4 +107,9 @@ body {
 
 .right {
     text-align: right
+}
+
+.navbar-position {
+  position: relative;
+  top: 40px
 }
