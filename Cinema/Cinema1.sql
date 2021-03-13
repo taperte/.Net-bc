@@ -88,3 +88,6 @@
 
  insert into Movies (GenreId, Title, Director, [Year], ScreeningTime1, ScreeningTime2, Duration)
  values (7, 'The Salt of the Earth', 'Wim Wenders', 2014, '2021-03-15 19:00:00', '2021-03-16 20:30:00', 110)
+
+ alter table Movies add Poster nvarchar(500)
+ alter table Movies add OriginalTitle nvarchar(100)

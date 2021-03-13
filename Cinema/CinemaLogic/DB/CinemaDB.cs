@@ -69,6 +69,10 @@ namespace CinemaLogic.DB
                     .IsRequired()
                     .HasMaxLength(100);
 
+                entity.Property(e => e.OriginalTitle).HasMaxLength(100);
+
+                entity.Property(e => e.Poster).HasMaxLength(500);
+
                 entity.Property(e => e.Price).HasColumnType("decimal(4, 2)");
 
                 entity.Property(e => e.ScreeningTime1).HasColumnType("datetime");

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Console\\Library.Console.csproj": {}
+    "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\Library.Console\\Library.Console.csproj": {}
   },
   "projects": {
-    "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Console\\Library.Console.csproj": {
+    "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\Library.Console\\Library.Console.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Console\\Library.Console.csproj",
+        "projectUniqueName": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\Library.Console\\Library.Console.csproj",
         "projectName": "Library.Console",
-        "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Console\\Library.Console.csproj",
-        "packagesPath": "C:\\Users\\''Dell''\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Console\\obj\\",
+        "projectPath": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\Library.Console\\Library.Console.csproj",
+        "packagesPath": "C:\\Users\\sl41040\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\Library.Console\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\''Dell''\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sl41040\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj": {
-                "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj"
+              "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj": {
+                "projectPath": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj"
               }
             }
           }
@@ -70,21 +70,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj": {
+    "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj",
+        "projectUniqueName": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj",
         "projectName": "Library.Logic",
-        "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj",
-        "packagesPath": "C:\\Users\\''Dell''\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\Library.Logic\\obj\\",
+        "projectPath": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\Library.Logic\\Library.Logic.csproj",
+        "packagesPath": "C:\\Users\\sl41040\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\Library.Logic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\''Dell''\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sl41040\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -136,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

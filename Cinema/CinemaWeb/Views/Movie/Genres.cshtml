@@ -10,25 +10,25 @@
         </li>
     }
 </ul>
-@if (Model.Movies.Count > 0)
-{
-    <table class="table table-hover light">
-        <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Director</th>
-            <th>Year</th>
-            <th></th>
-        </tr>
-        @for (int i = 0; i < Model.Movies.Count; i++)
+
+<br />
+<div class="row">
+    @if (Model.Movies.Count > 0)
+    {
+        @foreach (var m in Model.Movies)
         {
-            <tr>
-                <td>@(i + 1).</td>
-                <td>@Model.Movies[i].Title</td>
-                <td>@Model.Movies[i].Director</td>
-                <td>@Model.Movies[i].Year</td>
-                <td><a asp-controller="Movie" asp-action="Movie" asp-route-id="@Model.Movies[i].Id">More info & tickets</a></td>
-            </tr>
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div class="card">
+                    <img src="@m.Poster" />
+                    <div class="card-body">
+                        <h5 class="card-title">@m.Title</h5>
+                        <p class="card-text">
+                            @m.Year @m.Duration'' <a asp-controller="Movie" asp-action="Genres" asp-route-genreid="@m.Genre.Id">@m.Genre.Genre</a><br />
+                        </p>
+                        <a asp-controller="Movie" asp-action="Movie" asp-route-id="@m.Id" class="card-link">More info & tickets</a>
+                    </div>
+                </div>
+            </div>
         }
-    </table>
-}
+    }
+</div>

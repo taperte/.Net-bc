@@ -10,22 +10,15 @@
     </ol>
 </nav>
 <div class="row">
-    @for (int i = 0; i < 6; i++)
+    @foreach (var a in Model)
     {
-        if (i < Model.Count)
-        {
-            <div class="col-md-4 col-sm-12 mb-3">
-                <div class="card">
-                    <img src="@Model[i].Image" />
-                    <div class="card-body">
-                        <a class="card-link" asp-controller="News" asp-action="Article" asp-route-id="@Model[i].ArticleId">@Model[i].Headline</a>
-                    </div>
+        <div class="col-md-4 col-sm-12 mb-3">
+            <div class="card">
+                <img src="@a.Image" />
+                <div class="card-body">
+                    <a class="card-link" asp-controller="News" asp-action="Article" asp-route-id="@a.ArticleId">@a.Headline</a>
                 </div>
             </div>
-        }
-        else
-        {
-            break;
-        }
+        </div>
     }
 </div>

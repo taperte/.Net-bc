@@ -13,14 +13,18 @@
 <div>
     <br />
     <h3>@Model.Movie.Title</h3>
+    @if (Model.Movie.OriginalTitle != null)
+    {
+        <h5 class="card-subtitle">@Model.Movie.OriginalTitle</h5>
+    }
     <br />
     <div class="row">
         <div class="col-md-5 col-sm-12">
             <div><b>Genre:</b> @Model.Movie.Genre.Genre</div>
-            <div><b>Director:</b> @Model.Movie.Director</div>
             <div><b>Year:</b> @Model.Movie.Year</div>
-            <div><b>Country:</b> @Model.Movie.Country</div>
             <div><b>Duration:</b> @Model.Movie.Duration''</div>
+            <div><b>Director:</b> @Model.Movie.Director</div>
+            <div><b>Country:</b> @Model.Movie.Country</div>
             <br />
             <div>@Model.Movie.Abstract</div>
             <br />

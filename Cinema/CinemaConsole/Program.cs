@@ -11,7 +11,7 @@ namespace CinemaConsole
 
         static void Main(string[] args)
         {
-            foreach (var g in genres.GetGenres())
+            foreach (var g in genres.GetAllGenres())
             {
                 Console.WriteLine(g.Genre);
             }
@@ -42,7 +42,7 @@ namespace CinemaConsole
 
             //12.03.2021 19:30:00 id = 16
             var time = new DateTime(2021, 3, 12, 19, 30, 0);
-            var booking2  = booking.MakeABooking(time, 16);
+            var booking2  = booking.MakeABooking(time, 16, 1);
             if (booking2 != null)
             {
                 Console.WriteLine($"You've made a booking: \"{booking2.Title}\", screening time: {time}.");

@@ -19,13 +19,13 @@
             <div class="collapse navbar-collapse align-bottom" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item @(ViewContext.RouteData.Values["controller"].ToString() == "Movie" && ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")">
-                        <a class="nav-link" style="position: relative; top: 37px; text-transform: uppercase" asp-controller="Movie" asp-action="Index">Movies</a>
+                        <a class="nav-link" style="position: relative; top: 37px; text-transform: uppercase; font-size: larger" asp-controller="Movie" asp-action="Index">Movies</a>
                     </li>
                     <li class="nav-item @(ViewContext.RouteData.Values["action"].ToString() == "Genres" ? "active" : "")">
-                        <a class="nav-link" style="position: relative; top: 37px; text-transform: uppercase" asp-controller="Movie" asp-action="Genres">Genres</a>
+                        <a class="nav-link" style="position: relative; top: 37px; text-transform: uppercase; font-size: larger" asp-controller="Movie" asp-action="Genres">Genres</a>
                     </li>
                     <li class="nav-item @(ViewContext.RouteData.Values["action"].ToString() == "MyBookings" ? "active" : "")">
-                        <a class="nav-link" style="position: relative; top: 37px; text-transform: uppercase" asp-controller="Movie" asp-action="MyBookings">My bookings</a>
+                        <a class="nav-link" style="position: relative; top: 37px; text-transform: uppercase; font-size: larger" asp-controller="Movie" asp-action="MyBookings">My bookings</a>
                     </li>
                 </ul>
             </div>

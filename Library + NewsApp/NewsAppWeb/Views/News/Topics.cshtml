@@ -16,22 +16,15 @@
     </ol>
 </nav>
 <div class="row">
-    @for (int i = 0; i < 6; i++)
+    @foreach (var a in Model.Articles)
     {
-        if (i < Model.Articles.Count)
-        {
-            <div class="col-md-4 col-sm-12 mb-3">
-                <div class="card">
-                    <img src="@Model.Articles[i].Image" />
-                    <div class="card-body">
-                        <a class="card-link" asp-controller="News" asp-action="Article" asp-route-id="@Model.Articles[i].ArticleId">@Model.Articles[i].Headline</a>
-                    </div>
+        <div class="col-md-4 col-sm-12 mb-3">
+            <div class="card">
+                <img src="@a.Image" />
+                <div class="card-body">
+                    <a class="card-link" asp-controller="News" asp-action="Article" asp-route-id="@a.ArticleId">@a.Headline</a>
                 </div>
             </div>
-        }
-        else
-        {
-            break;
-        }
+        </div>
     }
 </div>

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsAppWeb\\NewsAppWeb.csproj": {}
+    "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\NewsAppWeb\\NewsAppWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsAppWeb\\NewsAppWeb.csproj": {
+    "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\NewsAppWeb\\NewsAppWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsAppWeb\\NewsAppWeb.csproj",
+        "projectUniqueName": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\NewsAppWeb\\NewsAppWeb.csproj",
         "projectName": "NewsAppWeb",
-        "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsAppWeb\\NewsAppWeb.csproj",
-        "packagesPath": "C:\\Users\\''Dell''\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsAppWeb\\obj\\",
+        "projectPath": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\NewsAppWeb\\NewsAppWeb.csproj",
+        "packagesPath": "C:\\Users\\sl41040\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\NewsAppWeb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\''Dell''\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sl41040\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj": {
-                "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj"
+              "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj": {
+                "projectPath": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj"
               }
             }
           }
@@ -69,21 +69,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj": {
+    "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj",
+        "projectUniqueName": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj",
         "projectName": "NewsLogic",
-        "projectPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj",
-        "packagesPath": "C:\\Users\\''Dell''\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\''Dell''\\Documents\\GitHub\\.Net-bc\\Library + NewsApp\\NewsLogic\\obj\\",
+        "projectPath": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\NewsLogic\\NewsLogic.csproj",
+        "packagesPath": "C:\\Users\\sl41040\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sl41040\\source\\.Net-bc\\Library + NewsApp\\NewsLogic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\''Dell''\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sl41040\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -135,7 +135,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
