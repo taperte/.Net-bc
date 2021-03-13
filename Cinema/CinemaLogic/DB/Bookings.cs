@@ -15,7 +15,9 @@ namespace CinemaLogic.DB
         public int? TicketCount { get; set; }
         public decimal? TotalPrice { get; set; }
         public int? SeatId { get; set; }
+        public int? AuditoriumId { get; set; }
 
+        public virtual Auditoriums Auditorium { get; set; }
         public virtual Movies Movie { get; set; }
         public virtual Seats Seat { get; set; }
     }

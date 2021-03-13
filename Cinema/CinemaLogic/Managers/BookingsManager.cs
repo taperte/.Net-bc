@@ -37,8 +37,6 @@ namespace CinemaLogic.Managers
             //When screening is chosen, chooses seat by ID.
             var seat = db.Seats.FirstOrDefault(s => s.Id == seatid);
 
-            //Calculates seat price for the screening.
-            //screening.Price *= seat.Coefficient;
             if (screening != null)
             {
                 //Then the program checks existing bookings.

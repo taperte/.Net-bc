@@ -19,6 +19,7 @@ namespace CinemaLogic.DB
         {
         }
 
+        public virtual DbSet<Auditoriums> Auditoriums { get; set; }
         public virtual DbSet<Bookings> Bookings { get; set; }
         public virtual DbSet<Genres> Genres { get; set; }
         public virtual DbSet<Movies> Movies { get; set; }
@@ -35,11 +36,23 @@ namespace CinemaLogic.DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Auditoriums>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
             modelBuilder.Entity<Bookings>(entity =>
             {
                 entity.Property(e => e.BookedTime).HasColumnType("datetime");
 
                 entity.Property(e => e.TotalPrice).HasColumnType("decimal(8, 2)");
+
+                entity.HasOne(d => d.Auditorium)
+                    .WithMany(p => p.Bookings)
+                    .HasForeignKey(d => d.AuditoriumId)
+                    .HasConstraintName("FK__Bookings__Audito__3A81B327");
 
                 entity.HasOne(d => d.Movie)
                     .WithMany(p => p.Bookings)
@@ -90,6 +103,11 @@ namespace CinemaLogic.DB
                     .HasMaxLength(100);
 
                 entity.Property(e => e.Trailer).HasMaxLength(1000);
+
+                entity.HasOne(d => d.Auditorium)
+                    .WithMany(p => p.Movies)
+                    .HasForeignKey(d => d.AuditoriumId)
+                    .HasConstraintName("FK__Movies__Auditori__398D8EEE");
 
                 entity.HasOne(d => d.Genre)
                     .WithMany(p => p.Movies)

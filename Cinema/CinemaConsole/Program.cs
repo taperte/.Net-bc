@@ -1,5 +1,7 @@
 ﻿using System;
+using CinemaLogic.DB;
 using CinemaLogic.Managers;
+using System.Linq;
 
 namespace CinemaConsole
 {
@@ -41,15 +43,28 @@ namespace CinemaConsole
             //Console.WriteLine();
 
             //12.03.2021 19:30:00 id = 16
-            var time = new DateTime(2021, 3, 12, 19, 30, 0);
-            var booking2  = booking.MakeABooking(time, 16, 1);
-            if (booking2 != null)
+            //var time = new DateTime(2021, 3, 12, 19, 30, 0);
+            //var booking2  = booking.MakeABooking(time, 16, 1);
+            //if (booking2 != null)
+            //{
+            //    Console.WriteLine($"You've made a booking: \"{booking2.Title}\", screening time: {time}.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Booking was not made.");
+            //}
+
+            //Insert values into the TotalCapacity column in the auditoriums table.
+            using (var db = new CinemaDB())
             {
-                Console.WriteLine($"You've made a booking: \"{booking2.Title}\", screening time: {time}.");
-            }
-            else
-            {
-                Console.WriteLine("Booking was not made.");
+                var auditoriums = db.Auditoriums.OrderBy(a => a.Id).ToList();
+                foreach (var a in auditoriums)
+                {
+                    a.TotalCapacity = a.BasicSeats + a.Sofa + a.Balcony;
+                    var auditorium = db.Auditoriums.FirstOrDefault(aud => aud.Id == a.Id);
+                    auditorium.TotalCapacity = a.TotalCapacity;
+                }
+                db.SaveChanges();
             }
         }
     }
