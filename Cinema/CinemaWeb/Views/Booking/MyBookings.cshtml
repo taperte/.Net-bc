@@ -28,7 +28,7 @@
                 <td class="center">@Model.Bookings[i].TicketCount</td>
                 <td>@Model.Bookings[i].Seat.Type</td>
                 <td>@Model.Bookings[i].TotalPrice EUR</td>
-                <td><a asp-controller="Movie" asp-action="Cancel" asp-route-screeningid="@Model.Bookings[i].ScreeningId" asp-route-seatid="@Model.Bookings[i].SeatId">Cancel</a></td>
+                <td><a asp-controller="Booking" asp-action="Cancel" asp-route-screeningid="@Model.Bookings[i].ScreeningId" asp-route-seatid="@Model.Bookings[i].SeatId">Cancel</a></td>
             </tr>
         }
         <tr>

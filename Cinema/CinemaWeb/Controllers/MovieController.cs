@@ -10,9 +10,8 @@ namespace CinemaWeb.Controllers
 {
     public class MovieController : Controller
     {
-        private static MoviesManager movies = new MoviesManager();
+        public static MoviesManager movies = new MoviesManager();
         private static GenresManager genres = new GenresManager();
-        public static BookingsManager bookings = new BookingsManager();
         private static SeatsManager seats = new SeatsManager();
         private static ScreeningsManager screenings = new ScreeningsManager();
         private static AuditoriumsManager auditoriums = new AuditoriumsManager();
@@ -23,14 +22,21 @@ namespace CinemaWeb.Controllers
             return View(allMovies);
         }
 
-        public IActionResult Genres(int genreId)
+        public IActionResult MoviesByGenre(int genreId)
         {
             var model = new GenreMovieViewModel
             {
                 Genres = genres.GetAllGenres(),
-                Movies = movies.GetMoviesByGenre(genreId)
+                Movies = movies.GetMoviesByGenre(genreId),
+                Genre = genres.GetGenre(genreId)
             };
             return View(model);
+        }
+
+        public IActionResult Genres()
+        {
+            var allGenres = genres.GetAllGenres();
+            return View(allGenres);
         }
 
         public IActionResult Movie(int id)
@@ -46,26 +52,6 @@ namespace CinemaWeb.Controllers
             model.Movie = movies.GetMovie(id);
             model.AuditoriumSeatCount = auditoriums.AuditoriumSeatCount((int)model.Movie.AuditoriumId);
             return View(model);
-        }
-
-        public IActionResult MyBookings()
-        {
-            var model = new BookingsViewModel();
-            model.Bookings = bookings.GetBookings();
-            model.TotalPrice = bookings.TotalPrice(model.Bookings);
-            return View(model);
-        }
-
-        public IActionResult Booking(int screeningId, int seatId)
-        {
-            bookings.MakeABooking(screeningId, seatId);
-            return RedirectToAction(nameof(Movie), new { id = movies.GetMovieIDByScreeningId(screeningId) });
-        }
-
-        public IActionResult Cancel(int screeningId, int seatId)
-        {
-            bookings.CancelABooking(screeningId, seatId);
-            return RedirectToAction(nameof(MyBookings));
         }
     }
 }

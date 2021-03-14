@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <h5 class="card-title">@m.Title</h5>
                     <p class="card-text">
-                        @m.Year @m.Duration'' <a asp-controller="Movie" asp-action="Genres" asp-route-genreid="@m.Genre.Id">@m.Genre.Genre</a><br />
+                        @m.Year @m.Duration'' <a asp-controller="Movie" asp-action="MoviesByGenre" asp-route-genreid="@m.Genre.Id">@m.Genre.Genre</a><br />
                     </p>
                     <a asp-controller="Movie" asp-action="Movie" asp-route-id="@m.Id" class="card-link">More info & tickets</a>
                 </div>

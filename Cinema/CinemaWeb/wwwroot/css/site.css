@@ -65,8 +65,13 @@ html {
 
 body {
     /* Margin bottom by footer height */
+    padding-top: 140px;
     margin-bottom: 60px;
     background-image: url("https://bn1303files.storage.live.com/y4mVpcLKMWI88ub6kdTK3BZ8YNOx31nvJWPurrSTPQOn4qC-X7lPDtKbZYl7bMeCoe81p17So3AKcrwHfiNav8usIOc00uNkhAOBKpXcbT-uF1pqeSU4b7Sz3Gu9uoGGssyq5zdCH1JF9iMQy9zbvA3fz2qufjm21xndcLjxcvmtgKz6CIe0XosN5hBWgalt6X2?width=1316&height=740&cropmode=none");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 .footer {
   position: absolute;
@@ -110,11 +115,27 @@ body {
     text-align: right
 }
 
-.navbar-position {
-  position: relative;
-  top: 40px
-}
-
 .card {
     background-color: rgba(0, 0, 0, 0);
 }
+
+.bottom {
+    position: absolute;
+    bottom: 0;
+    right: 13%;
+}
+
+.btn-outline-light, .btn-outline-light:focus, .btn-outline-light:active {
+    border-color: #f8f9fa;
+    color: #f8f9fa;
+    border-radius: 0;
+}
+
+.btn-outline-light:hover {
+    background: #d0590a;
+    border-color: #f8f9fa;
+    color: #f8f9fa;
+    border-radius: 0;
+}
+
+

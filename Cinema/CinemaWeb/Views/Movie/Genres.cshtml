@@ -1,34 +1,13 @@
-﻿@model GenreMovieViewModel
+﻿@model List<CinemaLogic.DB.Genres>
 @{
     ViewData["Title"] = "Genres";
 }
-<ul class="nav nav-pills mb-3">
-    @foreach (var g in Model.Genres)
-    {
-        <li class="nav-item">
-            <a class="nav-link" asp-controller="Movie" asp-action="Genres" asp-route-genreid="@g.Id">@g.Genre</a>
-        </li>
-    }
-</ul>
 
 <br />
-<div class="row">
-    @if (Model.Movies.Count > 0)
+@foreach (var g in Model)
+{
+    @if (g.Movies.Count > 0)
     {
-        @foreach (var m in Model.Movies)
-        {
-            <div class="col-md-3 col-sm-12 mb-3">
-                <div class="card">
-                    <img src="@m.Poster" />
-                    <div class="card-body">
-                        <h5 class="card-title">@m.Title</h5>
-                        <p class="card-text">
-                            @m.Year @m.Duration'' <a asp-controller="Movie" asp-action="Genres" asp-route-genreid="@m.Genre.Id">@m.Genre.Genre</a><br />
-                        </p>
-                        <a asp-controller="Movie" asp-action="Movie" asp-route-id="@m.Id" class="card-link">More info & tickets</a>
-                    </div>
-                </div>
-            </div>
-        }
+        <a type="button" asp-controller="Movie" asp-action="MoviesByGenre" asp-route-genreid="@g.Id" class="btn btn-outline-light btn-lg btn-block">@g.Genre (@g.Movies.Count)</a>
     }
-</div>
+}

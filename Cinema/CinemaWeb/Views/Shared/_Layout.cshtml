@@ -9,23 +9,23 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body class="text">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-3">
         <div class="container">
             <a asp-controller="Home" asp-action="Index"><img src="https://bn1303files.storage.live.com/y4m1G96MtoDasmrfLowmOqZpEbvr8dYgUhz7_Gc-1ouIWftY_DPZcXQeYTT4T-h9GJ9P0S6fK2PVZQBLvCAk6whhd4ZBAyorO5ETuGY52w8bruaqjSN7IAZ06X_vDpxATn2Mi2fc25A3JCrtm3hdI4UxHKI6EqfL0CF__5bZ85q_nqrCiwmlqsVyOXgLuCNmM0J?width=1018&height=245&cropmode=none" height="100"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse align-bottom" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse bottom" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item @(ViewContext.RouteData.Values["controller"].ToString() == "Movie" && ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")">
-                        <a class="nav-link" style="position: relative; top: 37px; text-transform: uppercase; font-size: larger" asp-controller="Movie" asp-action="Index">Movies</a>
+                        <a class="nav-link" style="text-transform: uppercase; font-size: larger" asp-controller="Movie" asp-action="Index">Movies</a>
                     </li>
                     <li class="nav-item @(ViewContext.RouteData.Values["action"].ToString() == "Genres" ? "active" : "")">
-                        <a class="nav-link" style="position: relative; top: 37px; text-transform: uppercase; font-size: larger" asp-controller="Movie" asp-action="Genres">Genres</a>
+                        <a class="nav-link" style="text-transform: uppercase; font-size: larger" asp-controller="Movie" asp-action="Genres">Genres</a>
                     </li>
                     <li class="nav-item @(ViewContext.RouteData.Values["action"].ToString() == "MyBookings" ? "active" : "")">
-                        <a class="nav-link" style="position: relative; top: 37px; text-transform: uppercase; font-size: larger" asp-controller="Movie" asp-action="MyBookings">My bookings</a>
+                        <a class="nav-link" style="text-transform: uppercase; font-size: larger" asp-controller="Booking" asp-action="MyBookings">My bookings</a>
                     </li>
                 </ul>
             </div>

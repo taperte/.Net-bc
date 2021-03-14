@@ -68,7 +68,7 @@
                         {
                             @if (Model.ScreeningsSeatCount[i][j] > 0)
                             {
-                                <a asp-controller="Movie" asp-action="Booking" asp-route-screeningid="@Model.Screenings[i].Id" asp-route-seatid="@Model.Seats[j].Id">Book @Model.Seats[j].Type.ToLower()</a> <span>(@Model.ScreeningsSeatCount[i][j])</span>
+                                <a asp-controller="Booking" asp-action="Booking" asp-route-screeningid="@Model.Screenings[i].Id" asp-route-seatid="@Model.Seats[j].Id">Book @Model.Seats[j].Type.ToLower()</a> <span>(@Model.ScreeningsSeatCount[i][j])</span>
                             <br />
                             }
                         }

@@ -10,6 +10,7 @@ namespace CinemaWeb.Models
     {
         public List<Genres> Genres { get; set; }
         public List<Movies> Movies { get; set; }
+        public Genres Genre { get; set; }
 
         public GenreMovieViewModel()
         {
