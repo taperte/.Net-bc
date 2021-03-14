@@ -21,3 +21,4 @@ C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\Cinem
 C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.dll
 C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.pdb
 C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.genruntimeconfig.cache
+C:\Users\sl41040\source\.Net-bc\Cinema\CinemaLogic\obj\Debug\netcoreapp3.1\CinemaLogic.csprojAssemblyReference.cache
