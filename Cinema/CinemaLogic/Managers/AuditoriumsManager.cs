@@ -19,7 +19,8 @@ namespace CinemaLogic.Managers
             }
         }
 
-        //Returns a list of seat count for all seat types in an auditorium.
+        //Returns a list of seat count for all seat types
+        //in an auditorium.
         public List<int> AuditoriumSeatCount(int id)
         {
             var seats = new List<int>();

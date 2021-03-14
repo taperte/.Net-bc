@@ -31,6 +31,7 @@ alter table Movies drop column ScreeningTime5
 
 alter table Bookings drop column BookedTime
 alter table Bookings drop column AuditoriumId
+
 alter table Bookings add ScreeningId int foreign key references Screenings(Id)
 
 alter table Screenings add BasicSeats int

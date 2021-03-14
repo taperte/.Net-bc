@@ -90,7 +90,7 @@ namespace CinemaConsole
             foreach (var scr in screenings.SeatCountAllMovieScreenings(3))
             {
                 foreach (var seatCount in scr)
-                {
+                {  
                     Console.WriteLine(seatCount);
                 }
             }
