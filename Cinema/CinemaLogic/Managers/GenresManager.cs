@@ -22,10 +22,10 @@ namespace CinemaLogic.Managers
 
 
         //Returns a genre with a certain ID.
-        public Genres GetGenre(int genreid)
+        public Genres GetGenre(int genreId)
         {
             using CinemaDB db = new CinemaDB();
-            var genre = db.Genres.FirstOrDefault(g => g.Id == genreid);
+            var genre = db.Genres.FirstOrDefault(g => g.Id == genreId);
             genre.Movies = db.Movies.Where(m => m.GenreId == genre.Id).ToList();
             return genre;
         }

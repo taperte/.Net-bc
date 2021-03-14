@@ -29,12 +29,15 @@
             <div>@Model.Movie.Abstract</div>
             <br />
             <div><b>Auditorium:</b> @Model.Movie.Auditorium.Name</div>
+            <br />
             <div><b>Prices:</b></div>
             @for (int i = 0; i < Model.Prices.Count; i++)
             {
-
-                <b>@Model.Seats[i].Type.ToLower()</b><span> — @Model.Prices[i] EUR</span>
-                <br />
+                @if (Model.AuditoriumSeatCount[i] > 0)
+                {
+                    <b>@Model.Seats[i].Type.ToLower()</b><span> — @Model.Prices[i] EUR</span>
+                    <br />
+                }
             }
         </div>
         <div class="col-md-7 col-sm-12">
@@ -47,21 +50,30 @@
         <tr>
             @foreach (var screening in Model.Screenings)
             {
-                <th>
-                    @screening.ToString().Substring(0, screening.ToString().Length - 3)
-                </th>
+                @if (screening.TotalCapacity > 0)
+                {
+                    <th>
+                        @screening.Time.ToString().Substring(0, screening.Time.ToString().Length - 3)
+                    </th>
+                }
             }
         </tr>
         <tr>
-            @foreach (var screening in Model.Screenings)
+            @for (int i = 0; i < Model.Screenings.Count; i++)
             {
-                <td>
-                    @foreach (var seat in Model.Seats)
-                    {
-                        <a asp-controller="Movie" asp-action="Booking" asp-route-time="@screening" asp-route-movieid="@Model.Movie.Id" asp-route-seatid="@seat.Id">Book @seat.Type.ToLower()</a>
-                        <br />
-                    }
-                </td>
+                @if (Model.Screenings[i].TotalCapacity > 0)
+                {
+                    <td>
+                        @for (int j = 0; j < Model.ScreeningsSeatCount[i].Count; j++)
+                        {
+                            @if (Model.ScreeningsSeatCount[i][j] > 0)
+                            {
+                                <a asp-controller="Movie" asp-action="Booking" asp-route-screeningid="@Model.Screenings[i].Id" asp-route-seatid="@Model.Seats[j].Id">Book @Model.Seats[j].Type.ToLower()</a> <span>(@Model.ScreeningsSeatCount[i][j])</span>
+                            <br />
+                            }
+                        }
+                    </td>
+                }
             }
         </tr>
     </table>

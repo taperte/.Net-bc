@@ -16,3 +16,24 @@ insert into Auditoriums([Name], BasicSeats, Sofa, Balcony) values('Auditorium 5'
 alter table Movies add AuditoriumId int foreign key references Auditoriums(Id)
 
 alter table Bookings add AuditoriumId int foreign key references Auditoriums(Id)
+
+create table Screenings (
+	Id int not null identity primary key,
+	[Time] datetime not null,
+	MovieId int not null foreign key references Movies(Id)
+)
+
+alter table Movies drop column ScreeningTime1
+alter table Movies drop column ScreeningTime2
+alter table Movies drop column ScreeningTime3
+alter table Movies drop column ScreeningTime4
+alter table Movies drop column ScreeningTime5
+
+alter table Bookings drop column BookedTime
+alter table Bookings drop column AuditoriumId
+alter table Bookings add ScreeningId int foreign key references Screenings(Id)
+
+alter table Screenings add BasicSeats int
+alter table Screenings add Sofa int
+alter table Screenings add Balcony int
+alter table Screenings add TotalCapacity int

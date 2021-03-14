@@ -10,15 +10,12 @@ namespace CinemaLogic.DB
     public partial class Bookings
     {
         public int Id { get; set; }
-        public int? MovieId { get; set; }
-        public DateTime BookedTime { get; set; }
         public int? TicketCount { get; set; }
         public decimal? TotalPrice { get; set; }
         public int? SeatId { get; set; }
-        public int? AuditoriumId { get; set; }
+        public int? ScreeningId { get; set; }
 
-        public virtual Auditoriums Auditorium { get; set; }
-        public virtual Movies Movie { get; set; }
+        public virtual Screenings Screening { get; set; }
         public virtual Seats Seat { get; set; }
     }
 }

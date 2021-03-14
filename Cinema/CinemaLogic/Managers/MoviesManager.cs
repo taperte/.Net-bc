@@ -27,45 +27,18 @@ namespace CinemaLogic.Managers
         //Returns a list of all movies ordered by title.
         public List<Movies> GetAllMovies()
         {
-            using CinemaDB db = new CinemaDB();
-            List<Movies> movies = db.Movies.OrderBy(m => m.Title).ToList();
+            using (CinemaDB db = new CinemaDB())
+            {
+                List<Movies> movies = db.Movies.OrderBy(m => m.Title).ToList();
 
-            //Assigns value to the genre and auditorium properties for every item in the list.
-            foreach (var m in movies)
-            {
-                m.Genre = db.Genres.FirstOrDefault(g => g.Id == m.GenreId);
-                m.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == m.AuditoriumId);
+                //Assigns value to the genre and auditorium properties for every item in the list.
+                foreach (var m in movies)
+                {
+                    m.Genre = db.Genres.FirstOrDefault(g => g.Id == m.GenreId);
+                    m.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == m.AuditoriumId);
+                }
+                return movies;
             }
-            return movies;
-        }
-
-        //Returns a list of screening times of a particular movie.
-        public List<DateTime> Screenings(int movieid)
-        {
-            using CinemaDB db = new CinemaDB();
-            var screenings = new List<DateTime>();
-            var movie = GetMovie(movieid);
-            if (movie.ScreeningTime1 != null)
-            {
-                screenings.Add((DateTime)movie.ScreeningTime1);
-            }
-            if (movie.ScreeningTime2 != null)
-            {
-                screenings.Add((DateTime)movie.ScreeningTime2);
-            }
-            if (movie.ScreeningTime3 != null)
-            {
-                screenings.Add((DateTime)movie.ScreeningTime3);
-            }
-            if (movie.ScreeningTime4 != null)
-            {
-                screenings.Add((DateTime)movie.ScreeningTime4);
-            }
-            if (movie.ScreeningTime5 != null)
-            {
-                screenings.Add((DateTime)movie.ScreeningTime5);
-            }
-            return screenings;
         }
 
         //Returns a movie by ID.
@@ -76,6 +49,14 @@ namespace CinemaLogic.Managers
             movie.Genre = db.Genres.FirstOrDefault(g => g.Id == movie.GenreId);
             movie.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == movie.AuditoriumId);
             return movie;
+        }
+
+        //Returns a movie by screening ID.
+        public int GetMovieIDByScreeningId(int screeningId)
+        {
+            using CinemaDB db = new CinemaDB();
+            var screening = db.Screenings.FirstOrDefault(s => s.Id == screeningId);
+            return screening.MovieId;
         }
 
         //Returns a list of movies of a certain genre ordered by title; parameter: genre ID.

@@ -14,29 +14,37 @@ namespace CinemaWeb.Controllers
         private static GenresManager genres = new GenresManager();
         public static BookingsManager bookings = new BookingsManager();
         private static SeatsManager seats = new SeatsManager();
+        private static ScreeningsManager screenings = new ScreeningsManager();
+        private static AuditoriumsManager auditoriums = new AuditoriumsManager();
 
         public IActionResult Index()
         {
-            var allmovies = movies.GetAllMovies();
-            return View(allmovies);
+            var allMovies = movies.GetAllMovies();
+            return View(allMovies);
         }
 
-        public IActionResult Genres(int genreid)
+        public IActionResult Genres(int genreId)
         {
-            var model = new GenreMovieViewModel();
-            model.Genres = genres.GetAllGenres();
-            model.Movies = movies.GetMoviesByGenre(genreid);
+            var model = new GenreMovieViewModel
+            {
+                Genres = genres.GetAllGenres(),
+                Movies = movies.GetMoviesByGenre(genreId)
+            };
             return View(model);
         }
 
         public IActionResult Movie(int id)
         {
-            var model = new MovieSeatsViewModel();
+            var model = new MovieSeatsViewModel
+            {
+                Seats = seats.GetSeats(),
+                Genres = genres.GetAllGenres(),
+                Screenings = screenings.Screenings(id),
+                Prices = seats.GetSeatPrices(id),
+                ScreeningsSeatCount = screenings.SeatCountAllMovieScreenings(id),
+            };
             model.Movie = movies.GetMovie(id);
-            model.Seats = seats.GetSeats();
-            model.Genres = genres.GetAllGenres();
-            model.Screenings = movies.Screenings(id);
-            model.Prices = seats.GetSeatPrices(id);
+            model.AuditoriumSeatCount = auditoriums.AuditoriumSeatCount((int)model.Movie.AuditoriumId);
             return View(model);
         }
 
@@ -48,17 +56,15 @@ namespace CinemaWeb.Controllers
             return View(model);
         }
 
-        public IActionResult Booking(string time, int movieid, int seatid)
+        public IActionResult Booking(int screeningId, int seatId)
         {
-            var timeparsed = DateTime.Parse(time);
-            bookings.MakeABooking(timeparsed, movieid, seatid);
-            return RedirectToAction(nameof(Movie), new { id = movieid });
+            bookings.MakeABooking(screeningId, seatId);
+            return RedirectToAction(nameof(Movie), new { id = movies.GetMovieIDByScreeningId(screeningId) });
         }
 
-        public IActionResult Cancel(string time, int movieid, int seatid)
+        public IActionResult Cancel(int screeningId, int seatId)
         {
-            var timeparsed = DateTime.Parse(time);
-            bookings.CancelABooking(timeparsed, movieid, seatid);
+            bookings.CancelABooking(screeningId, seatId);
             return RedirectToAction(nameof(MyBookings));
         }
     }

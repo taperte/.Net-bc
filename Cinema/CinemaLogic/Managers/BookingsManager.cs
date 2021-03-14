@@ -13,10 +13,12 @@ namespace CinemaLogic.Managers
         {
             using (CinemaDB db = new CinemaDB())
             {
-                var bookings = db.Bookings.OrderBy(b => b.BookedTime).ToList();
+                var bookings = db.Bookings.OrderBy(b => b.Screening.Time).ToList();
                 foreach (var b in bookings)
                 {
-                    b.Movie = db.Movies.FirstOrDefault(m => m.Id == b.MovieId);
+                    b.Screening = db.Screenings.FirstOrDefault(s => s.Id == b.ScreeningId);
+                    b.Screening.Movie = db.Movies.FirstOrDefault(m => m.Id == b.Screening.MovieId);
+                    b.Screening.Movie.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == b.Screening.Movie.AuditoriumId);
                     b.Seat = db.Seats.FirstOrDefault(s => s.Id == b.SeatId);
                 }
                 return bookings;
@@ -24,93 +26,141 @@ namespace CinemaLogic.Managers
         }
 
         //Makes a booking at specific time; returns movie or null.
-        public Movies MakeABooking(DateTime time, int movieid, int seatid)
+        public Screenings MakeABooking(int screeningId, int seatId)
         {
-            using CinemaDB db = new CinemaDB();
-            //Searches for screening by movie ID and screening time.
-            var screening = db.Movies.FirstOrDefault(m => (m.ScreeningTime1 == time ||
-                                                           m.ScreeningTime2 == time ||
-                                                           m.ScreeningTime3 == time ||
-                                                           m.ScreeningTime4 == time ||
-                                                           m.ScreeningTime5 == time) &&
-                                                           m.Id == movieid);
-            //When screening is chosen, chooses seat by ID.
-            var seat = db.Seats.FirstOrDefault(s => s.Id == seatid);
-
-            if (screening != null)
+            using (CinemaDB db = new CinemaDB())
             {
-                //Then the program checks existing bookings.
-                var booking = db.Bookings.FirstOrDefault(b => b.MovieId == screening.Id &&
-                                                              b.BookedTime == time &&
-                                                              b.SeatId == seatid);
-                //If matching booking is not found,
-                if (booking == null)
+                //Searches for screening by screening ID.
+                var screening = db.Screenings.FirstOrDefault(s => s.Id == screeningId);
+
+                //When screening is chosen, chooses seat by ID.
+                var seat = db.Seats.FirstOrDefault(s => s.Id == seatId);
+
+                if (screening != null)
                 {
-                    //a new row is added to the bookings table.
-                    db.Bookings.Add(new Bookings()
+                    //Fills in screening.Movie and screening.Movie.Auditorium properties.
+                    screening.Movie = db.Movies.FirstOrDefault(m => m.Id == screening.MovieId);
+                    screening.Movie.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == screening.Movie.AuditoriumId);
+
+                    //Then the program checks existing bookings.
+                    var booking = db.Bookings.FirstOrDefault(b => b.ScreeningId == screening.Id &&
+                                                                  b.SeatId == seatId);
+                    //If matching booking is not found,
+                    if (booking == null)
                     {
-                        MovieId = screening.Id,
-                        BookedTime = time,
-                        TicketCount = 1,
-                        TotalPrice = screening.Price * seat.Coefficient,
-                        Movie = screening,
-                        SeatId = seatid,
-                        Seat = seat
-                    });
+                        //a new row is added to the bookings table.
+                        db.Bookings.Add(new Bookings()
+                        {
+                            TicketCount = 1,
+                            TotalPrice = screening.Movie.Price * seat.Coefficient,
+                            SeatId = seatId,
+                            Seat = seat,
+                            ScreeningId = screeningId,
+                            Screening = screening
+                        });
+                    }
+                    //If a match is found,
+                    else
+                    {
+                        //ticket count and total price are increased.
+                        booking.TicketCount++;
+                        booking.TotalPrice += screening.Movie.Price * seat.Coefficient;
+                    }
+                    //Seat count is decreased.
+                    switch (seatId)
+                    {
+                        case 1:
+                            screening.BasicSeats--;
+                            break;
+                        case 2:
+                            screening.Sofa--;
+                            break;
+                        default:
+                            screening.Balcony--;
+                            break;
+                    }
+                    //Total capacity is updated.
+                    screening.TotalCapacity = TotalCapacityScreening(screening);
+                    db.SaveChanges();
+                    return screening;
                 }
-                //If a match is found,
-                else
-                {
-                    //ticket count and total price are increased.
-                    booking.TicketCount++;
-                    booking.TotalPrice += screening.Price * seat.Coefficient;
-                }
-                db.SaveChanges();
             }
-            return screening;
+            return null;
         }
 
         //Cancels a booking.
-        public Bookings CancelABooking(DateTime time, int movieid, int seatid)
+        public Bookings CancelABooking(int screeningId, int seatId)
         {
-            using CinemaDB db = new CinemaDB();
-
-            //Searches for the booking to cancel.
-            var booking = db.Bookings.FirstOrDefault(b => b.BookedTime == time && 
-                                                          b.Id == movieid && 
-                                                          b.SeatId == seatid);
-            booking.Movie = db.Movies.FirstOrDefault(m => m.Id == booking.MovieId);
-            booking.Seat = db.Seats.FirstOrDefault(s => s.Id == seatid);
-
-            //If finds one, checks ticket count.
-            if (booking != null)
+            using (CinemaDB db = new CinemaDB())
             {
-                //If there are more than 1 ticket,
-                if (booking.TicketCount > 1)
+                //Searches for the booking to cancel.
+                var booking = db.Bookings.FirstOrDefault(b => b.ScreeningId == screeningId &&
+                                                              b.SeatId == seatId);
+
+                booking.Screening = db.Screenings.FirstOrDefault(s => s.Id == booking.ScreeningId);
+                booking.Screening.Movie = db.Movies.FirstOrDefault(m => m.Id == booking.Screening.MovieId);
+                booking.Screening.Movie.Auditorium = db.Auditoriums.FirstOrDefault
+                                                     (a => a.Id == booking.Screening.Movie.AuditoriumId);
+                booking.Seat = db.Seats.FirstOrDefault(s => s.Id == seatId);
+
+                //If finds one, checks ticket count.
+                if (booking != null)
                 {
-                    //ticket count and total price are decreased.
-                    booking.TicketCount--;
-                    booking.TotalPrice -= booking.Movie.Price * booking.Seat.Coefficient;
+                    //If there are more than 1 ticket,
+                    if (booking.TicketCount > 1)
+                    {
+                        //ticket count and total price are decreased.
+                        booking.TicketCount--;
+                        booking.TotalPrice -= booking.Screening.Movie.Price * booking.Seat.Coefficient;
+                    }
+                    else
+                    {
+                        //Otherwise the booking is removed from the list.
+                        db.Bookings.Remove(booking);
+                    }
+                    //Seat count is increased.
+                    switch (seatId)
+                    {
+                        case 1:
+                            booking.Screening.BasicSeats++;
+                            break;
+                        case 2:
+                            booking.Screening.Sofa++;
+                            break;
+                        default:
+                            booking.Screening.Balcony++;
+                            break;
+                    }
+
+                    //Total capacity is updated.
+                    booking.Screening.TotalCapacity = TotalCapacityScreening(booking.Screening);
+                    db.SaveChanges();
+                    return booking;
                 }
-                else
-                {
-                    //Otherwise the booking is removed from the list.
-                    db.Bookings.Remove(booking);
-                }
-                db.SaveChanges();
             }
-            return booking;
+            return null;
         }
 
         //Calculates total price of all bookings.
         public decimal TotalPrice(List<Bookings> bookings)
         {
-            decimal totalprice = 0;
+            decimal totalPrice = 0;
             foreach (var b in bookings)
             {
-                totalprice += (decimal)b.TotalPrice;
+                totalPrice += (decimal)b.TotalPrice;
             }
-            return totalprice;
+            return totalPrice;
+        }
+
+        //Returns total capacity of a screening.
+        private int TotalCapacityScreening(Screenings screening)
+        {
+            using (var db = new CinemaDB())
+            {
+                screening.TotalCapacity = screening.BasicSeats + screening.Sofa + screening.Balcony;
+                db.SaveChanges();
+                return (int)screening.TotalCapacity;
+            }
         }
     }
 }

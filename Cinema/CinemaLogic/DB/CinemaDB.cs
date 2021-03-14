@@ -23,6 +23,7 @@ namespace CinemaLogic.DB
         public virtual DbSet<Bookings> Bookings { get; set; }
         public virtual DbSet<Genres> Genres { get; set; }
         public virtual DbSet<Movies> Movies { get; set; }
+        public virtual DbSet<Screenings> Screenings { get; set; }
         public virtual DbSet<Seats> Seats { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -45,19 +46,12 @@ namespace CinemaLogic.DB
 
             modelBuilder.Entity<Bookings>(entity =>
             {
-                entity.Property(e => e.BookedTime).HasColumnType("datetime");
-
                 entity.Property(e => e.TotalPrice).HasColumnType("decimal(8, 2)");
 
-                entity.HasOne(d => d.Auditorium)
+                entity.HasOne(d => d.Screening)
                     .WithMany(p => p.Bookings)
-                    .HasForeignKey(d => d.AuditoriumId)
-                    .HasConstraintName("FK__Bookings__Audito__3A81B327");
-
-                entity.HasOne(d => d.Movie)
-                    .WithMany(p => p.Bookings)
-                    .HasForeignKey(d => d.MovieId)
-                    .HasConstraintName("FK__Bookings__MovieI__286302EC");
+                    .HasForeignKey(d => d.ScreeningId)
+                    .HasConstraintName("FK__Bookings__Screen__3E52440B");
 
                 entity.HasOne(d => d.Seat)
                     .WithMany(p => p.Bookings)
@@ -88,16 +82,6 @@ namespace CinemaLogic.DB
 
                 entity.Property(e => e.Price).HasColumnType("decimal(4, 2)");
 
-                entity.Property(e => e.ScreeningTime1).HasColumnType("datetime");
-
-                entity.Property(e => e.ScreeningTime2).HasColumnType("datetime");
-
-                entity.Property(e => e.ScreeningTime3).HasColumnType("datetime");
-
-                entity.Property(e => e.ScreeningTime4).HasColumnType("datetime");
-
-                entity.Property(e => e.ScreeningTime5).HasColumnType("datetime");
-
                 entity.Property(e => e.Title)
                     .IsRequired()
                     .HasMaxLength(100);
@@ -113,6 +97,17 @@ namespace CinemaLogic.DB
                     .WithMany(p => p.Movies)
                     .HasForeignKey(d => d.GenreId)
                     .HasConstraintName("FK__Movies__GenreId__25869641");
+            });
+
+            modelBuilder.Entity<Screenings>(entity =>
+            {
+                entity.Property(e => e.Time).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Movie)
+                    .WithMany(p => p.Screenings)
+                    .HasForeignKey(d => d.MovieId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Screening__Movie__3D5E1FD2");
             });
 
             modelBuilder.Entity<Seats>(entity =>

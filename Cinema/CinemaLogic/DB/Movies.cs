@@ -11,7 +11,7 @@ namespace CinemaLogic.DB
     {
         public Movies()
         {
-            Bookings = new HashSet<Bookings>();
+            Screenings = new HashSet<Screenings>();
         }
 
         public int Id { get; set; }
@@ -19,11 +19,6 @@ namespace CinemaLogic.DB
         public string Title { get; set; }
         public string Director { get; set; }
         public int Year { get; set; }
-        public DateTime? ScreeningTime1 { get; set; }
-        public DateTime? ScreeningTime2 { get; set; }
-        public DateTime? ScreeningTime3 { get; set; }
-        public DateTime? ScreeningTime4 { get; set; }
-        public DateTime? ScreeningTime5 { get; set; }
         public int Duration { get; set; }
         public decimal? Price { get; set; }
         public string Country { get; set; }
@@ -35,6 +30,6 @@ namespace CinemaLogic.DB
 
         public virtual Auditoriums Auditorium { get; set; }
         public virtual Genres Genre { get; set; }
-        public virtual ICollection<Bookings> Bookings { get; set; }
+        public virtual ICollection<Screenings> Screenings { get; set; }
     }
 }

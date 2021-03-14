@@ -11,7 +11,6 @@ namespace CinemaLogic.DB
     {
         public Auditoriums()
         {
-            Bookings = new HashSet<Bookings>();
             Movies = new HashSet<Movies>();
         }
 
@@ -22,7 +21,6 @@ namespace CinemaLogic.DB
         public int Balcony { get; set; }
         public int? TotalCapacity { get; set; }
 
-        public virtual ICollection<Bookings> Bookings { get; set; }
         public virtual ICollection<Movies> Movies { get; set; }
     }
 }
