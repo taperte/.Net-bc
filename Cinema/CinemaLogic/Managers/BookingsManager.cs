@@ -25,7 +25,7 @@ namespace CinemaLogic.Managers
             }
         }
 
-        //Makes a booking at specific time; returns movie or null.
+        //Makes a booking at specific time; returns screening or null.
         public Screenings MakeABooking(int screeningId, int seatId)
         {
             using (CinemaDB db = new CinemaDB())
