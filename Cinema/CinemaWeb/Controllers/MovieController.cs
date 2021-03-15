@@ -13,7 +13,7 @@ namespace CinemaWeb.Controllers
         public static MoviesManager movies = new MoviesManager();
         private static GenresManager genres = new GenresManager();
         private static SeatsManager seats = new SeatsManager();
-        private static ScreeningsManager screenings = new ScreeningsManager();
+        public static ScreeningsManager screenings = new ScreeningsManager();
         private static AuditoriumsManager auditoriums = new AuditoriumsManager();
 
         public IActionResult Index()

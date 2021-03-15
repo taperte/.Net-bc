@@ -23,7 +23,8 @@ namespace CinemaWeb.Controllers
         public IActionResult Booking(int screeningId, int seatId)
         {
             bookings.MakeABooking(screeningId, seatId);
-            return RedirectToAction("Movie", "Movie", new { id = MovieController.movies.GetMovieIDByScreeningId(screeningId) });
+            var screening = MovieController.screenings.GetScreening(screeningId);
+            return RedirectToAction("Movie", "Movie", new { id = screening.MovieId });
         }
 
         public IActionResult Cancel(int screeningId, int seatId)

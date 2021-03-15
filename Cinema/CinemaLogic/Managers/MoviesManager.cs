@@ -51,14 +51,6 @@ namespace CinemaLogic.Managers
             return movie;
         }
 
-        //Returns a movie by screening ID.
-        public int GetMovieIDByScreeningId(int screeningId)
-        {
-            using CinemaDB db = new CinemaDB();
-            var screening = db.Screenings.FirstOrDefault(s => s.Id == screeningId);
-            return screening.MovieId;
-        }
-
         //Returns a list of movies of a certain genre ordered by title; parameter: genre ID.
         public List<Movies> GetMoviesByGenre(int genreId)
         {
