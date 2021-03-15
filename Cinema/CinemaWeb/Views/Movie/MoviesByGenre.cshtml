@@ -5,9 +5,12 @@
 <ul class="nav nav-pills mb-3">
     @foreach (var g in Model.Genres)
     {
-        <li class="nav-item">
-            <a class="nav-link" asp-controller="Movie" asp-action="MoviesByGenre" asp-route-genreid="@g.Id">@g.Genre</a>
-        </li>
+        @if (g.Movies.Count > 0)
+        {
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Movie" asp-action="MoviesByGenre" asp-route-genreid="@g.Id">@g.Genre</a>
+            </li>
+        }
     }
 </ul>
 
