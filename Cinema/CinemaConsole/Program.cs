@@ -82,6 +82,7 @@ namespace CinemaConsole
             //    }
             //    db.SaveChanges();
             //}
+
             foreach (var s in screenings.SeatCount(3))
             {
                 Console.WriteLine(s);
