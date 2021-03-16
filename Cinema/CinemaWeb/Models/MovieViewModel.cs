@@ -6,7 +6,7 @@ using CinemaLogic.DB;
 
 namespace CinemaWeb.Models
 {
-    public class MovieSeatsViewModel
+    public class MovieViewModel
     {
         public Movies Movie { get; set; }
         public List<Screenings> Screenings { get; set; }
@@ -17,7 +17,7 @@ namespace CinemaWeb.Models
         public List<int> AuditoriumSeatCount { get; set; }
 
 
-        public MovieSeatsViewModel()
+        public MovieViewModel()
         {
             Screenings = new List<Screenings>();
             Seats = new List<Seats>();

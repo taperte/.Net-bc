@@ -14,7 +14,7 @@ namespace CinemaWeb.Controllers
 
         public IActionResult MyBookings()
         {
-            var model = new BookingsViewModel();
+            var model = new MyBookingsViewModel();
             model.Bookings = bookings.GetBookings();
             model.TotalPrice = bookings.TotalPrice(model.Bookings);
             return View(model);

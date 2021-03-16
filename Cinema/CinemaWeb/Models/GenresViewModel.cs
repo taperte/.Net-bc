@@ -6,13 +6,12 @@ using CinemaLogic.DB;
 
 namespace CinemaWeb.Models
 {
-    public class GenreMovieViewModel
+    public class GenresViewModel
     {
         public List<Genres> Genres { get; set; }
-        public List<Movies> Movies { get; set; }
         public Genres Genre { get; set; }
 
-        public GenreMovieViewModel()
+        public GenresViewModel()
         {
             Genres = new List<Genres>();
         }

@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace CinemaWeb.Models
 {
-    public class BookingsViewModel
+    public class MyBookingsViewModel
     {
         public List<Bookings> Bookings { get; set; }
         public decimal TotalPrice { get; set; }
+
+        public MyBookingsViewModel()
+        {
+            Bookings = new List<Bookings>();
+        }
     }
 }

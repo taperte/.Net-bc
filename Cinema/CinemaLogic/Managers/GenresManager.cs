@@ -26,7 +26,7 @@ namespace CinemaLogic.Managers
         {
             using CinemaDB db = new CinemaDB();
             var genre = db.Genres.FirstOrDefault(g => g.Id == genreId);
-            genre.Movies = db.Movies.Where(m => m.GenreId == genre.Id).ToList();
+            genre.Movies = db.Movies.Where(m => m.GenreId == genre.Id).OrderBy(m => m.Title).ToList();
             return genre;
         }
     }

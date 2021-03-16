@@ -1,4 +1,4 @@
-﻿@model MovieSeatsViewModel;
+﻿@model MovieViewModel;
 @{
     ViewData["Title"] = Model.Movie.Title;
 }
@@ -8,7 +8,7 @@
         @if (g.Movies.Count > 0)
         {
             <li class="nav-item">
-                <a class="nav-link" asp-controller="Movie" asp-action="MoviesByGenre" asp-route-genreid="@g.Id">@g.Genre</a>
+                <a class="nav-link @(g.Id == Model.Movie.Genre.Id ? "active" : "")" asp-controller="Movie" asp-action="Genres" asp-route-genreid="@g.Id">@g.Genre</a>
             </li>
         }
     }

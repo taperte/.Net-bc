@@ -22,26 +22,20 @@ namespace CinemaWeb.Controllers
             return View(allMovies);
         }
 
-        public IActionResult MoviesByGenre(int genreId)
+        public IActionResult Genres(int? genreId)
         {
-            var model = new GenreMovieViewModel
+            var model = new GenresViewModel();
+            model.Genres = genres.GetAllGenres();
+            if (genreId.HasValue)
             {
-                Genres = genres.GetAllGenres(),
-                Movies = movies.GetMoviesByGenre(genreId),
-                Genre = genres.GetGenre(genreId)
-            };
+                model.Genre = genres.GetGenre(genreId.Value);
+            }
             return View(model);
-        }
-
-        public IActionResult Genres()
-        {
-            var allGenres = genres.GetAllGenres();
-            return View(allGenres);
         }
 
         public IActionResult Movie(int id)
         {
-            var model = new MovieSeatsViewModel
+            var model = new MovieViewModel
             {
                 Seats = seats.GetSeats(),
                 Genres = genres.GetAllGenres(),

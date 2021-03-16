@@ -21,6 +21,7 @@ a:hover {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+  border-radius: 0
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
@@ -125,6 +126,10 @@ body {
     right: 13%;
 }
 
+.btn-outline-light {
+    font-size: 14px
+}
+
 .btn-outline-light, .btn-outline-light:focus, .btn-outline-light:active {
     border-color: #f8f9fa;
     color: #f8f9fa;
@@ -138,4 +143,9 @@ body {
     border-radius: 0;
 }
 
-
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #f8f9fa;
+    background-color: #d0590a;
+    border-color: #f8f9fa;
+    border-radius: 0;
+}
