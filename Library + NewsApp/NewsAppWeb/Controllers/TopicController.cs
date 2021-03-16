@@ -17,7 +17,7 @@ namespace NewsAppWeb.Controllers
         public IActionResult Create()
         {
             var model = new TopicViewModel();
-            //model.Topics = manager.GetAllTopics();
+            model.Topics = manager.GetAllTopics();
 
             return View(model);
         }

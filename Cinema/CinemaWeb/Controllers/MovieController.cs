@@ -13,17 +13,20 @@ namespace CinemaWeb.Controllers
         public static MoviesManager movies = new MoviesManager();
         private static GenresManager genres = new GenresManager();
         private static SeatsManager seats = new SeatsManager();
-        public static ScreeningsManager screenings = new ScreeningsManager();
+        private static ScreeningsManager screenings = new ScreeningsManager();
         private static AuditoriumsManager auditoriums = new AuditoriumsManager();
+        private static BookingsManager bookings = new BookingsManager();
 
         public IActionResult Index()
         {
+            ViewData["count"] = bookings.GetBookings().Count;
             var allMovies = movies.GetAllMovies();
             return View(allMovies);
         }
 
         public IActionResult Genres(int? genreId)
         {
+            ViewData["count"] = bookings.GetBookings().Count;
             var model = new GenresViewModel();
             model.Genres = genres.GetAllGenres();
             if (genreId.HasValue)
@@ -35,6 +38,7 @@ namespace CinemaWeb.Controllers
 
         public IActionResult Movie(int id)
         {
+            ViewData["count"] = bookings.GetBookings().Count;
             var model = new MovieViewModel
             {
                 Seats = seats.GetSeats(),

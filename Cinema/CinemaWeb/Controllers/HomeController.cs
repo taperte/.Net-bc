@@ -12,11 +12,13 @@ namespace CinemaWeb.Controllers
 {
     public class HomeController : Controller
     {
+        private static BookingsManager bookings = new BookingsManager();
+
         public IActionResult Index()
         {
+            ViewData["count"] = bookings.GetBookings().Count;
             return View();
         }
-
 
         public IActionResult About()
         {

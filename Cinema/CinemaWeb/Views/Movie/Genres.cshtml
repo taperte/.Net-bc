@@ -1,9 +1,9 @@
 ﻿@model GenresViewModel
+
 @{
     if (Model.Genre == null)
     {
         ViewData["Title"] = "Genres";
-
         <br />
         @foreach (var g in Model.Genres)
         {
@@ -15,8 +15,7 @@
     }
     else
     {
-        ViewData["Title"] = Model.Genre;
-
+        ViewData["Title"] = Model.Genre.Genre;
         <ul class="nav nav-pills mb-3">
             @foreach (var g in Model.Genres)
             {

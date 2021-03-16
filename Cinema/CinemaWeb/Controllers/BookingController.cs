@@ -10,10 +10,12 @@ namespace CinemaWeb.Controllers
 {
     public class BookingController : Controller
     {
-        public static BookingsManager bookings = new BookingsManager();
+        private static BookingsManager bookings = new BookingsManager();
+        private static ScreeningsManager screenings = new ScreeningsManager();
 
         public IActionResult MyBookings()
         {
+            ViewData["count"] = bookings.GetBookings().Count;
             var model = new MyBookingsViewModel();
             model.Bookings = bookings.GetBookings();
             model.TotalPrice = bookings.TotalPrice(model.Bookings);
@@ -23,7 +25,7 @@ namespace CinemaWeb.Controllers
         public IActionResult Booking(int screeningId, int seatId)
         {
             bookings.MakeABooking(screeningId, seatId);
-            var screening = MovieController.screenings.GetScreening(screeningId);
+            var screening = screenings.GetScreening(screeningId);
             return RedirectToAction("Movie", "Movie", new { id = screening.MovieId });
         }
 

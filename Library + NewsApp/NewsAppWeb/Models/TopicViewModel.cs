@@ -16,11 +16,11 @@ namespace NewsAppWeb.Models
         [Display(Name = "topic description")]
         public string Description { get; set; }
 
-        //// under which topic this one should be created
-        //[Display(Name = "Parent topic")]
-        //public int? ParentTopicId { get; set; }
+        //under which topic this one should be created
+        [Display(Name = "parent topic")]
+        public int? ParentTopicId { get; set; }
 
-        //public List<Topics> Topics { get; set; }
+        public List<Topics> Topics { get; set; }
 
         //public TopicViewModel()
         //{
