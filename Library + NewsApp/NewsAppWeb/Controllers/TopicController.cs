@@ -17,7 +17,7 @@ namespace NewsAppWeb.Controllers
         public IActionResult Create()
         {
             var model = new TopicViewModel();
-            model.Topics = manager.GetAllTopics();
+            //model.Topics = manager.GetAllTopics();
 
             return View(model);
         }
@@ -28,11 +28,11 @@ namespace NewsAppWeb.Controllers
             // if valid -> save and send to another page
             if (ModelState.IsValid)
             {
+                //custom validations
                 try
                 {
                     // manager call
-                    manager.CreateNew(model.Title);
-
+                    manager.CreateNewTopic(model.Title);
                     return RedirectToAction(nameof(Create));
                 }
                 catch (LogicException ex)
@@ -45,7 +45,6 @@ namespace NewsAppWeb.Controllers
                     ModelState.AddModelError("validation", ex.Message);
                 }
             }
-
             // if not valid -> return back to the same view
             return View(model);
         }

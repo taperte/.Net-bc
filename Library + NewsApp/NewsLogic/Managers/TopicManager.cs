@@ -28,27 +28,25 @@ namespace NewsLogic.Managers
             }
         }
 
-        public void CreateNew(string title)
+        public void CreateNewTopic(string title)
         {
             using (var db = new NewsDb())
             {
-                // do validations
+                // logic must recheck basic validations
                 // 0. Topic title must be defined
-                if (String.IsNullOrEmpty(title))
+                if (string.IsNullOrEmpty(title))
                 {
                     throw new LogicException("Title can't be empty!");
                 }
-
                 // 1. Topic title should be unique
                 var sameTitle = db.Topics.FirstOrDefault(t => t.TopicName.ToLower() == title.ToLower());
                 if (sameTitle != null)
                 {
                     throw new LogicException("Topic already exists!");
                 }
-
                 db.Topics.Add(new Topics()
                 {
-                    TopicName = title,
+                    TopicName = title
                 });
 
                 db.SaveChanges();
