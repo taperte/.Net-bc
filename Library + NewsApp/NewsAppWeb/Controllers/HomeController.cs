@@ -16,8 +16,8 @@ namespace NewsAppWeb.Controllers
 
         public IActionResult Index()
         {
-            var latestnews = editor.GetLatestNews();
-            return View(latestnews);
+            var latestNews = editor.GetLatestNews();
+            return View(latestNews);
         }
 
         public IActionResult About()

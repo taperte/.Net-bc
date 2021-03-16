@@ -27,7 +27,7 @@ namespace NewsLogic.DB
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\''Dell''\\OneDrive - University of Latvia\\Documents\\NewsDB.mdf;Integrated Security=True;Connect Timeout=30");
+                optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\sl41040\\source\\NewsDB.mdf;Integrated Security=True;Connect Timeout=30");
             }
         }
 
@@ -36,7 +36,7 @@ namespace NewsLogic.DB
             modelBuilder.Entity<Articles>(entity =>
             {
                 entity.HasKey(e => e.ArticleId)
-                    .HasName("PK__Articles__9C6270E8CF074D0B");
+                    .HasName("PK__Articles__9C6270E8A79D1C84");
 
                 entity.Property(e => e.Author)
                     .HasMaxLength(255)
@@ -50,7 +50,7 @@ namespace NewsLogic.DB
                     .IsRequired()
                     .HasMaxLength(255);
 
-                entity.Property(e => e.Image).HasMaxLength(500);
+                entity.Property(e => e.Image).HasMaxLength(1000);
 
                 entity.Property(e => e.WhenAdded)
                     .HasColumnType("datetime")
@@ -59,13 +59,13 @@ namespace NewsLogic.DB
                 entity.HasOne(d => d.Topic)
                     .WithMany(p => p.Articles)
                     .HasForeignKey(d => d.TopicId)
-                    .HasConstraintName("FK__Articles__TopicI__276EDEB3");
+                    .HasConstraintName("FK__Articles__TopicI__25869641");
             });
 
             modelBuilder.Entity<Topics>(entity =>
             {
                 entity.HasKey(e => e.TopicId)
-                    .HasName("PK__Topics__022E0F5D9115B4C6");
+                    .HasName("PK__Topics__022E0F5D0D2127F4");
 
                 entity.Property(e => e.TopicName)
                     .IsRequired()

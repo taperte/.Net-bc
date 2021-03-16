@@ -19,3 +19,15 @@ C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug
 C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsLogic\bin\Debug\netcoreapp3.1\NewsLogic.runtimeconfig.json
 C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsLogic\bin\Debug\netcoreapp3.1\NewsLogic.runtimeconfig.dev.json
 C:\Users\''Dell''\Documents\GitHub\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.genruntimeconfig.cache
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsLogic\bin\Debug\netcoreapp3.1\NewsLogic.deps.json
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsLogic\bin\Debug\netcoreapp3.1\NewsLogic.runtimeconfig.json
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsLogic\bin\Debug\netcoreapp3.1\NewsLogic.runtimeconfig.dev.json
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsLogic\bin\Debug\netcoreapp3.1\NewsLogic.dll
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsLogic\bin\Debug\netcoreapp3.1\NewsLogic.pdb
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.csprojAssemblyReference.cache
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.AssemblyInfoInputs.cache
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.AssemblyInfo.cs
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.csproj.CoreCompileInputs.cache
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.dll
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.pdb
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsLogic\obj\Debug\netcoreapp3.1\NewsLogic.genruntimeconfig.cache

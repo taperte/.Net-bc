@@ -10,7 +10,7 @@ namespace CinemaWeb.Controllers
 {
     public class BookingController : Controller
     {
-        private static BookingsManager bookings = new BookingsManager();
+        public static BookingsManager bookings = new BookingsManager();
 
         public IActionResult MyBookings()
         {

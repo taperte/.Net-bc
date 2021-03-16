@@ -6,10 +6,14 @@ using NewsLogic.DB;
 
 namespace NewsAppWeb.Models
 {
-    public class TopicArticleViewModel
+    public class ArticleViewModel
     {
         public List<Topics> Topics { get; set; }
-        public List<Articles> Articles { get; set; }
         public Articles Article { get; set; }
+
+        public ArticleViewModel()
+        {
+            Topics = new List<Topics>();
+        }
     }
 }

@@ -10,30 +10,28 @@ namespace NewsAppWeb.Controllers
 {
     public class NewsController : Controller
     {
-        public static TopicManager topiceditor = new TopicManager();
+        public static TopicManager topicEditor = new TopicManager();
 
-        public IActionResult Topics(int topicid)
+        public IActionResult Topics(int? topicId)
         {
-            var topics = topiceditor.GetAllTopics();
-            var bytopic = HomeController.editor.GetNewsByTopic(topicid);
-            var topicarticleviewmodel = new TopicArticleViewModel()
-            { 
-                Topics = topics,
-                Articles = bytopic
-            };
-            return View(topicarticleviewmodel);
+            var model = new TopicsViewModel();
+            model.Topics = topicEditor.GetAllTopics();
+            if (topicId.HasValue)
+            {
+                model.Topic = topicEditor.GetTopic(topicId.Value);
+            }
+            return View(model);
         }
 
-        public IActionResult Article(int id)
+        public IActionResult Article(int? id)
         {
-            var article = HomeController.editor.GetArticle(id);
-            var topics = topiceditor.GetAllTopics();
-            var topicarticleviewmodel = new TopicArticleViewModel()
+            var model = new ArticleViewModel();
+            if (id.HasValue)
             {
-                Topics = topics,
-                Article = article
-            };
-            return View(topicarticleviewmodel);
+                model.Topics = topicEditor.GetAllTopics();
+                model.Article = HomeController.editor.GetArticle(id.Value);
+            }
+            return View(model);
         }
     }
 }

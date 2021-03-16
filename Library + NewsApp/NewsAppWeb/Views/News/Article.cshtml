@@ -1,12 +1,13 @@
-﻿@model TopicArticleViewModel;
+﻿@model ArticleViewModel;
 @{
     ViewData["Title"] = Model.Article.Headline;
 }
+
 <ul class="nav nav-pills mb-3">
-    @for (int i = 0; i < Model.Topics.Count; i++)
+    @foreach (var t in Model.Topics)
     {
         <li class="nav-item">
-            <a class="nav-link" asp-controller="News" asp-action="Topics" asp-route-topicid="@Model.Topics[i].TopicId">@Model.Topics[i].TopicName</a>
+            <a class="nav-link @(t.TopicId == Model.Article.Topic.TopicId ? "active" : "")" asp-controller="News" asp-action="Topics" asp-route-topicid="@t.TopicId">@t.TopicName</a>
         </li>
     }
 </ul>

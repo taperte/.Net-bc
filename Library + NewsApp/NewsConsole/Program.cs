@@ -16,7 +16,7 @@ namespace NewsConsole
                 Console.WriteLine(t.TopicName);
             }
             
-            editor.PrintNews(editor.GetLatestNews(), "Latest news:");
+            //editor.PrintNews(editor.GetLatestNews(), "Latest news:");
 
             while (true)
             {
@@ -33,7 +33,7 @@ namespace NewsConsole
                     Console.Write("Invalid ID! ");
                     continue;
                 }
-                editor.PrintNews(editor.GetNewsByTopic(topicid), $"{editor.GetTopic(topicid).TopicName}:");
+                //editor.PrintNews(editor.GetNewsByTopic(topicid), $"{editor.GetTopic(topicid).TopicName}:");
             }
 
             while (true)
@@ -55,7 +55,13 @@ namespace NewsConsole
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"Article with ID {articleid}:");
                 Console.ResetColor();
-                editor.PrintArticleInfo(article);
+                //editor.PrintArticleInfo(article);
+            }
+
+            var topic = topics.GetTopic(3);
+            foreach (var a in topic.Articles)
+            {
+                Console.WriteLine(a.Headline);
             }
         }
     }
