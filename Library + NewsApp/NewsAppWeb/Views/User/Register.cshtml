@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+@model RegisterViewModel
+
+<div asp-validation-summary="All"></div>
+<form asp-controller="User" asp-action="Register" method="post">
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="RepeatEmail"></label>
+        <input asp-for="RepeatEmail" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="RepeatPassword"></label>
+        <input asp-for="RepeatPassword" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>

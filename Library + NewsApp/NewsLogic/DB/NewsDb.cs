@@ -21,6 +21,7 @@ namespace NewsLogic.DB
 
         public virtual DbSet<Articles> Articles { get; set; }
         public virtual DbSet<Topics> Topics { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -70,6 +71,21 @@ namespace NewsLogic.DB
                 entity.Property(e => e.TopicName)
                     .IsRequired()
                     .HasMaxLength(20);
+            });
+
+            modelBuilder.Entity<Users>(entity =>
+            {
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Username)
+                    .IsRequired()
+                    .HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

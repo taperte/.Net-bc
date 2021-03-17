@@ -9,7 +9,6 @@ namespace AspNetCore
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
@@ -26,8 +25,22 @@ using NewsAppWeb.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Mvc;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"97b04b59d04ed43c36716e75ea87378e1ecaac2a", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6b6abffd711509624587b7d807c455cde2f7924e", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"04f1b5b2f412e8ad59e1cbd0b4fbf2a5f53bca1c", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<NewsLogic.DB.Articles>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("card-link"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -85,7 +98,7 @@ WriteAttributeValue("", 410, a.Image, 410, 8, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(" />\r\n                <div class=\"card-body\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "97b04b59d04ed43c36716e75ea87378e1ecaac2a5241", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "97b04b59d04ed43c36716e75ea87378e1ecaac2a5605", async() => {
 #nullable restore
 #line 19 "C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\Views\Home\Index.cshtml"
                                                                                                            Write(a.Headline);

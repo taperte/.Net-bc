@@ -202,3 +202,5 @@ C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\obj\Debug\netcoreap
 C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\obj\Debug\netcoreapp3.1\NewsAppWeb.pdb
 C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\obj\Debug\netcoreapp3.1\NewsAppWeb.genruntimeconfig.cache
 C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\obj\Debug\netcoreapp3.1\Razor\Views\Topic\Create.cshtml.g.cs
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\obj\Debug\netcoreapp3.1\Razor\Views\User\Register.cshtml.g.cs
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\obj\Debug\netcoreapp3.1\Razor\Views\User\Login.cshtml.g.cs
