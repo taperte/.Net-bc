@@ -13,7 +13,7 @@ namespace CinemaLogic.Managers
         {
             using (var db = new CinemaDB())
             {
-                var screenings = db.Screenings.Where(s => s.MovieId == movieId).ToList();
+                var screenings = db.Screenings.Where(s => s.MovieId == movieId && s.TotalCapacity > 0).ToList();
                 foreach (var s in screenings)
                 {
                     s.Movie = db.Movies.FirstOrDefault(m => m.Id == s.MovieId);

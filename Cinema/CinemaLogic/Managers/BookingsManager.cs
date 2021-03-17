@@ -26,7 +26,7 @@ namespace CinemaLogic.Managers
         }
 
         //Makes a booking at specific time; returns screening or null.
-        public Screenings MakeABooking(int screeningId, int seatId)
+        public Screenings MakeABooking(int screeningId, int seatId, int ticketCount)
         {
             using (CinemaDB db = new CinemaDB())
             {
@@ -42,7 +42,7 @@ namespace CinemaLogic.Managers
                     screening.Movie = db.Movies.FirstOrDefault(m => m.Id == screening.MovieId);
                     screening.Movie.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == screening.Movie.AuditoriumId);
 
-                    //Then the program checks existing bookings.
+                    //Then checks existing bookings.
                     var booking = db.Bookings.FirstOrDefault(b => b.ScreeningId == screening.Id &&
                                                                   b.SeatId == seatId);
                     //If matching booking is not found,
@@ -51,8 +51,8 @@ namespace CinemaLogic.Managers
                         //a new row is added to the bookings table.
                         db.Bookings.Add(new Bookings()
                         {
-                            TicketCount = 1,
-                            TotalPrice = screening.Movie.Price * seat.Coefficient,
+                            TicketCount = ticketCount,
+                            TotalPrice = screening.Movie.Price * seat.Coefficient * ticketCount,
                             SeatId = seatId,
                             Seat = seat,
                             ScreeningId = screeningId,
@@ -63,20 +63,20 @@ namespace CinemaLogic.Managers
                     else
                     {
                         //ticket count and total price are increased.
-                        booking.TicketCount++;
-                        booking.TotalPrice += screening.Movie.Price * seat.Coefficient;
+                        booking.TicketCount += ticketCount;
+                        booking.TotalPrice += screening.Movie.Price * seat.Coefficient * ticketCount;
                     }
                     //Seat count is decreased.
                     switch (seatId)
                     {
                         case 1:
-                            screening.BasicSeats--;
+                            screening.BasicSeats -= ticketCount;
                             break;
                         case 2:
-                            screening.Sofa--;
+                            screening.Sofa -= ticketCount;
                             break;
                         default:
-                            screening.Balcony--;
+                            screening.Balcony -= ticketCount;
                             break;
                     }
                     //Total capacity is updated.
@@ -97,15 +97,15 @@ namespace CinemaLogic.Managers
                 var booking = db.Bookings.FirstOrDefault(b => b.ScreeningId == screeningId &&
                                                               b.SeatId == seatId);
 
-                booking.Screening = db.Screenings.FirstOrDefault(s => s.Id == booking.ScreeningId);
-                booking.Screening.Movie = db.Movies.FirstOrDefault(m => m.Id == booking.Screening.MovieId);
-                booking.Screening.Movie.Auditorium = db.Auditoriums.FirstOrDefault
-                                                     (a => a.Id == booking.Screening.Movie.AuditoriumId);
-                booking.Seat = db.Seats.FirstOrDefault(s => s.Id == seatId);
-
-                //If finds one, checks ticket count.
+                //If finds one, fills in virtual properties and checks ticket count.
                 if (booking != null)
                 {
+                    booking.Screening = db.Screenings.FirstOrDefault(s => s.Id == booking.ScreeningId);
+                    booking.Screening.Movie = db.Movies.FirstOrDefault(m => m.Id == booking.Screening.MovieId);
+                    booking.Screening.Movie.Auditorium = db.Auditoriums.FirstOrDefault
+                                                         (a => a.Id == booking.Screening.Movie.AuditoriumId);
+                    booking.Seat = db.Seats.FirstOrDefault(s => s.Id == seatId);
+
                     //If there are more than 1 ticket,
                     if (booking.TicketCount > 1)
                     {

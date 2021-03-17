@@ -36,6 +36,7 @@ namespace CinemaWeb.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public IActionResult Movie(int id)
         {
             ViewData["count"] = bookings.GetBookings().Count;

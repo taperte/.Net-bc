@@ -22,9 +22,14 @@ namespace CinemaWeb.Controllers
             return View(model);
         }
 
-        public IActionResult Booking(int screeningId, int seatId)
+        [HttpPost]
+        public IActionResult Booking(int screeningId, int seatId, int ticketCount)
         {
-            bookings.MakeABooking(screeningId, seatId);
+            if (ModelState.IsValid)
+            {
+                bookings.MakeABooking(screeningId, seatId, ticketCount);
+                return RedirectToAction(nameof(MyBookings));
+            }
             var screening = screenings.GetScreening(screeningId);
             return RedirectToAction("Movie", "Movie", new { id = screening.MovieId });
         }

@@ -2,82 +2,86 @@
 @{
     ViewData["Title"] = Model.Movie.Title;
 }
-<ul class="nav nav-pills mb-3">
-    @foreach (var g in Model.Genres)
-    {
-        @if (g.Movies.Count > 0)
+<div class="container">
+    <ul class="nav nav-pills mb-3">
+        @foreach (var g in Model.Genres)
         {
-            <li class="nav-item">
-                <a class="nav-link @(g.Id == Model.Movie.Genre.Id ? "active" : "")" asp-controller="Movie" asp-action="Genres" asp-route-genreid="@g.Id">@g.Genre</a>
-            </li>
+            @if (g.Movies.Count > 0)
+            {
+                <li class="nav-item">
+                    <a class="nav-link @(g.Id == Model.Movie.Genre.Id ? "active" : "")" asp-controller="Movie" asp-action="Genres" asp-route-genreid="@g.Id">@g.Genre</a>
+                </li>
+            }
         }
-    }
-</ul>
-<div>
-    <br />
-    <h3>@Model.Movie.Title</h3>
-    @if (Model.Movie.OriginalTitle != null)
-    {
-        <h5 class="card-subtitle">@Model.Movie.OriginalTitle</h5>
-    }
-    <br />
-    <div class="row">
-        <div class="col-md-5 col-sm-12">
-            <div><b>Genre:</b> @Model.Movie.Genre.Genre</div>
-            <div><b>Year:</b> @Model.Movie.Year</div>
-            <div><b>Duration:</b> @Model.Movie.Duration''</div>
-            <div><b>Director:</b> @Model.Movie.Director</div>
-            <div><b>Country:</b> @Model.Movie.Country</div>
-            <br />
-            <div>@Model.Movie.Abstract</div>
-            <br />
-            <div><b>Auditorium:</b> @Model.Movie.Auditorium.Name</div>
-            <br />
-            <div><b>Prices:</b></div>
-            @for (int i = 0; i < Model.Prices.Count; i++)
-            {
-                @if (Model.AuditoriumSeatCount[i] > 0)
+    </ul>
+    <div>
+        <br />
+        <h3>@Model.Movie.Title</h3>
+        @if (Model.Movie.OriginalTitle != null)
+        {
+            <h5 class="card-subtitle">@Model.Movie.OriginalTitle</h5>
+        }
+        <br />
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <div><b>Genre:</b> @Model.Movie.Genre.Genre</div>
+                <div><b>Year:</b> @Model.Movie.Year</div>
+                <div><b>Duration:</b> @Model.Movie.Duration''</div>
+                <div><b>Director:</b> @Model.Movie.Director</div>
+                <div><b>Country:</b> @Model.Movie.Country</div>
+                <br />
+                <div>@Model.Movie.Abstract</div>
+                <br />
+                <div><b>Auditorium:</b> @Model.Movie.Auditorium.Name</div>
+                <br />
+                <div><b>Prices:</b></div>
+                @for (int i = 0; i < Model.Prices.Count; i++)
                 {
-                    <b>@Model.Seats[i].Type.ToLower()</b><span> — @Model.Prices[i] EUR</span>
-                    <br />
+                    @if (Model.AuditoriumSeatCount[i] > 0)
+                    {
+                        <b>@Model.Seats[i].Type.ToLower()</b><span> — @Model.Prices[i] EUR</span>
+                        <br />
+                    }
                 }
-            }
+            </div>
+            <div class="col-md-7 col-sm-12">
+                <iframe width="560" height="315" src="@Model.Movie.Trailer" align="right"></iframe>
+            </div>
         </div>
-        <div class="col-md-7 col-sm-12">
-            <iframe width="560" height="315" src="@Model.Movie.Trailer" align="right"></iframe>
-        </div>
-    </div>
-    <br />
-    <div><b>Screenings:</b></div>
-    <table class="table table-hover light">
-        <tr>
-            @foreach (var screening in Model.Screenings)
-            {
-                @if (screening.TotalCapacity > 0)
+        <br />
+        <p><b>Screenings:</></b><br /></p>
+        <div class="container">
+            <div class="row">
+                @for (int i = 0; i < Model.Screenings.Count; i++)
                 {
-                    <th>
-                        @screening.Time.ToString().Substring(0, screening.Time.ToString().Length - 3)
-                    </th>
-                }
-            }
-        </tr>
-        <tr>
-            @for (int i = 0; i < Model.Screenings.Count; i++)
-            {
-                @if (Model.Screenings[i].TotalCapacity > 0)
-                {
-                    <td>
+                    <div class="col-md-4 col-sm-12">
+                        <b class="orange">@Model.Screenings[i].Time.ToString().Substring(0, Model.Screenings[i].Time.ToString().Length - 3)</b>
                         @for (int j = 0; j < Model.ScreeningsSeatCount[i].Count; j++)
                         {
                             @if (Model.ScreeningsSeatCount[i][j] > 0)
                             {
-                                <a asp-controller="Booking" asp-action="Booking" asp-route-screeningid="@Model.Screenings[i].Id" asp-route-seatid="@Model.Seats[j].Id">Book @Model.Seats[j].Type.ToLower()</a> <span>(@Model.ScreeningsSeatCount[i][j])</span>
-                            <br />
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-12">@Model.Seats[j].Type (@Model.ScreeningsSeatCount[i][j])</div>
+                                    
+                                    <div asp-validation-summary="All"></div>
+                                    <form asp-controller="Booking" asp-action="Booking" method="post">
+                                        <div class="row">
+                                            <div class="col-xs-1" maxlength="3">
+                                                <label class="col-form-label-sm"></label>
+                                                <input asp-for="TicketCount" maxlength="3" class="form-control form-control-sm small-input" style="width: 60px">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" asp-controller="Booking" asp-action="Booking" asp-route-screeningid="@Model.Screenings[i].Id" asp-route-seatid="@Model.Seats[j].Id" asp-route-ticketcount="@Model.TicketCount">Book</button>
+                                        </div>
+                                    </form>
+                                </div>
                             }
                         }
-                    </td>
+                        <br />
+                    </div>
                 }
-            }
-        </tr>
-    </table>
+            </div>
+        </div>
+        
+    </div>
 </div>
+
