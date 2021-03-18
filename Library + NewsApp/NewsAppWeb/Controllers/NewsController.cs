@@ -72,6 +72,10 @@ namespace NewsAppWeb.Controllers
         [HttpPost]
         public IActionResult Create(CreateArticleViewModel model)
         {
+            if (!HttpContext.Session.GetIsAdmin())
+            {
+                return NotFound();
+            }
             if (ModelState.IsValid)
             {
                 try

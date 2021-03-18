@@ -64,6 +64,10 @@ namespace NewsLogic.Managers
             {
                 // logic must recheck basic validations
                 // 0. Topic title must be defined
+                if (string.IsNullOrEmpty(headline) || string.IsNullOrEmpty(author) || string.IsNullOrEmpty(body))
+                {
+                    throw new LogicException("All fields are mandatory!");
+                }
                 var article = new Articles()
                 {
                     TopicId = topicId,

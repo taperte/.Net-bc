@@ -13,7 +13,6 @@ namespace NewsAppWeb.Models
         [Display(Name = "Headline")]
         public string Headline { get; set; }
 
-        //under which topic the article should be created
         [Required]
         [Display(Name = "Topic")]
         public int TopicId { get; set; }

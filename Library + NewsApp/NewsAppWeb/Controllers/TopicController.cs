@@ -28,6 +28,10 @@ namespace NewsAppWeb.Controllers
         [HttpPost]
         public IActionResult Create(TopicViewModel model)
         {
+            if (!HttpContext.Session.GetIsAdmin())
+            {
+                return NotFound();
+            }
             // if valid -> save and send to another page
             if (ModelState.IsValid)
             {
