@@ -22,18 +22,6 @@ namespace CinemaWeb.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public IActionResult Booking(int screeningId, int seatId, int ticketCount)
-        {
-            if (ModelState.IsValid)
-            {
-                bookings.MakeABooking(screeningId, seatId, ticketCount);
-                return RedirectToAction(nameof(MyBookings));
-            }
-            var screening = screenings.GetScreening(screeningId);
-            return RedirectToAction("Movie", "Movie", new { id = screening.MovieId });
-        }
-
         public IActionResult Cancel(int screeningId, int seatId)
         {
             bookings.CancelABooking(screeningId, seatId);

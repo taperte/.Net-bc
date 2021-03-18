@@ -1,0 +1,33 @@
+﻿@model CreateArticleViewModel
+@{
+    ViewData["Title"] = "New article";
+}
+
+@{
+    var topicList = new SelectList(Model.Topics, "TopicId", "TopicName");
+}
+
+<div asp-validation-summary="All"></div>
+<form asp-controller="News" asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Headline"></label>
+        <input asp-for="Headline" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="TopicId"></label>
+        <select asp-for="TopicId" asp-items="topicList" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Author"></label>
+        <input asp-for="Author" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Text"></label>
+        <input asp-for="Text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Image"></label>
+        <input asp-for="Image" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Create an article</button>
+</form>

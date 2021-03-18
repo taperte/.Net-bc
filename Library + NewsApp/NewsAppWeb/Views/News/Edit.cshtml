@@ -1,0 +1,29 @@
+﻿@model List<NewsLogic.DB.Articles>
+@{
+    ViewData["Title"] = "Edit articles";
+}
+<h1>Edit articles</h1>
+<br />
+<a asp-controller="News" asp-action="Create" class="btn btn-primary">Add new</a>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Headline</th>
+        <th>Topic</th>
+        <th>Author</th>
+        <th>When added</th>
+        <th></th>
+    </tr>
+    @foreach (var article in Model)
+    {
+        <tr>
+            <td>@article.ArticleId.</td>
+            <td>@article.Headline</td>
+            <td>@article.Topic.TopicName</td>
+            <td>@article.Author</td>
+            <td>@article.WhenAdded.</td>
+            <td><a asp-controller="News" asp-action="Delete" asp-route-id="@article.ArticleId">Delete</a></td>
+        </tr>
+    }
+</table>

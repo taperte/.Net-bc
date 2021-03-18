@@ -52,5 +52,17 @@ namespace CinemaWeb.Controllers
             model.AuditoriumSeatCount = auditoriums.AuditoriumSeatCount((int)model.Movie.AuditoriumId);
             return View(model);
         }
+
+        [HttpPost]
+        public IActionResult Movie(MovieViewModel model, int screeningId, int seatId, int ticketCount)
+        {
+            if (ModelState.IsValid)
+            {
+                bookings.MakeABooking(screeningId, seatId, model.TicketCount);
+                return RedirectToAction("MyBookings", "Booking");
+            }
+            var screening = screenings.GetScreening(screeningId);
+            return RedirectToAction("Movie", "Movie", new { id = screening.MovieId });
+        }
     }
 }

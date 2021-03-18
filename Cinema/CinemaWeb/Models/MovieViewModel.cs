@@ -11,11 +11,15 @@ namespace CinemaWeb.Models
     {
         public Movies Movie { get; set; }
         public List<Screenings> Screenings { get; set; }
+
+        [Required]
+        public int ScreeningId { get; set; }
         public List<Seats> Seats { get; set; }
         public List<Genres> Genres { get; set; }
         public List<decimal> Prices { get; set; }
         public List<List<int>> ScreeningsSeatCount { get; set; }
         public List<int> AuditoriumSeatCount { get; set; }
+
         [Required]
         public int TicketCount { get; set; }
 

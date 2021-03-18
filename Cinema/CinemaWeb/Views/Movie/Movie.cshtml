@@ -2,6 +2,11 @@
 @{
     ViewData["Title"] = Model.Movie.Title;
 }
+@{
+    var screenings = new SelectList(Model.Screenings, "Id", "Time");
+    var seats = new SelectList();
+}
+
 <div class="container">
     <ul class="nav nav-pills mb-3">
         @foreach (var g in Model.Genres)
@@ -54,32 +59,50 @@
             <div class="row">
                 @for (int i = 0; i < Model.Screenings.Count; i++)
                 {
-                <div class="col-md-6 col-sm-12">
-                    <b class="orange">@Model.Screenings[i].Time.ToString().Substring(0, Model.Screenings[i].Time.ToString().Length - 3)</b>
-                    @for (int j = 0; j < Model.ScreeningsSeatCount[i].Count; j++)
-                    {
-                        @if (Model.ScreeningsSeatCount[i][j] > 0)
+                    <div class="col-md-6 col-sm-12">
+                        <b class="orange">@Model.Screenings[i].Time.ToString().Substring(0, Model.Screenings[i].Time.ToString().Length - 3)</b>
+                        @for (int j = 0; j < Model.ScreeningsSeatCount[i].Count; j++)
                         {
-                            <div>@Model.Seats[j].Type (@Model.ScreeningsSeatCount[i][j])</div>
+                            @if (Model.ScreeningsSeatCount[i][j] > 0)
+                            {
+                                <div>@Model.Seats[j].Type (@Model.ScreeningsSeatCount[i][j])</div>
 
-                            <div asp-validation-summary="All"></div>
-                            <form asp-controller="Booking" asp-action="Booking" method="post">
-                                <div class="row">
-                                    <div class="col-xs-1" maxlength="3">
-                                        <label class="col-form-label-sm"></label>
-                                        <input asp-for="TicketCount" maxlength="3" class="form-control form-control-sm small-input" style="width: 60px">
+                                <div asp-validation-summary="All"></div>
+                                <form asp-controller="Movie" asp-action="Movie" method="post">
+                                    <div class="row">
+                                        <div class="col-xs-1" maxlength="3">
+                                            <label class="col-form-label-sm"></label>
+                                            <input asp-for="TicketCount" maxlength="3" class="form-control form-control-sm small-input" style="width: 60px">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary" asp-controller="Movie" asp-action="Movie" asp-route-screeningid="@Model.Screenings[i].Id" asp-route-seatid="@Model.Seats[j].Id" asp-route-ticketcount="@Model.TicketCount">Book</button>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" asp-controller="Booking" asp-action="Booking" asp-route-screeningid="@Model.Screenings[i].Id" asp-route-seatid="@Model.Seats[j].Id" asp-route-ticketcount="@Model.TicketCount">Book</button>
-                                </div>
-                            </form>
+                                </form>
+                            }
                         }
-                    }
-                    <br />
-                </div>
+                        <br />
+                    </div>
                 }
             </div>
         </div>
-        
+
     </div>
+
+    <div asp-validation-summary="All"></div>
+
+    <form asp-controller="Movie" asp-action="Movie" method="post">
+        <div class="form-group">
+            <label asp-for="ScreeningId"></label>
+            <select asp-for="ScreeningId" asp-items="topicList" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="ParentTopicId"></label>
+            <select asp-for="ParentTopicId" asp-items="topicList" class="form-control"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Create a topic</button>
+    </form>
 </div>
 

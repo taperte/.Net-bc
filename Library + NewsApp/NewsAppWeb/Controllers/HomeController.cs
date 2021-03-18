@@ -12,7 +12,7 @@ namespace NewsAppWeb.Controllers
 {
     public class HomeController : Controller
     {
-        public static NewsManager editor = new NewsManager();
+        private static NewsManager editor = new NewsManager();
 
         public IActionResult Index()
         {

@@ -18,6 +18,10 @@ namespace NewsAppWeb.Controllers
         [HttpGet]
         public IActionResult Register()
         {
+            if (HttpContext.Session.IsLoggedIn())
+            {
+                return NotFound();
+            }
             var model = new RegisterViewModel();
             return View(model);
         }
@@ -47,6 +51,10 @@ namespace NewsAppWeb.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            if (HttpContext.Session.IsLoggedIn())
+            {
+                return NotFound();
+            }
             var model = new LoginViewModel();
             return View(model);
         }
@@ -63,7 +71,8 @@ namespace NewsAppWeb.Controllers
                 }
                 else
                 {
-                    HttpContext.Session.SetString("username", user.Username);
+                    HttpContext.Session.SetUsername(user.Username);
+                    HttpContext.Session.SetIsAdmin(user.IsAdmin);
                     return RedirectToAction("Index", "Home");
                 }
             }

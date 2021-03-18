@@ -11,13 +11,16 @@ namespace NewsAppWeb.Controllers
 {
     public class TopicController : Controller
     {
-        private TopicManager manager = new TopicManager();
+        private TopicManager topics = new TopicManager();
 
         [HttpGet]
         public IActionResult Create()
         {
+            if (!HttpContext.Session.GetIsAdmin())
+            {
+                return NotFound();
+            }
             var model = new TopicViewModel();
-            model.Topics = manager.GetAllTopics();
 
             return View(model);
         }
@@ -32,7 +35,7 @@ namespace NewsAppWeb.Controllers
                 try
                 {
                     // manager call
-                    manager.CreateNewTopic(model.Title);
+                    topics.CreateNewTopic(model.Title);
                     return RedirectToAction(nameof(Create));
                 }
                 catch (LogicException ex)
@@ -47,6 +50,26 @@ namespace NewsAppWeb.Controllers
             }
             // if not valid -> return back to the same view
             return View(model);
+        }
+
+        public IActionResult Edit()
+        {
+            if (!HttpContext.Session.GetIsAdmin())
+            {
+                return NotFound();
+            }
+            var allTopics = topics.GetAllTopics();
+            return View(allTopics);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            if (!HttpContext.Session.GetIsAdmin())
+            {
+                return NotFound();
+            }
+            topics.DeleteTopic(id);
+            return RedirectToAction(nameof(Edit));
         }
     }
 }

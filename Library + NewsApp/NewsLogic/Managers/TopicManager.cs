@@ -13,7 +13,12 @@ namespace NewsLogic.Managers
         {
             using (NewsDb db = new NewsDb())
             {
-                return db.Topics.OrderBy(t => t.TopicId).ToList();
+                var topics = db.Topics.OrderBy(t => t.TopicId).ToList();
+                foreach (var t in topics)
+                {
+                    t.Articles = db.Articles.Where(a => a.TopicId == t.TopicId).ToList();
+                }
+                return topics;
             }
         }
 
@@ -52,5 +57,20 @@ namespace NewsLogic.Managers
                 db.SaveChanges();
             }
         }
+
+        //Deletes topic from the database.
+        public void DeleteTopic(int id)
+        {
+            using (var db = new NewsDb())
+            {
+                var topic = db.Topics.FirstOrDefault(t => t.TopicId == id);
+                if (topic != null)
+                {
+                    db.Remove(topic);
+                }
+                db.SaveChanges();
+            }
+        }
+
     }
 }
