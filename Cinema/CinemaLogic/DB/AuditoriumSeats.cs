@@ -7,19 +7,20 @@ using System.Collections.Generic;
 
 namespace CinemaLogic.DB
 {
-    public partial class Screenings
+    public partial class AuditoriumSeats
     {
-        public Screenings()
+        public AuditoriumSeats()
         {
             AvailableSeats = new HashSet<AvailableSeats>();
         }
 
         public int Id { get; set; }
-        public DateTime Time { get; set; }
-        public int MovieId { get; set; }
-        public int? TotalSeatCount { get; set; }
+        public int AuditoriumId { get; set; }
+        public int SeatId { get; set; }
+        public int SeatCount { get; set; }
 
-        public virtual Movies Movie { get; set; }
+        public virtual Auditoriums Auditorium { get; set; }
+        public virtual Seats Seat { get; set; }
         public virtual ICollection<AvailableSeats> AvailableSeats { get; set; }
     }
 }

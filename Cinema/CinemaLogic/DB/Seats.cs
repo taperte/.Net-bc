@@ -11,13 +11,13 @@ namespace CinemaLogic.DB
     {
         public Seats()
         {
-            Bookings = new HashSet<Bookings>();
+            AuditoriumSeats = new HashSet<AuditoriumSeats>();
         }
 
         public int Id { get; set; }
         public string Type { get; set; }
         public decimal Coefficient { get; set; }
 
-        public virtual ICollection<Bookings> Bookings { get; set; }
+        public virtual ICollection<AuditoriumSeats> AuditoriumSeats { get; set; }
     }
 }

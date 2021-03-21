@@ -10,28 +10,21 @@ namespace CinemaWeb.Models
     public class MovieViewModel
     {
         public Movies Movie { get; set; }
-        public List<Screenings> Screenings { get; set; }
+        public List<Genres> Genres { get; set; }
+        public List<AuditoriumSeats> AuditoriumSeats { get; set; }
+        public List<decimal> Prices { get; set; }
 
         [Required]
-        public int ScreeningId { get; set; }
-        public List<Seats> Seats { get; set; }
-        public List<Genres> Genres { get; set; }
-        public List<decimal> Prices { get; set; }
-        public List<List<int>> ScreeningsSeatCount { get; set; }
-        public List<int> AuditoriumSeatCount { get; set; }
-
+        public int SeatId { get; set; }
         [Required]
         public int TicketCount { get; set; }
 
 
         public MovieViewModel()
         {
-            Screenings = new List<Screenings>();
-            Seats = new List<Seats>();
             Genres = new List<Genres>();
+            AuditoriumSeats = new List<AuditoriumSeats>();
             Prices = new List<decimal>();
-            ScreeningsSeatCount = new List<List<int>>();
-            AuditoriumSeatCount = new List<int>();
         }
     }
 }

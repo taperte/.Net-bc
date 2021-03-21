@@ -7,9 +7,9 @@
         <br />
         @foreach (var g in Model.Genres)
         {
-            @if (g.Movies.Count > 0)
+            @if (g.MovieGenres.Count > 0)
             {
-                <a type="button" asp-controller="Movie" asp-action="Genres" asp-route-genreid="@g.Id" class="btn btn-outline-light btn-lg btn-block">@g.Genre (@g.Movies.Count)</a>
+                <a type="button" asp-controller="Movie" asp-action="Genres" asp-route-genreid="@g.Id" class="btn btn-outline-light btn-lg btn-block">@g.Genre (@g.MovieGenres.Count)</a>
             }
         }
     }
@@ -19,7 +19,7 @@
         <ul class="nav nav-pills mb-3">
             @foreach (var g in Model.Genres)
             {
-                @if (g.Movies.Count > 0)
+                @if (g.MovieGenres.Count > 0)
                 {
                     <li class="nav-item">
                         <a class="nav-link @(g.Id == Model.Genre.Id ? "active" : "")" asp-controller="Movie" asp-action="Genres" asp-route-genreid="@g.Id">@g.Genre</a>
@@ -29,19 +29,24 @@
         </ul>
         <br />
         <div class="row">
-            @if (Model.Genre.Movies.Count > 0)
+            @if (Model.Genre.MovieGenres.Count > 0)
             {
-                @foreach (var m in Model.Genre.Movies)
+                @foreach (var m in Model.Genre.MovieGenres)
                 {
                     <div class="col-md-3 col-sm-12 mb-3">
                         <div class="card">
-                            <img src="@m.Poster" />
+                            <img src="@m.Movie.Poster" />
                             <div class="card-body">
-                                <h5 class="card-title">@m.Title</h5>
+                                <h5 class="card-title">@m.Movie.Title</h5>
                                 <p class="card-text">
-                                    @m.Year @m.Duration''<br />
+                                    @for (int i = 0; i < m.Movie.MovieGenres.Count; i++)
+                                    {
+                                        <a asp-controller="Movie" asp-action="Genres" asp-route-genreid="@m.Movie.MovieGenres.ToList()[i].GenreId">@m.Movie.MovieGenres.ToList()[i].Genre.Genre</a>@(i == m.Movie.MovieGenres.Count - 1 ? "" : ",")
+                                    }
+                                    <br />
+                                    @m.Movie.Year @m.Movie.Duration''<br />
                                 </p>
-                                <a asp-controller="Movie" asp-action="Movie" asp-route-id="@m.Id" class="card-link">More info & tickets</a>
+                                <a asp-controller="Movie" asp-action="Movie" asp-route-id="@m.Movie.Id" class="card-link">More info & tickets</a>
                             </div>
                         </div>
                     </div>

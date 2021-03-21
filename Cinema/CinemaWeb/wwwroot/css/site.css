@@ -17,13 +17,6 @@ a:hover {
   color: #d0590a;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-  border-radius: 0
-}
-
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
@@ -143,10 +136,22 @@ body {
     border-radius: 0;
 }
 
+.btn-primary, .btn-primary.focus, .btn-primary.active, .btn-primary.hover .btn-primary .show > .btn-link {
+    color: #f8f9fa !important;
+    background-color: #d0590a !important;
+    border-color: #f8f9fa !important;
+    border-radius: 0 !important
+}
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #f8f9fa;
     background-color: #d0590a;
     border-color: #f8f9fa;
+    border: 1px solid;
     border-radius: 0;
+}
+
+input, select {
+    border-radius: 0 !important;
 }
 

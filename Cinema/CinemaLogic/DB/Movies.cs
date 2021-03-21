@@ -11,6 +11,7 @@ namespace CinemaLogic.DB
     {
         public Movies()
         {
+            MovieGenres = new HashSet<MovieGenres>();
             Screenings = new HashSet<Screenings>();
         }
 
@@ -30,6 +31,7 @@ namespace CinemaLogic.DB
 
         public virtual Auditoriums Auditorium { get; set; }
         public virtual Genres Genre { get; set; }
+        public virtual ICollection<MovieGenres> MovieGenres { get; set; }
         public virtual ICollection<Screenings> Screenings { get; set; }
     }
 }

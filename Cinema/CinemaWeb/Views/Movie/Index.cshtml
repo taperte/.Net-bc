@@ -13,7 +13,12 @@
                 <div class="card-body">
                     <h5 class="card-title">@m.Title</h5>
                     <p class="card-text">
-                        @m.Year @m.Duration'' <a asp-controller="Movie" asp-action="Genres" asp-route-genreid="@m.Genre.Id">@m.Genre.Genre</a><br />
+                        @for (int i = 0; i < m.MovieGenres.Count; i++)
+                        {
+                            <a asp-controller="Movie" asp-action="Genres" asp-route-genreid="@m.MovieGenres.ToList()[i].GenreId">@m.MovieGenres.ToList()[i].Genre.Genre</a>@(i == m.MovieGenres.Count - 1 ? "" : ",")
+                        }
+                        <br />
+                        @m.Year @m.Duration''<br />
                     </p>
                     <a asp-controller="Movie" asp-action="Movie" asp-route-id="@m.Id" class="card-link">More info & tickets</a>
                 </div>

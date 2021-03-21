@@ -2,9 +2,14 @@
 @{
     ViewData["Title"] = Model.Movie.Title;
 }
-@{
-    var screenings = new SelectList(Model.Screenings, "Id", "Time");
-    var seats = new SelectList();
+
+@{ 
+    List<SelectList> seatLists = new List<SelectList>();
+    foreach (var s in Model.Movie.Screenings)
+    {
+        var seatList = new SelectList(s.AvailableSeats, "Id", "Type");
+        seatLists.Add(seatList);
+    }
 }
 
 <div class="container">
@@ -42,9 +47,9 @@
                 <div><b>Prices:</b></div>
                 @for (int i = 0; i < Model.Prices.Count; i++)
                 {
-                    @if (Model.AuditoriumSeatCount[i] > 0)
+                    @if (Model.AuditoriumSeats[i].SeatCount > 0)
                     {
-                        <b>@Model.Seats[i].Type.ToLower()</b><span> — @Model.Prices[i] EUR</span>
+                        <b>@Model.AuditoriumSeats[i].Seat.Type.ToLower()</b><span> — @Model.Prices[i] EUR</span>
                         <br />
                     }
                 }
@@ -55,54 +60,43 @@
         </div>
         <br />
         <p><b>Screenings:</></b><br /></p>
-        <div class="container">
-            <div class="row">
-                @for (int i = 0; i < Model.Screenings.Count; i++)
+    </div>
+    <div class="container">
+        <div class="row">
+            @for (int i = 0; i < Model.Movie.Screenings.Count; i++)
+            {
+                if (Model.Movie.Screenings.ToList()[i].TotalSeatCount > 0)
                 {
                     <div class="col-md-6 col-sm-12">
-                        <b class="orange">@Model.Screenings[i].Time.ToString().Substring(0, Model.Screenings[i].Time.ToString().Length - 3)</b>
-                        @for (int j = 0; j < Model.ScreeningsSeatCount[i].Count; j++)
-                        {
-                            @if (Model.ScreeningsSeatCount[i][j] > 0)
-                            {
-                                <div>@Model.Seats[j].Type (@Model.ScreeningsSeatCount[i][j])</div>
-
-                                <div asp-validation-summary="All"></div>
-                                <form asp-controller="Movie" asp-action="Movie" method="post">
-                                    <div class="row">
-                                        <div class="col-xs-1" maxlength="3">
-                                            <label class="col-form-label-sm"></label>
-                                            <input asp-for="TicketCount" maxlength="3" class="form-control form-control-sm small-input" style="width: 60px">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary" asp-controller="Movie" asp-action="Movie" asp-route-screeningid="@Model.Screenings[i].Id" asp-route-seatid="@Model.Seats[j].Id" asp-route-ticketcount="@Model.TicketCount">Book</button>
-                                    </div>
-                                </form>
-                            }
-                        }
-                        <br />
+                        <div class="row">
+                            <b class="orange">@Model.Movie.Screenings.ToList()[i].Time.ToShortDateString() @Model.Movie.Screenings.ToList()[i].Time.ToShortTimeString()</b>
+                            <div asp-validation-summary="All"></div>
+                            <form asp-controller="Movie" asp-action="Movie" method="post">
+                                <div class="form-group">
+                                    <label asp-for="SeatId">
+                                        Available seats:
+                                        @for (int j = 0; j < Model.Movie.Screenings.ToList()[i].AvailableSeats.Count; j++)
+                                        {
+                                            if (Model.Movie.Screenings.ToList()[i].AvailableSeats.ToList()[j].Count > 0)
+                                            {
+                                                <span>@Model.Movie.Screenings.ToList()[i].AvailableSeats.ToList()[j].Count @Model.Movie.Screenings.ToList()[i].AvailableSeats.ToList()[j].Type.ToLower()@(j == Model.Movie.Screenings.ToList()[i].AvailableSeats.Count - 1 ? "" : ",")</span>
+                                            }
+                                        }
+                                    </label>
+                                    <select asp-for="SeatId" asp-items="seatLists[i]" class="form-control"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="TicketCount">Number of tickets</label>
+                                    <input asp-for="TicketCount" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Book</button>
+                            </form>
+                        </div>
+                        <br /> <br />
                     </div>
                 }
-            </div>
+            }
         </div>
-
     </div>
-
-    <div asp-validation-summary="All"></div>
-
-    <form asp-controller="Movie" asp-action="Movie" method="post">
-        <div class="form-group">
-            <label asp-for="ScreeningId"></label>
-            <select asp-for="ScreeningId" asp-items="topicList" class="form-control"></select>
-        </div>
-        <div class="form-group">
-            <label asp-for="ParentTopicId"></label>
-            <select asp-for="ParentTopicId" asp-items="topicList" class="form-control"></select>
-        </div>
-        <div class="form-group">
-            <label asp-for="Description"></label>
-            <input asp-for="Description" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary">Create a topic</button>
-    </form>
 </div>
 

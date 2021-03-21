@@ -22,9 +22,9 @@ namespace CinemaWeb.Controllers
             return View(model);
         }
 
-        public IActionResult Cancel(int screeningId, int seatId)
+        public IActionResult Cancel(int bookingId)
         {
-            bookings.CancelABooking(screeningId, seatId);
+            bookings.CancelABooking(bookingId);
             return RedirectToAction(nameof(MyBookings));
         }
     }

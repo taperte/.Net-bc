@@ -11,6 +11,7 @@ namespace CinemaConsole
         private static MoviesManager movies = new MoviesManager();
         private static BookingsManager booking = new BookingsManager();
         private static ScreeningsManager screenings = new ScreeningsManager();
+        private static SeatsManager seats = new SeatsManager();
 
         static void Main(string[] args)
         {
@@ -83,18 +84,34 @@ namespace CinemaConsole
             //    db.SaveChanges();
             //}
 
-            foreach (var s in screenings.SeatCount(3))
-            {
-                Console.WriteLine(s);
-            }
+            //foreach (var s in screenings.SeatCount(3))
+            //{
+            //    Console.WriteLine(s);
+            //}
 
-            foreach (var scr in screenings.SeatCountAllMovieScreenings(3))
+            //foreach (var scr in screenings.SeatCountAllMovieScreenings(3))
+            //{
+            //    foreach (var seatCount in scr)
+            //    {  
+            //        Console.WriteLine(seatCount);
+            //    }
+            //}
+
+            Console.WriteLine();
+            Console.WriteLine("Your bookings:");
+            foreach (var b in booking.GetBookings())
             {
-                foreach (var seatCount in scr)
-                {  
-                    Console.WriteLine(seatCount);
-                }
+                Console.WriteLine(b.AvailableSeats.Screening.Movie.Title);
+                Console.WriteLine(b.AvailableSeats.Screening.Time);
+                Console.WriteLine($"{b.TicketCount} tickets");
+                Console.WriteLine($"Total price: {b.TotalPrice}");
+                Console.WriteLine($"Auditorium: {b.AvailableSeats.Screening.Movie.Auditorium.Name}");
             }
+            Console.WriteLine($"Available ticket count: {booking.AvailableTickets(1)}");
+
+            seats.FillInSeatCount();
+
+            
         }
     }
 }

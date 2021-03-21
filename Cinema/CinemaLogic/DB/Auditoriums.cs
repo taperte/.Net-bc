@@ -11,16 +11,14 @@ namespace CinemaLogic.DB
     {
         public Auditoriums()
         {
+            AuditoriumSeats = new HashSet<AuditoriumSeats>();
             Movies = new HashSet<Movies>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public int BasicSeats { get; set; }
-        public int Sofa { get; set; }
-        public int Balcony { get; set; }
-        public int? TotalCapacity { get; set; }
 
+        public virtual ICollection<AuditoriumSeats> AuditoriumSeats { get; set; }
         public virtual ICollection<Movies> Movies { get; set; }
     }
 }

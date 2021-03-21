@@ -11,12 +11,14 @@ namespace CinemaLogic.DB
     {
         public Genres()
         {
+            MovieGenres = new HashSet<MovieGenres>();
             Movies = new HashSet<Movies>();
         }
 
         public int Id { get; set; }
         public string Genre { get; set; }
 
+        public virtual ICollection<MovieGenres> MovieGenres { get; set; }
         public virtual ICollection<Movies> Movies { get; set; }
     }
 }

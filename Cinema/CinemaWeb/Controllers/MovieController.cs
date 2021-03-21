@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CinemaLogic.Managers;
 using CinemaWeb.Models;
+using CinemaLogic;
 
 namespace CinemaWeb.Controllers
 {
@@ -14,7 +15,6 @@ namespace CinemaWeb.Controllers
         private static GenresManager genres = new GenresManager();
         private static SeatsManager seats = new SeatsManager();
         private static ScreeningsManager screenings = new ScreeningsManager();
-        private static AuditoriumsManager auditoriums = new AuditoriumsManager();
         private static BookingsManager bookings = new BookingsManager();
 
         public IActionResult Index()
@@ -42,26 +42,34 @@ namespace CinemaWeb.Controllers
             ViewData["count"] = bookings.GetBookings().Count;
             var model = new MovieViewModel
             {
-                Seats = seats.GetSeats(),
+                Movie = movies.GetMovie(id),
                 Genres = genres.GetAllGenres(),
-                Screenings = screenings.Screenings(id),
                 Prices = seats.GetSeatPrices(id),
-                ScreeningsSeatCount = screenings.SeatCountAllMovieScreenings(id),
             };
-            model.Movie = movies.GetMovie(id);
-            model.AuditoriumSeatCount = auditoriums.AuditoriumSeatCount((int)model.Movie.AuditoriumId);
+            model.AuditoriumSeats = seats.GetAuditoriumSeats(model.Movie.AuditoriumId.Value);
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult Movie(MovieViewModel model, int screeningId, int seatId, int ticketCount)
+        public IActionResult Movie(MovieViewModel model)
         {
             if (ModelState.IsValid)
             {
-                bookings.MakeABooking(screeningId, seatId, model.TicketCount);
-                return RedirectToAction("MyBookings", "Booking");
+                try
+                {
+                    bookings.MakeABooking(model.SeatId, model.TicketCount);
+                    return RedirectToAction("MyBookings", "Booking");
+                }
+                catch (LogicException ex)
+                {
+                    ModelState.AddModelError("validation", ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("validation", ex.Message);
+                }
             }
-            var screening = screenings.GetScreening(screeningId);
+            var screening = screenings.GetScreeningBySeatId(model.SeatId);
             return RedirectToAction("Movie", "Movie", new { id = screening.MovieId });
         }
     }

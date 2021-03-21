@@ -7,13 +7,13 @@ using System.Collections.Generic;
 
 namespace CinemaLogic.DB
 {
-    public partial class Bookings
+    public partial class MovieGenres
     {
         public int Id { get; set; }
-        public int? TicketCount { get; set; }
-        public decimal? TotalPrice { get; set; }
-        public int AvailableSeatsId { get; set; }
+        public int MovieId { get; set; }
+        public int GenreId { get; set; }
 
-        public virtual AvailableSeats AvailableSeats { get; set; }
+        public virtual Genres Genre { get; set; }
+        public virtual Movies Movie { get; set; }
     }
 }

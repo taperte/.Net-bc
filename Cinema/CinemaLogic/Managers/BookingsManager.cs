@@ -11,134 +11,98 @@ namespace CinemaLogic.Managers
         //Returns the list of bookings ordered by screening time.
         public List<Bookings> GetBookings()
         {
-            using (CinemaDB db = new CinemaDB())
+            using (var db = new CinemaDB())
             {
-                var bookings = db.Bookings.OrderBy(b => b.Screening.Time).ToList();
+                var bookings = db.Bookings.ToList();
+
+                //Virtual properties are filled.
                 foreach (var b in bookings)
                 {
-                    b.Screening = db.Screenings.FirstOrDefault(s => s.Id == b.ScreeningId);
-                    b.Screening.Movie = db.Movies.FirstOrDefault(m => m.Id == b.Screening.MovieId);
-                    b.Screening.Movie.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == b.Screening.Movie.AuditoriumId);
-                    b.Seat = db.Seats.FirstOrDefault(s => s.Id == b.SeatId);
+                    BookingProperties(b);
                 }
-                return bookings;
+                //bookings ordered by screening time
+                return bookings.OrderByDescending(b => b.AvailableSeats.Screening.Time).ToList();
             }
         }
 
-        //Makes a booking at specific time; returns screening or null.
-        public Screenings MakeABooking(int screeningId, int seatId, int ticketCount)
+        //seatId is the ID from AvailableSeats
+        public Bookings MakeABooking(int seatId, int ticketCount)
         {
-            using (CinemaDB db = new CinemaDB())
+            using (var db = new CinemaDB())
             {
-                //Searches for screening by screening ID.
-                var screening = db.Screenings.FirstOrDefault(s => s.Id == screeningId);
+                //Seat type is chosen from the list of available seats.
+                var seat = db.AvailableSeats.FirstOrDefault(avs => avs.Id == seatId);
 
-                //When screening is chosen, chooses seat by ID.
-                var seat = db.Seats.FirstOrDefault(s => s.Id == seatId);
+                //Virtual properties are filled.
+                seat.Screening = db.Screenings.FirstOrDefault(scr => scr.Id == seat.ScreeningId);
+                seat.Screening.Movie = db.Movies.FirstOrDefault(m => m.Id == seat.Screening.MovieId);
+                seat.AuditoriumSeats = db.AuditoriumSeats.FirstOrDefault(auds => auds.Id == seat.AuditoriumSeatsId);
+                seat.AuditoriumSeats.Seat = db.Seats.FirstOrDefault(s => s.Id == seat.AuditoriumSeats.SeatId);
 
-                if (screening != null)
+                if (ticketCount > seat.Count || ticketCount < 1)
                 {
-                    //Fills in screening.Movie and screening.Movie.Auditorium properties.
-                    screening.Movie = db.Movies.FirstOrDefault(m => m.Id == screening.MovieId);
-                    screening.Movie.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == screening.Movie.AuditoriumId);
-
-                    //Then checks existing bookings.
-                    var booking = db.Bookings.FirstOrDefault(b => b.ScreeningId == screening.Id &&
-                                                                  b.SeatId == seatId);
-                    //If matching booking is not found,
-                    if (booking == null)
-                    {
-                        //a new row is added to the bookings table.
-                        db.Bookings.Add(new Bookings()
-                        {
-                            TicketCount = ticketCount,
-                            TotalPrice = screening.Movie.Price * seat.Coefficient * ticketCount,
-                            SeatId = seatId,
-                            Seat = seat,
-                            ScreeningId = screeningId,
-                            Screening = screening
-                        });
-                    }
-                    //If a match is found,
-                    else
-                    {
-                        //ticket count and total price are increased.
-                        booking.TicketCount += ticketCount;
-                        booking.TotalPrice += screening.Movie.Price * seat.Coefficient * ticketCount;
-                    }
-                    //Seat count is decreased.
-                    switch (seatId)
-                    {
-                        case 1:
-                            screening.BasicSeats -= ticketCount;
-                            break;
-                        case 2:
-                            screening.Sofa -= ticketCount;
-                            break;
-                        default:
-                            screening.Balcony -= ticketCount;
-                            break;
-                    }
-                    //Total capacity is updated.
-                    screening.TotalCapacity = TotalCapacityScreening(screening);
-                    db.SaveChanges();
-                    return screening;
+                    throw new LogicException("Invalid ticket count!");
                 }
+
+                //A new booking is created.
+                var booking = new Bookings()
+                {
+                    TicketCount = ticketCount,
+                    TotalPrice = seat.Screening.Movie.Price * seat.AuditoriumSeats.Seat.Coefficient * ticketCount,
+                    AvailableSeatsId = seatId
+                };
+
+                //The booking is added to the db.
+                db.Bookings.Add(booking);
+
+                //Seat count is decreased.
+                seat.Count -= ticketCount;
+
+                db.SaveChanges();
+                return booking;
             }
-            return null;
         }
 
         //Cancels a booking.
-        public Bookings CancelABooking(int screeningId, int seatId)
+        public Bookings CancelABooking(int bookingId)
         {
-            using (CinemaDB db = new CinemaDB())
+            using (var db = new CinemaDB())
             {
                 //Searches for the booking to cancel.
-                var booking = db.Bookings.FirstOrDefault(b => b.ScreeningId == screeningId &&
-                                                              b.SeatId == seatId);
+                var booking = db.Bookings.FirstOrDefault(b => b.Id == bookingId);
 
-                //If finds one, fills in virtual properties and checks ticket count.
-                if (booking != null)
-                {
-                    booking.Screening = db.Screenings.FirstOrDefault(s => s.Id == booking.ScreeningId);
-                    booking.Screening.Movie = db.Movies.FirstOrDefault(m => m.Id == booking.Screening.MovieId);
-                    booking.Screening.Movie.Auditorium = db.Auditoriums.FirstOrDefault
-                                                         (a => a.Id == booking.Screening.Movie.AuditoriumId);
-                    booking.Seat = db.Seats.FirstOrDefault(s => s.Id == seatId);
+                //If finds one, screening available seat count is increased.
+                var seat = db.AvailableSeats.FirstOrDefault(avs => avs.Id == booking.AvailableSeatsId);
+                seat.Count += booking.TicketCount.Value;
 
-                    //If there are more than 1 ticket,
-                    if (booking.TicketCount > 1)
-                    {
-                        //ticket count and total price are decreased.
-                        booking.TicketCount--;
-                        booking.TotalPrice -= booking.Screening.Movie.Price * booking.Seat.Coefficient;
-                    }
-                    else
-                    {
-                        //Otherwise the booking is removed from the list.
-                        db.Bookings.Remove(booking);
-                    }
-                    //Seat count is increased.
-                    switch (seatId)
-                    {
-                        case 1:
-                            booking.Screening.BasicSeats++;
-                            break;
-                        case 2:
-                            booking.Screening.Sofa++;
-                            break;
-                        default:
-                            booking.Screening.Balcony++;
-                            break;
-                    }
+                //The booking is removed from the db.
+                db.Bookings.Remove(booking);
 
-                    //Total capacity is updated.
-                    booking.Screening.TotalCapacity = TotalCapacityScreening(booking.Screening);
-                    db.SaveChanges();
-                    return booking;
-                }
+                db.SaveChanges();
+                return booking;
             }
-            return null;
+        }
+
+        private void BookingProperties(Bookings booking)
+        {
+            using (var db = new CinemaDB())
+            {
+                //available seats -- a seat of a particular type at a particular screening
+                booking.AvailableSeats = db.AvailableSeats
+                .FirstOrDefault(avs => avs.Id == booking.AvailableSeatsId);
+
+                //screening info
+                booking.AvailableSeats.Screening = db.Screenings
+                .FirstOrDefault(s => s.Id == booking.AvailableSeats.ScreeningId);
+
+                //movie info
+                booking.AvailableSeats.Screening.Movie = db.Movies
+                .FirstOrDefault(m => m.Id == booking.AvailableSeats.Screening.MovieId);
+
+                //auditorium info
+                booking.AvailableSeats.Screening.Movie.Auditorium = db.Auditoriums
+                .FirstOrDefault(a => a.Id == booking.AvailableSeats.Screening.Movie.AuditoriumId);
+            }
         }
 
         //Calculates total price of all bookings.
@@ -152,14 +116,20 @@ namespace CinemaLogic.Managers
             return totalPrice;
         }
 
-        //Returns total capacity of a screening.
-        private int TotalCapacityScreening(Screenings screening)
+        public int AvailableTickets(int screeningId)
         {
             using (var db = new CinemaDB())
             {
-                screening.TotalCapacity = screening.BasicSeats + screening.Sofa + screening.Balcony;
-                db.SaveChanges();
-                return (int)screening.TotalCapacity;
+                var screening = db.Screenings.FirstOrDefault(s => s.Id == screeningId);
+                var availableSeats = db.AvailableSeats.Where(avs => avs.ScreeningId == screeningId);
+                int ticketCount = 0;
+                foreach (var avs in availableSeats)
+                {
+                    avs.AuditoriumSeats = db.AuditoriumSeats.FirstOrDefault(audSeat => audSeat.Id == avs.AuditoriumSeatsId);
+                    avs.AuditoriumSeats.Seat = db.Seats.FirstOrDefault(s => s.Id == avs.AuditoriumSeats.SeatId);
+                    ticketCount += avs.AuditoriumSeats.SeatCount;
+                }
+                return ticketCount;
             }
         }
     }

@@ -8,22 +8,6 @@ namespace CinemaLogic.Managers
 {
     public class MoviesManager
     {
-        //Basic requirements: A web application where the user can browse movies(in different
-        //categories) and make a booking for a movie at a specific time.The user must be able to see
-        //created bookings and cancel any of them.
-        //Categories, movie information (including available times) and bookings are stored in a SQL
-        //database.
-
-        //Seat types.Database contains information about seat types - name and price.Before
-        //making a reservation, the user can choose seat type. Total price must be based on seat
-        //type.
-
-        //Auditoriums.Database contains information about auditoriums, each auditorium has a
-        //name and max capacity.Each movie is scheduled to be in a specific auditorium.
-        //Information about the auditorium must be displayed when booking a movie.Each
-        //booking decreases available seats for a movie (based on auditorium capacity) and the
-        //movie is not available if it is fully booked.
-
         //Returns a list of all movies ordered by title.
         public List<Movies> GetAllMovies()
         {
@@ -31,11 +15,10 @@ namespace CinemaLogic.Managers
             {
                 List<Movies> movies = db.Movies.OrderBy(m => m.Title).ToList();
 
-                //Assigns value to the genre and auditorium properties for every item in the list.
+                //Fills virtual properties for every movie in the list.
                 foreach (var m in movies)
                 {
-                    m.Genre = db.Genres.FirstOrDefault(g => g.Id == m.GenreId);
-                    m.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == m.AuditoriumId);
+                    MovieProperties(m);
                 }
                 return movies;
             }
@@ -46,8 +29,7 @@ namespace CinemaLogic.Managers
         {
             using CinemaDB db = new CinemaDB();
             var movie = db.Movies.FirstOrDefault(m => m.Id == id);
-            movie.Genre = db.Genres.FirstOrDefault(g => g.Id == movie.GenreId);
-            movie.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == movie.AuditoriumId);
+            MovieProperties(movie);
             return movie;
         }
 
@@ -58,13 +40,69 @@ namespace CinemaLogic.Managers
             List<Movies> movies = db.Movies.Where(m => m.GenreId == genreId).
                                             OrderBy(m => m.Title).ToList();
 
-            //Assigns value to the genre and auditorium properties for every item in the list.
+            //Fills virtual properties for every item in the list.
             foreach (var m in movies)
             {
-                m.Genre = db.Genres.FirstOrDefault(g => g.Id == m.GenreId);
-                m.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == m.AuditoriumId);
+                MovieProperties(m);
             }
             return movies;
+        }
+
+        //Fills in virtual properties for a movie.
+        public void MovieProperties(Movies movie)
+        {
+            using (var db = new CinemaDB())
+            {
+                //genre info
+                movie.Genre = db.Genres.FirstOrDefault(g => g.Id == movie.GenreId);
+
+                //list of genres
+                movie.MovieGenres = db.MovieGenres.Where(mg => mg.MovieId == movie.Id).ToList();
+                foreach (var mg in movie.MovieGenres)
+                {
+                    mg.Genre = db.Genres.FirstOrDefault(g => g.Id == mg.GenreId);
+                }
+                movie.MovieGenres = movie.MovieGenres.OrderBy(mg => mg.Genre.Genre).ToList();
+
+                //auditorium info
+                movie.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == movie.AuditoriumId);
+
+                //seat types in the auditorium (to display prices in the movie view)
+                movie.Auditorium.AuditoriumSeats = db.AuditoriumSeats
+                                                   .Where(audSeats => audSeats.AuditoriumId == movie.Auditorium.Id)
+                                                   .ToList();
+                //seat info
+                foreach (var s in movie.Auditorium.AuditoriumSeats)
+                {
+                    s.Seat = db.Seats.FirstOrDefault(seat => seat.Id == s.SeatId);
+                }
+                //list of screenings
+                movie.Screenings = db.Screenings.Where(s => s.MovieId == movie.Id).ToList();
+                foreach (var s in movie.Screenings)
+                {
+                    int totalSeats = 0;
+                    //available seat list for every screening
+                    s.AvailableSeats = db.AvailableSeats.Where(avs => avs.ScreeningId == s.Id && avs.Count > 0).ToList();
+
+                    //for each seat type in AvailableSeats
+                    foreach (var avs in s.AvailableSeats)
+                    {
+                        //counts available seats
+                        totalSeats += avs.Count.Value;
+
+                        //screening info
+                        avs.Screening = db.Screenings.FirstOrDefault(scr => scr.Id == s.Id);
+
+                        //auditorium and seat type info through the AuditoriumSeats property
+                        avs.AuditoriumSeats = db.AuditoriumSeats.FirstOrDefault(audSeat => audSeat.Id == avs.AuditoriumSeatsId);
+                        avs.AuditoriumSeats.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == avs.AuditoriumSeats.AuditoriumId);
+                        avs.AuditoriumSeats.Seat = db.Seats.FirstOrDefault(seat => seat.Id == avs.AuditoriumSeats.SeatId);
+                    }
+                    //sets totla seat count
+                    s.TotalSeatCount = totalSeats;
+                }
+                db.SaveChanges();
+            }
         }
     }
 }

@@ -8,50 +8,65 @@ namespace CinemaLogic.Managers
 {
     public class ScreeningsManager
     {
-        //Returns a list of screenings for a particular movie.
-        public List<Screenings> Screenings(int movieId)
+        //Returns a list of screenings for a particular movie where seats are available.
+        public List<Screenings> MovieScreenings(int movieId)
         {
             using (var db = new CinemaDB())
             {
-                var screenings = db.Screenings.Where(s => s.MovieId == movieId && s.TotalCapacity > 0).ToList();
-                foreach (var s in screenings)
+                //All screening for a particular movie are added to a list.
+                var allScreenings = db.Screenings.Where(s => s.MovieId == movieId).OrderBy(s => s.Time).ToList();
+
+                //For each screening in the list, the AvailableSeats property is filled
+                //to count available seats.
+                foreach (var s in allScreenings)
                 {
+                    //Seat info: each screening has a list of seat types.
+                    s.AvailableSeats = db.AvailableSeats.Where(avs => avs.ScreeningId == s.Id).ToList();
+                    foreach (var avs in s.AvailableSeats)
+                    {
+                        //Each seat type in the screening has seat count depending on auditorium.
+                        avs.AuditoriumSeats = db.AuditoriumSeats.FirstOrDefault(audseat => audseat.Id == avs.AuditoriumSeatsId);
+                    }
+                }
+                //The final list of screenings includes only those that have seats available.
+                var availableScreenings = new List<Screenings>();
+                int availableSeats = 0;
+
+                //The program calculates total seat count for every screening in the list.
+                foreach (var s in allScreenings)
+                {
+                    foreach (var seats in s.AvailableSeats)
+                    {
+                        availableSeats += seats.AuditoriumSeats.SeatCount;
+                    }
+                    //If total seat count is greater than 0,
+                    if (availableSeats > 0)
+                    {
+                        //the screening is added to the final list.
+                        availableScreenings.Add(s);
+                    }
+                    availableSeats = 0;
+                }
+                //In the final list, the rest of virtual properties are filled.
+                foreach (var s in availableScreenings)
+                {
+                    //Movie info.
                     s.Movie = db.Movies.FirstOrDefault(m => m.Id == s.MovieId);
-                }
-                return screenings;
-            }
-        }
 
-        //Returns a list of available seats of all types for a certain screening.
-        public List<int> SeatCount(int screeningId)
-        {
-            var seats = new List<int>();
-            using (var db = new CinemaDB())
-            {
-                var screening = GetScreening(screeningId);
-                seats.Add((int)screening.BasicSeats);
-                seats.Add((int)screening.Sofa);
-                seats.Add((int)screening.Balcony);
-            }
-            return seats;
-        }
+                    //Auditorium info.
+                    s.Movie.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == s.Movie.AuditoriumId);
 
-        //Gets a list of screenings for a particular movie.
-        //For each screening, saves available seats of each type to a list;
-        //saves all sets of seat counts to a list.
-        public List<List<int>> SeatCountAllMovieScreenings(int movieId)
-        {
-            List<List<int>> seats = new List<List<int>>();
-            using (var db = new CinemaDB())
-            {
-                var screenings = Screenings(movieId);
-                foreach (var s in screenings)
-                {
-                    var seatsOneScreening = SeatCount(s.Id);
-                    seats.Add(seatsOneScreening);
+                    foreach (var avs in s.AvailableSeats)
+                    {
+                        //Seat info.
+                        avs.AuditoriumSeats.Seat = db.Seats.FirstOrDefault(seat => seat.Id == avs.AuditoriumSeats.SeatId);
+
+                        //Auditorium info.
+                        avs.AuditoriumSeats.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == avs.AuditoriumSeats.AuditoriumId);
+                    }
                 }
+                return availableScreenings;
             }
-            return seats;
         }
 
         //Returns a screening by ID.
@@ -78,6 +93,15 @@ namespace CinemaLogic.Managers
                     s.Movie.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == s.Movie.AuditoriumId);
                 }
                 return screenings;
+            }
+        }
+
+        public Screenings GetScreeningBySeatId(int seatId)
+        {
+            using (var db = new CinemaDB())
+            {
+                var seat = db.AvailableSeats.FirstOrDefault(avs => avs.Id == seatId);
+                return db.Screenings.FirstOrDefault(s => s.Id == seat.ScreeningId);
             }
         }
     }

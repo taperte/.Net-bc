@@ -8,30 +8,34 @@ namespace CinemaLogic.Managers
 {
     public class AuditoriumsManager
     {
-        //Calculates total capacity for a certain auditorium.
-        public int TotalCapacity(Auditoriums auditorium)
+        //Returns a list of seats of all types in a certain auditorium.
+        public List<AuditoriumSeats> AuditoriumSeats(int id)
         {
             using (var db = new CinemaDB())
             {
-                auditorium.TotalCapacity = auditorium.BasicSeats + auditorium.Sofa + auditorium.Balcony;
-                db.SaveChanges();
-                return (int)auditorium.TotalCapacity;
+                var seats = db.AuditoriumSeats.Where(s => s.AuditoriumId == id).ToList();
+                foreach (var s in seats)
+                {
+                    s.Auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == s.AuditoriumId);
+                    s.Seat = db.Seats.FirstOrDefault(seat => seat.Id == s.SeatId);
+                }
+                return seats;
             }
         }
 
-        //Returns a list of seat count for all seat types
-        //in an auditorium.
-        public List<int> AuditoriumSeatCount(int id)
+        //Calculates total capacity for a certain auditorium.
+        public int AuditoriumCapacity(int id)
         {
-            var seats = new List<int>();
             using (var db = new CinemaDB())
             {
-                var auditorium = db.Auditoriums.FirstOrDefault(a => a.Id == id);
-                seats.Add(auditorium.BasicSeats);
-                seats.Add(auditorium.Sofa);
-                seats.Add(auditorium.Balcony);
+                var capacity = 0;
+                var seats = db.AuditoriumSeats.Where(s => s.AuditoriumId == id).ToList();
+                foreach (var s in seats)
+                {
+                    capacity += s.SeatCount;
+                }
+                return capacity;
             }
-            return seats;
         }
 
         //Returns a list of all auditoriums.
