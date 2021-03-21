@@ -14,9 +14,11 @@ namespace CinemaWeb.Models
         public List<AuditoriumSeats> AuditoriumSeats { get; set; }
         public List<decimal> Prices { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please choose seat type.")]
+        [Display(Name = "Seat type")]
         public int SeatId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter number of tickets.")]
+        [Display(Name = "Number of tickets")]
         public int TicketCount { get; set; }
 
 

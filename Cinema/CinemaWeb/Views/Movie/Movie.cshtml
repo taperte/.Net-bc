@@ -16,10 +16,10 @@
     <ul class="nav nav-pills mb-3">
         @foreach (var g in Model.Genres)
         {
-            @if (g.Movies.Count > 0)
+            @if (g.MovieGenres.Count > 0)
             {
                 <li class="nav-item">
-                    <a class="nav-link @(g.Id == Model.Movie.Genre.Id ? "active" : "")" asp-controller="Movie" asp-action="Genres" asp-route-genreid="@g.Id">@g.Genre</a>
+                    <a class="nav-link" asp-controller="Movie" asp-action="Genres" asp-route-genreid="@g.Id">@g.Genre</a>
                 </li>
             }
         }
@@ -91,7 +91,7 @@
                                     <select asp-for="SeatId" asp-items="seatLists[i]" class="form-control"></select>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="TicketCount">Number of tickets</label>
+                                    <label asp-for="TicketCount"></label>
                                     <input asp-for="TicketCount" class="form-control">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Book</button>
