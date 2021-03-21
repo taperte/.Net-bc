@@ -34,7 +34,12 @@
         <br />
         <div class="row">
             <div class="col-md-5 col-sm-12">
-                <div><b>Genre:</b> @Model.Movie.Genre.Genre</div>
+                <div><b>Genre:</b> 
+                @for (int i = 0; i < Model.Movie.MovieGenres.Count; i++)
+                {
+                    @Model.Movie.MovieGenres.ToList()[i].Genre.Genre.ToLower() @(i == Model.Movie.MovieGenres.Count - 1 ? "" : ", ")
+                }
+                </div>
                 <div><b>Year:</b> @Model.Movie.Year</div>
                 <div><b>Duration:</b> @Model.Movie.Duration''</div>
                 <div><b>Director:</b> @Model.Movie.Director</div>
