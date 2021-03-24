@@ -49,7 +49,6 @@ namespace OMDbApiClient
                 }
                 Console.WriteLine();
             }
-            Console.Read();
         }
 
         //Replaces spaces with "+".
