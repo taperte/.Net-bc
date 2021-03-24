@@ -16,5 +16,10 @@ namespace OMDbApiClient
         public string Actors { get; set; }
         public string Plot { get; set; }
         public List<Rating> Ratings { get; set; }
+
+        public Movie()
+        {
+            Ratings = new List<Rating>();
+        }
     }
 }
