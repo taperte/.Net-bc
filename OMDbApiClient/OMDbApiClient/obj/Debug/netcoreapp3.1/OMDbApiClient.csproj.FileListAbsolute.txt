@@ -1,0 +1,17 @@
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\bin\Debug\netcoreapp3.1\OMDbApiClient.exe
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\bin\Debug\netcoreapp3.1\OMDbApiClient.deps.json
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\bin\Debug\netcoreapp3.1\OMDbApiClient.runtimeconfig.json
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\bin\Debug\netcoreapp3.1\OMDbApiClient.runtimeconfig.dev.json
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\bin\Debug\netcoreapp3.1\OMDbApiClient.dll
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\bin\Debug\netcoreapp3.1\OMDbApiClient.pdb
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\obj\Debug\netcoreapp3.1\OMDbApiClient.csprojAssemblyReference.cache
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\obj\Debug\netcoreapp3.1\OMDbApiClient.AssemblyInfoInputs.cache
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\obj\Debug\netcoreapp3.1\OMDbApiClient.AssemblyInfo.cs
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\obj\Debug\netcoreapp3.1\OMDbApiClient.csproj.CoreCompileInputs.cache
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\obj\Debug\netcoreapp3.1\OMDbApiClient.csproj.CopyComplete
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\obj\Debug\netcoreapp3.1\OMDbApiClient.dll
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\obj\Debug\netcoreapp3.1\OMDbApiClient.pdb
+C:\Users\sl41040\source\.Net-bc\OMDbApiClient\OMDbApiClient\obj\Debug\netcoreapp3.1\OMDbApiClient.genruntimeconfig.cache
