@@ -21,10 +21,8 @@ namespace OMDbApiClient
                     break;
                 }
                 title = RemoveSpaces(title);
-                Console.WriteLine(title);
 
                 //1. Display movie info.
-                Console.WriteLine("Movie info:");
                 var res = client.GetAsync($"?apikey={apiKey}&t={title}").Result;
                 if (res.IsSuccessStatusCode)
                 {
