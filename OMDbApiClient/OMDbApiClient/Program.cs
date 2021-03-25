@@ -15,12 +15,15 @@ namespace OMDbApiClient
             while (true)
             {
                 Console.Write("Please enter movie title: ");
-                string title = Console.ReadLine();
-                if (title.ToLower() == "stop")
+                string title = Console.ReadLine().ToLower();
+                if (title == "stop")
                 {
                     break;
                 }
-                title = RemoveSpaces(title);
+                if (title.Contains(" "))
+                {
+                    title = RemoveSpaces(title);
+                }
 
                 //1. Display movie info.
                 var res = client.GetAsync($"?apikey={apiKey}&t={title}").Result;
@@ -52,12 +55,15 @@ namespace OMDbApiClient
             {
                 //movies search
                 Console.Write("Please enter movie title: ");
-                string title = Console.ReadLine();
-                if (title.ToLower() == "stop")
+                string title = Console.ReadLine().ToLower();
+                if (title == "stop")
                 {
                     break;
                 }
-                title = RemoveSpaces(title);
+                if (title.Contains(" "))
+                {
+                    title = RemoveSpaces(title);
+                }
 
                 //1. Display movie info.
                 var res = client.GetAsync($"?apikey={apiKey}&s={title}").Result;
@@ -99,7 +105,7 @@ namespace OMDbApiClient
             {
                 title += l;
             }
-            return title.ToLower();
+            return title;
         }
     }
 }
