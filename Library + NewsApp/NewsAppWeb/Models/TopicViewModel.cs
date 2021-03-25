@@ -22,6 +22,8 @@ namespace NewsAppWeb.Models
 
         public List<Topics> Topics { get; set; }
 
+        public int Id { get; set; }
+
         //public TopicViewModel()
         //{
         //    Topics = new List<Topics>();

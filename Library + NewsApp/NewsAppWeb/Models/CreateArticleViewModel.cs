@@ -26,7 +26,11 @@ namespace NewsAppWeb.Models
 
         [Required]
         [Display(Name = "Text")]
+        [DataType(DataType.MultilineText)]
         public string Text { get; set; }
+
+
+        public int Id { get; set; }
 
 
         [Display(Name = "Link to image")]

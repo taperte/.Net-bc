@@ -47,6 +47,36 @@ namespace OMDbApiClient
                 }
                 Console.WriteLine();
             }
+
+            while (true)
+            {
+                //movies search
+                Console.Write("Please enter movie title: ");
+                string title = Console.ReadLine();
+                if (title.ToLower() == "stop")
+                {
+                    break;
+                }
+                title = RemoveSpaces(title);
+
+                //1. Display movie info.
+                var res = client.GetAsync($"?apikey={apiKey}&s={title}").Result;
+                if (res.IsSuccessStatusCode)
+                {
+                    Movies movies = res.Content.ReadAsAsync<Movies>().Result;
+                    //print movies' info
+                    foreach (var m in movies.Search)
+                    {
+                        Console.WriteLine("Movie info:");
+                        Console.WriteLine($"Title: {m.Title}");
+                        Console.WriteLine($"Year: {m.Year}");
+                        Console.WriteLine($"imdbID: {m.imdbID}");
+                        Console.WriteLine($"Type: {m.Type}");
+                        Console.WriteLine($"Poster: {m.Poster}");
+                        Console.WriteLine();
+                    }
+                }
+            }
         }
 
         //Replaces spaces with "+".

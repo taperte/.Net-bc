@@ -206,4 +206,5 @@ C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\obj\Debug\netcoreap
 C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\obj\Debug\netcoreapp3.1\Razor\Views\User\Login.cshtml.g.cs
 C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\obj\Debug\netcoreapp3.1\Razor\Views\Topic\Edit.cshtml.g.cs
 C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\obj\Debug\netcoreapp3.1\Razor\Views\News\Create.cshtml.g.cs
-C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\obj\Debug\netcoreapp3.1\Razor\Views\News\Edit.cshtml.g.cs
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\obj\Debug\netcoreapp3.1\Razor\Views\News\Index.cshtml.g.cs
+C:\Users\sl41040\source\.Net-bc\Library + NewsApp\NewsAppWeb\obj\Debug\netcoreapp3.1\Razor\Views\Topic\Index.cshtml.g.cs

@@ -23,7 +23,10 @@
             <td>@article.Topic.TopicName</td>
             <td>@article.Author</td>
             <td>@article.WhenAdded.</td>
-            <td><a asp-controller="News" asp-action="Delete" asp-route-id="@article.ArticleId">Delete</a></td>
+            <td>
+                <a asp-controller="News" asp-action="Create" asp-route-id="@article.ArticleId">Edit</a>
+                <a asp-controller="News" asp-action="Delete" asp-route-id="@article.ArticleId">Delete</a>
+            </td>
         </tr>
     }
 </table>
