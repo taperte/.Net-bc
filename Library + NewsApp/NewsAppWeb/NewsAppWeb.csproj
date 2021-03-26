@@ -15,4 +15,8 @@
     <ProjectReference Include="..\NewsLogic\NewsLogic.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\ArticleImages\" />
+  </ItemGroup>
+
 </Project>

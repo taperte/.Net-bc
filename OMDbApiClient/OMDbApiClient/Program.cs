@@ -20,10 +20,6 @@ namespace OMDbApiClient
                 {
                     break;
                 }
-                if (title.Contains(" "))
-                {
-                    title = RemoveSpaces(title);
-                }
 
                 //1. Display movie info.
                 var res = client.GetAsync($"?apikey={apiKey}&t={title}").Result;
@@ -60,10 +56,6 @@ namespace OMDbApiClient
                 {
                     break;
                 }
-                if (title.Contains(" "))
-                {
-                    title = RemoveSpaces(title);
-                }
 
                 //1. Display movie info.
                 var res = client.GetAsync($"?apikey={apiKey}&s={title}").Result;
@@ -83,29 +75,6 @@ namespace OMDbApiClient
                     }
                 }
             }
-        }
-
-        //Replaces spaces with "+".
-        private static string RemoveSpaces(string title)
-        {
-            var letterList = new List<string>();
-            for (int i = 0; i < title.Length; i++)
-            {
-                if (title.Substring(i, 1) == " ")
-                {
-                    letterList.Add("+");
-                }
-                else
-                {
-                    letterList.Add(title.Substring(i, 1));
-                }
-            }
-            title = "";
-            foreach (var l in letterList)
-            {
-                title += l;
-            }
-            return title;
         }
     }
 }
