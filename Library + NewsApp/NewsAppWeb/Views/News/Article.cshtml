@@ -21,7 +21,10 @@
     <h1>@Model.Article.Headline</h1>
     <h5>@Model.Article.Author <span class="text-secondary">@Model.Article.WhenAdded</span></h5>
     <div>
-        <img src="@Model.Article.Image" width="600"/>
+        @if (Model.Image != null)
+        {
+            <img src="~/ArticleImages/@Model.Image" class="img-fluid" width="60%" />
+        }
     </div>
     @Model.Article.Body
 </div>

@@ -8,7 +8,7 @@
 }
 
 <div asp-validation-summary="All"></div>
-<form asp-controller="News" asp-action="Create" method="post">
+<form asp-controller="News" asp-action="Create" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label asp-for="Headline"></label>
         <input asp-for="Headline" class="form-control">
@@ -22,13 +22,13 @@
         <input asp-for="Author" class="form-control">
     </div>
     <div class="form-group">
+        <label asp-for="Image"></label>
+        <input asp-for="Image" class="form-control-file">
+    </div>
+    <div class="form-group">
         <label asp-for="Text"></label>
         <textarea asp-for="Text" class="form-control" rows="5"></textarea>
     </div>
-    <div class="form-group">
-        <label asp-for="Image"></label>
-        <input asp-for="Image" class="form-control">
-    </div>
-    <input asp-for="Id" type="hidden"/>
-    <button type="submit" class="btn btn-primary">Save an article</button>
+    <input asp-for="Id" type="hidden" />
+    <button type="submit" class="btn btn-primary">Save</button>
 </form>

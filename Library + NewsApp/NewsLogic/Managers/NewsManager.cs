@@ -96,7 +96,7 @@ namespace NewsLogic.Managers
 
         //CRUD operations (Create, Read, Update, Delete)
 
-        public void Update(int id, int topicId, string headline, string author, string body, string image)
+        public void Update(int id, int topicId, string headline, string author, string body, string image = "")
         {
             using (var db = new NewsDb())
             {
@@ -104,8 +104,11 @@ namespace NewsLogic.Managers
                 data.Headline = headline;
                 data.Author = author;
                 data.Body = body;
-                data.Image = image;
                 data.TopicId = topicId;
+                if (!string.IsNullOrEmpty(image))
+                {
+                    data.Image = image;
+                }
                 db.SaveChanges();
             }
         }

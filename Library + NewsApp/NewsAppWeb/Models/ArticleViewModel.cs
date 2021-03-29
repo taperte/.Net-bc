@@ -10,6 +10,7 @@ namespace NewsAppWeb.Models
     {
         public List<Topics> Topics { get; set; }
         public Articles Article { get; set; }
+        public string Image { get; set; }
 
         public ArticleViewModel()
         {

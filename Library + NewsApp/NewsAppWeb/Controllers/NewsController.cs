@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using NewsLogic.Managers;
 using NewsAppWeb.Models;
 using NewsLogic;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace NewsAppWeb.Controllers
 {
@@ -13,6 +15,12 @@ namespace NewsAppWeb.Controllers
     {
         private static NewsManager articles = new NewsManager();
         private static TopicManager topics = new TopicManager();
+        private IWebHostEnvironment webHost;
+
+        public NewsController(IWebHostEnvironment host)
+        {
+            webHost = host;
+        }
 
         public IActionResult Topics(int? topicId)
         {
@@ -75,7 +83,6 @@ namespace NewsAppWeb.Controllers
                 model.Author = data.Author;
                 model.Headline = data.Headline;
                 model.Text = data.Body;
-                model.Image = data.Image;
                 model.Id = data.ArticleId;
                 model.TopicId = data.TopicId.Value;
             }
@@ -94,14 +101,15 @@ namespace NewsAppWeb.Controllers
             {
                 try
                 {
+                    string image = UploadImage(model);
                     if (model.Id == 0)
                     {
-                        articles.CreateNewArticle(model.TopicId, model.Headline, model.Author, model.Text, model.Image);
+                        articles.CreateNewArticle(model.TopicId, model.Headline, model.Author, model.Text, image);
                     }
                     else
                     {
                         //if ID is defined, update the article
-                        articles.Update(model.Id, model.TopicId, model.Headline, model.Author, model.Text, model.Image);
+                        articles.Update(model.Id, model.TopicId, model.Headline, model.Author, model.Text, image);
                     }
                     return RedirectToAction(nameof(Create));
                 }
@@ -116,6 +124,23 @@ namespace NewsAppWeb.Controllers
                 model.Topics = topics.GetAllTopics();
             }
             return View(model);
+        }
+
+        private string UploadImage(CreateArticleViewModel model)
+        {
+            string fileName = null;
+            if (model.Image != null)
+            {
+                string uploadsFolder = Path.Combine(webHost.WebRootPath, "ArticleImages");
+                //GUID — Globally Unique Identifier
+                fileName = Guid.NewGuid().ToString() + "_" + model.Image.FileName;
+                string fullFilePath = Path.Combine(uploadsFolder, fileName);
+                using (var fileStream = new FileStream(fullFilePath, FileMode.Create))
+                {
+                    model.Image.CopyTo(fileStream);
+                }
+            }
+            return fileName;
         }
     }
 }

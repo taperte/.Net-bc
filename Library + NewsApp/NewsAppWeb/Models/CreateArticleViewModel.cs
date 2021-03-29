@@ -1,4 +1,5 @@
-﻿using NewsLogic.DB;
+﻿using Microsoft.AspNetCore.Http;
+using NewsLogic.DB;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -29,12 +30,10 @@ namespace NewsAppWeb.Models
         [DataType(DataType.MultilineText)]
         public string Text { get; set; }
 
-
         public int Id { get; set; }
 
-
-        [Display(Name = "Link to image")]
-        public string Image { get; set; }
+        [Display(Name = "Image")]
+        public IFormFile Image { get; set; }
 
         public CreateArticleViewModel()
         {
